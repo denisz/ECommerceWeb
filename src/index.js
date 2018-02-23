@@ -4,8 +4,7 @@ import UniversalRouter from 'universal-router';
 import history from 'core/history';
 import routes from './routes';
 import App from './App';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap-theme.css';
+import '@shopify/polaris/styles.css';
 import registerServiceWorker from './registerServiceWorker';
 
 const router = new UniversalRouter(routes);
