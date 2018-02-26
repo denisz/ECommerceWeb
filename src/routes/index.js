@@ -6,7 +6,8 @@ import Sales from './sales';
 import SignIn from './signin';
 import Logout from './logout';
 import Landing from './landing';
-import Product from './product';
+import Product from './productDetail';
+import Products from './products';
 import Profile from './profile';
 import Privacy from './privacy';
 import Checkout from './checkout';
@@ -31,6 +32,7 @@ export default {
     Landing,
     Sales,
     Cart,
+    Products,
     Product,
     Checkout,
     Shipping,

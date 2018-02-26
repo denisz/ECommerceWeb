@@ -5,6 +5,7 @@ import history from 'core/history';
 import routes from './routes';
 import App from './App';
 import '@shopify/polaris/styles.css';
+import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 const router = new UniversalRouter(routes);

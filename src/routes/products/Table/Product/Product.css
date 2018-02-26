@@ -1,0 +1,19 @@
+.Product-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Product-list-title {
+
+}
+
+.Product-list-producer {
+
+}
+
+.Product-list-price {
+
+}
+
+

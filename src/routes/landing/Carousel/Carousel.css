@@ -1,0 +1,19 @@
+.Carousel {
+  background-color: #D7E5EC;
+  position: relative;
+}
+
+.Carousel-decal {
+  position: absolute;
+  right: 150px;
+  height: 510px;
+  top: -15px;
+}
+
+.Carousel-item {
+  height: 366px;
+}
+
+.Carousel-slider {
+
+}

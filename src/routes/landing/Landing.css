@@ -1,3 +1,16 @@
 .Landing {
+  display: flex;
+  flex-direction: column;
+}
 
+.Landing-carousel {
+  margin-top: 30px;
+}
+
+.Landing-table {
+  margin-top: 83px;
+}
+
+.Landing-intro {
+  margin-top: 30px;
 }
