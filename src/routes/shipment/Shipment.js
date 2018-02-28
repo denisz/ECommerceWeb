@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './Cart.css';
+import './Shipment.css';
 
-export default class Cart extends Component {
+export default class Shipment extends Component {
   constructor(props) {
     super(props);
 
@@ -16,5 +16,5 @@ export default class Cart extends Component {
   }
 }
 
-Cart.propTypes = {};
-Cart.defaultProps = {};
+Shipment.propTypes = {};
+Shipment.defaultProps = {};

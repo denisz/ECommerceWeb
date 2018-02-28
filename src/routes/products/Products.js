@@ -18,7 +18,7 @@ export default class Products extends StoreComponent {
     return (
       <div className="Products">
         <div className="Products-title">{name}</div>
-        <Table collectionId={id}/>
+        <Table collectionId={id} className="Products-table"/>
       </div>
     );
   }

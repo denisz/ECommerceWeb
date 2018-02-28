@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { QueryComponent } from 'modules/QueryController';
+import { QueryComponent, PaginationView } from 'modules/QueryController';
 import QueryManager from 'flux/QueryManager';
 import { Spinner } from '@shopify/polaris';
 import history from 'core/history';
+import cx from 'classnames';
 import Product from './Product';
-import'./Table.css';
+import './Table.css';
 
 export default class Table extends QueryComponent {
   queryForRequest() {
@@ -21,31 +22,35 @@ export default class Table extends QueryComponent {
 
   render() {
     const { query } = this.state;
+    const { className } = this.props;
 
     return (
-      <div className="Table-Products">
-        {
-          query.isLoading() &&
-          <Spinner size="big" color="teal" />
-        }
-
-        {
-          query.map((i)=><Product
-            key={i.id}
-            className="Table-Products-item"
-            name={i.name}
-            price={i.price}
-            picture={i.pictures[0]}
-            producer={i.producer}
-            onClick={this.didSelect(i)}
-          />)
-        }
+      <div className={cx('Table-Products', className)}>
+        <div className="Table-Products-body">
+          { query.isLoading() && <Spinner size="big" color="teal" /> }
+          {
+            query.map((i)=><Product
+              key={i.id}
+              className="Table-Products-item"
+              name={i.name}
+              price={i.price}
+              picture={i.pictures[0]}
+              producer={i.producer}
+              onClick={this.didSelect(i)}
+            />)
+          }
+        </div>
+        <PaginationView query={query} className="Table-Products-pagination" />
       </div>
     );
   }
 }
 
 Table.propTypes = {
-  collectionId: PropTypes.number.isRequired
+  className: PropTypes.string,
+  objectsPerPage: PropTypes.number,
+  collectionId: PropTypes.number.isRequired,
 };
-Table.defaultProps = {};
+Table.defaultProps = {
+  objectsPerPage: 5,
+};

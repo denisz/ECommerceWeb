@@ -6,6 +6,7 @@ import Actions from 'flux/CartActions';
 import Image from 'components/Image';
 import Range from 'components/Range';
 import Currency from 'components/Currency';
+import { toast } from 'react-toastify';
 import './ProductDetail.css';
 
 export default class ProductDetail extends StoreComponent {
@@ -20,8 +21,12 @@ export default class ProductDetail extends StoreComponent {
   }
 
   handleCart = async () => {
-    const { amount, id: productID } = this.state;
+    const { amount, id: productID, name } = this.state;
     await Actions.insert({ amount, productID });
+    toast.info(`${name} добавлен в корзину покупок!`, {
+      hideProgressBar: true,
+      position: toast.POSITION.TOP_CENTER
+    });
   };
 
   render() {
@@ -31,9 +36,11 @@ export default class ProductDetail extends StoreComponent {
       <div className="Product-detail">
         <div className="Product-detail-row">
           <div className="Product-detail-view">
+            {/*Slick*/}
             <div className="Product-detail-picture">
               <Image src={pictures[0]} className="Product-detail-picture-image" />
             </div>
+
             <div className="Product-detail-pictures">
               {
                 pictures.map((i, idx)=> <Image key={idx} src={i} className="Product-detail-pictures-item" />)
@@ -59,7 +66,7 @@ export default class ProductDetail extends StoreComponent {
           </div>
         </div>
 
-        <div className="Product-detail-desription">
+        <div className="Product-detail-description">
           Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
         </div>
       </div>

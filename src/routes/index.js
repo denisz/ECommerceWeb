@@ -1,6 +1,7 @@
 import AuthStore from 'flux/Auth';
 import { anonymous, authorize, exceptions } from './helper';
 import Cart from './cart';
+import Error from './error';
 import Login from './login';
 import Sales from './sales';
 import SignIn from './signin';
@@ -11,7 +12,7 @@ import Products from './products';
 import Profile from './profile';
 import Privacy from './privacy';
 import Checkout from './checkout';
-import Shipping from './shipping';
+import Shipment from './shipment';
 import Partners from './partners';
 import Payments from './payments';
 import NotFound from './notFound';
@@ -32,10 +33,11 @@ export default {
     Landing,
     Sales,
     Cart,
+    Error,
     Products,
     Product,
     Checkout,
-    Shipping,
+    Shipment,
     Partners,
     Payments,
     Privacy,

@@ -41,7 +41,6 @@ export default class Carousel extends Component {
           <div>
             <h3 className="Carousel-item">
               <div className="">БЕСПЛАТНАЯ ДОСТАВКА</div>
-
             </h3>
           </div>
           <div>

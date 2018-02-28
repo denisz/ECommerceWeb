@@ -5,6 +5,7 @@ import Image from 'components/Image';
 import Currency from 'components/Currency';
 import cx from 'classnames';
 import './Product.css';
+import Placeholder from './Placeholder';
 
 export default class Product extends PureComponent {
   render() {
@@ -12,8 +13,13 @@ export default class Product extends PureComponent {
 
     return (
       <div className={cx('Product-list', className)} onClick={onClick}>
-        <LazyLoad height="200">
-          <Image src={picture} />
+        <LazyLoad once
+                  width={270}
+                  height={300}
+                  offset={100}
+                  debounce={100}
+                  placeholder={<Placeholder className="Product-list-picture" />}>
+          <Image src={picture} className="Product-list-picture"/>
         </LazyLoad>
         <div className="Product-list-title">{name}</div>
         <div className="Product-list-producer">{producer}</div>

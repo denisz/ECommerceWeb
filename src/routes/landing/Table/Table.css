@@ -1,4 +1,4 @@
-.Collections {
+.Table-Collections {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -6,6 +6,6 @@
   justify-content: center;
 }
 
-.Collections-item {
+.Table-Collections-item {
   cursor: pointer;
 }

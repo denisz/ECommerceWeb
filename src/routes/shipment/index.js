@@ -1,13 +1,13 @@
 import React from 'react';
 import Layout from 'components/Layout';
-import Shipping from './Shipping';
+import Shipment from './Shipment';
 
 export default {
-  path: '/shipping',
+  path: '/shipment',
   async action() {
     return {
       title: '',
-      component: <Layout><Shipping/></Layout>,
+      component: <Layout><Shipment/></Layout>,
     };
   }
 };

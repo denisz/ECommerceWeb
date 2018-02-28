@@ -1,11 +1,22 @@
 .Table-Products {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  flex-direction: column;
+}
+
+.Table-Products-body {
+  display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: center;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .Table-Products-item {
   cursor: pointer;
+}
+
+.Table-Products-pagination {
+  margin-bottom: 20px;
 }

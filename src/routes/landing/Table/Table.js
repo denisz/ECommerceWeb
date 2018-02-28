@@ -23,7 +23,7 @@ export default class Table extends QueryComponent {
     const { query } = this.state;
 
     return (
-      <div className={cx('Collections', this.props.className)}>
+      <div className={cx('Table-Collections', this.props.className)}>
         {
           query.isLoading() &&
           <Spinner size="big" color="teal" />
@@ -34,7 +34,7 @@ export default class Table extends QueryComponent {
             key={i.id}
             name={i.name}
             onClick={this.didSelect(i)}
-            className="Collections-item"/>)
+            className="Table-Collections-item"/>)
         }
       </div>
     );
