@@ -1,8 +1,8 @@
 import React from 'react';
 import Layout from 'components/Layout';
 import Actions from 'flux/ProductActions';
-import 'flux/Product';
-import Product from './ProductDetail';
+import Product from 'flux/Product';
+import ProductDetail from './ProductDetail';
 
 export default {
   path: '/product',
@@ -14,8 +14,8 @@ export default {
         await Actions.fetch(id);
 
         return {
-          title: 'Profile',
-          component: <Layout><Product key={`product-${id}`}/></Layout>,
+          title: Product.get('name', 'App'),
+          component: <Layout><ProductDetail key={`product-${id}`}/></Layout>,
         };
       },
     }

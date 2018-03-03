@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { QueryComponent, PaginationView } from 'modules/QueryController';
 import QueryManager from 'flux/QueryManager';
-import { Spinner } from '@shopify/polaris';
+import Loading from 'components/Loading';
 import history from 'core/history';
 import cx from 'classnames';
 import Product from './Product';
@@ -27,7 +27,7 @@ export default class Table extends QueryComponent {
     return (
       <div className={cx('Table-Products', className)}>
         <div className="Table-Products-body">
-          { query.isLoading() && <Spinner size="big" color="teal" /> }
+          { query.isLoading() && <Loading size="big" color="teal" /> }
           {
             query.map((i)=><Product
               key={i.id}
@@ -52,5 +52,5 @@ Table.propTypes = {
   collectionId: PropTypes.number.isRequired,
 };
 Table.defaultProps = {
-  objectsPerPage: 5,
+  objectsPerPage: 6,
 };

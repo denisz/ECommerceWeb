@@ -5,7 +5,7 @@ import cx from 'classnames';
 import QueryManager from 'flux/QueryManager';
 import history from 'core/history';
 import Collection from './Collection';
-import { Spinner } from '@shopify/polaris';
+import Loading from 'components/Loading';
 import './Table.css';
 
 export default class Table extends QueryComponent {
@@ -24,11 +24,7 @@ export default class Table extends QueryComponent {
 
     return (
       <div className={cx('Table-Collections', this.props.className)}>
-        {
-          query.isLoading() &&
-          <Spinner size="big" color="teal" />
-        }
-
+        { query.isLoading() && <Loading size="big" color="teal" /> }
         {
           query.map((i)=><Collection
             key={i.id}

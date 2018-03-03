@@ -24,10 +24,10 @@ export default class Carousel extends Component {
 
   render() {
     const settings = {
-      dots: true,
-      infinite: true,
       speed: 500,
-      fade: true,
+      dots: true,
+      fade: false,
+      infinite: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       beforeChange: this.onBeforeChange,

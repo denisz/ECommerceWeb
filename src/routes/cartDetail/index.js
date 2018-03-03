@@ -7,7 +7,7 @@ import CartActions from 'flux/CartActions';
 export default {
   path: '/cart',
   async action() {
-    await CartActions.fetch();
+    await CartActions.detail();
 
     return {
       title: '',

@@ -1,0 +1,21 @@
+.Cart-detail {
+
+}
+
+.Cart-detail-items {
+  display: flex;
+  flex-direction: column;
+}
+
+.Cart-detail-item {
+  margin: 10px 0;
+  border-bottom: 1px solid lightgrey;
+}
+
+.Cart-detail-empty {
+  margin: 20px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 30px;
+  color: #43525A;
+}

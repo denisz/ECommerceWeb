@@ -1,6 +1,7 @@
 .Product-detail {
   display: flex;
   flex-direction: column;
+  /*align-items: center;*/
 }
 
 .Product-detail-row {
@@ -39,7 +40,7 @@
 
 .Product-detail-picture {
   width: 490px;
-  height: 540px;
+  /*height: 540px;*/
 }
 
 .Product-detail-picture-image {
@@ -48,21 +49,21 @@
 
 .Product-detail-name {
   font-size: 60px;
-  color: black;
+  color: #43525A;
   line-height: 1em;
   margin-bottom: 10px;
 }
 
 .Product-detail-producer {
   font-size: 32px;
-  color: black;
+  color: #43525A;
   line-height: 1em;
   margin-bottom: 30px;
 }
 
 .Product-detail-price {
   font-size: 80px;
-  color: black;
+  color: #43525A;
   line-height: 1em;
   margin-bottom: 30px;
 }
@@ -88,6 +89,7 @@
 }
 
 .Product-detail-description {
+  max-width: 1024px;
   padding: 20px;
 }
 

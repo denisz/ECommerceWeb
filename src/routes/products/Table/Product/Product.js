@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import LazyLoad from 'react-lazyload';
 import Image from 'components/Image';
 import Currency from 'components/Currency';
+import Placeholder from 'components/Placeholder';
 import cx from 'classnames';
 import './Product.css';
-import Placeholder from './Placeholder';
 
 export default class Product extends PureComponent {
   render() {
@@ -21,7 +21,7 @@ export default class Product extends PureComponent {
                   placeholder={<Placeholder className="Product-list-picture" />}>
           <Image src={picture} className="Product-list-picture"/>
         </LazyLoad>
-        <div className="Product-list-title">{name}</div>
+        <div className="Product-list-name">{name}</div>
         <div className="Product-list-producer">{producer}</div>
         <div className="Product-list-price">
           <Currency value={price}/>
