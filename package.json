@@ -28,6 +28,7 @@
     "react-scroll": "^1.7.7",
     "react-slick": "^0.18.0",
     "react-toastify": "^3.3.4",
+    "serve": "^6.5.1",
     "shell-escape": "^0.2.0",
     "slick-carousel": "^1.8.1",
     "underscore": "^1.8.3",
@@ -42,7 +43,6 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "bundle": "node tools/bundle",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }
