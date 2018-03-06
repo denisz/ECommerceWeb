@@ -4,8 +4,6 @@ import cx from 'classnames';
 import Image from 'components/Image';
 import Range from 'components/Range';
 import Currency from 'components/Currency';
-import LazyLoad from 'react-lazyload';
-import Placeholder from 'components/Placeholder';
 import './SaleProduct.css';
 
 export default class SaleProduct extends Component {
@@ -27,14 +25,7 @@ export default class SaleProduct extends Component {
     const { amount } = this.state;
     return (
       <div className={cx('SaleProduct', className)}>
-        <LazyLoad once
-                  width={270}
-                  height={300}
-                  offset={100}
-                  debounce={100}
-                  placeholder={<Placeholder className="Product-list-picture" />}>
-          <Image src={picture} className="SaleProduct-picture" onClick={onClick} />
-        </LazyLoad>
+        <Image src={picture} className="SaleProduct-picture" onClick={onClick} />
         <div className="SaleProduct-info">
           <div className="SaleProduct-name">{name}</div>
           <div className="SaleProduct-producer">{producer}</div>

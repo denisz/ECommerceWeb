@@ -3,9 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@shopify/polaris": "^1.10.2",
     "babel-cli": "^6.26.0",
-    "bluebird": "^3.5.1",
     "classnames": "^2.2.5",
     "cookie-parser": "^1.4.3",
     "deep-extend": "^0.5.0",
@@ -19,13 +17,13 @@
     "open-new-tab": "^0.0.1",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
+    "react-autosuggest": "^9.3.4",
     "react-burger-menu": "^2.2.3",
     "react-dom": "^16.2.0",
     "react-lazyload": "^2.3.0",
     "react-loaders": "^3.0.1",
     "react-overlays": "^0.8.3",
     "react-sanfona": "^1.0.6",
-    "react-scroll": "^1.7.7",
     "react-slick": "^0.18.0",
     "react-toastify": "^3.3.4",
     "serve": "^6.5.1",
@@ -35,7 +33,9 @@
     "universal-router": "^6.0.0",
     "url-join": "^4.0.0",
     "validate.js": "^0.12.0",
-    "whatwg-fetch": "^2.0.3"
+    "webpack-bundle-analyzer": "^2.11.1",
+    "whatwg-fetch": "^2.0.3",
+    "yaku": "^0.18.5"
   },
   "devDependencies": {
     "react-scripts": "1.1.0"
@@ -43,6 +43,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
+    "report": "node report.js",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
   }

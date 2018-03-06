@@ -22,11 +22,19 @@ export default class ProductDetail extends StoreComponent {
 
   handleCart = async () => {
     const { amount, id: productID, name } = this.state;
-    await Actions.insert({ amount, productID });
-    toast.info(`${name} добавлен в корзину покупок!`, {
-      hideProgressBar: true,
-      position: toast.POSITION.TOP_CENTER
-    });
+    try {
+      await Actions.insert({ amount, productID });
+      toast.info(`${name} добавлен в корзину покупок!`, {
+        hideProgressBar: true,
+        position: toast.POSITION.TOP_CENTER
+      });
+    } catch(e) {
+      console.log(e);
+      toast.error(`Ошибка при работе с корзиной`, {
+        hideProgressBar: true,
+        position: toast.POSITION.TOP_CENTER
+      });
+    }
   };
 
   render() {
