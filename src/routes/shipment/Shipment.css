@@ -1,0 +1,57 @@
+.Shipment {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 50px 50px;
+}
+
+.Shipment-image {
+  height: 120px;
+  margin: 0 20px;
+}
+
+.Shipment h3 {
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.Shipment p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  display: flex;
+  flex-direction: row;
+}
+
+
+@media (max-width: 575px) {
+  .Shipment {
+    padding: 20px;
+  }
+
+  .Shipment-image {
+    height: 80px;
+    margin: 0 10px 10px 0;
+    float: left;
+  }
+
+  .Shipment p {
+    display: block;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Shipment {
+    padding: 20px;
+  }
+
+  .Shipment-image {
+    height: 80px;
+    margin: 0 10px 10px 0;
+    float: left;
+  }
+
+  .Shipment p {
+    display: block;
+    font-size: 16px;
+  }
+}

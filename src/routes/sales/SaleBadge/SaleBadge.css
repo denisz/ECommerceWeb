@@ -2,6 +2,19 @@
   color: #C86C3E;
   font-size: 40px;
   font-weight: bold;
+  line-height: 1.3em;
+}
+
+.SaleBadge-percentage.five {
+  color: #C86C3E;
+}
+
+.SaleBadge-percentage.ten {
+  color: #A7A9AC;
+}
+
+.SaleBadge-percentage.fifteen {
+  color: #D1AA6C;
 }
 
 .SaleBadge-fixedAmount {
@@ -11,3 +24,4 @@
 .SaleBadge-freeShipping {
 
 }
+

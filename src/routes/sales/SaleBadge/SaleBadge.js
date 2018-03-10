@@ -4,7 +4,11 @@ import cx from 'classnames';
 import './SaleBadge.css';
 
 const Percentage = ({ amount, className }) => (
-  <div className={cx('SaleBadge-percentage', className)}>
+  <div className={cx('SaleBadge-percentage', className, {
+    'five': amount === 5,
+    'ten': amount === 10,
+    'fifteen': amount === 15,
+  })}>
     {`-${amount}%`}
   </div>
 );

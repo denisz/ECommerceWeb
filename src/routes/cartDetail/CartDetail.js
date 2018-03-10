@@ -2,6 +2,7 @@ import React from 'react';
 import { StoreComponent } from 'modules/Flux';
 import Cart from 'flux/Cart';
 import Actions from 'flux/CartActions';
+import history from 'core/history';
 import CartItem from './CartItem';
 import './CartDetail.css';
 
@@ -48,6 +49,12 @@ export default class CartDetail extends StoreComponent {
               className="Cart-detail-item"
             />)
           }
+        </div>
+
+        <div>
+          <button onClick={() => (history.push('/checkout')) }
+                  type="button"
+                  className="btn btn-primary">Сделать заказ</button>
         </div>
 
       </div>

@@ -1,0 +1,51 @@
+.Payments {
+  max-width: 1024px;
+  margin: 0 auto;
+  padding: 50px 50px;
+}
+
+.Payments-image {
+  height: 120px;
+  margin: 0 20px;
+  float: left;
+}
+
+.Payments p {
+  font-size: 20px;
+  margin-bottom: 40px;
+  display: block;
+}
+
+@media (max-width: 575px) {
+  .Payments {
+    padding: 20px;
+  }
+
+  .Payments-image {
+    height: 80px;
+    margin: 0 10px 10px 0;
+    float: left;
+  }
+
+  .Payments p {
+    display: block;
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 767px) {
+  .Payments {
+    padding: 20px;
+  }
+
+  .Payments-image {
+    height: 80px;
+    margin: 0 10px 10px 0;
+    float: left;
+  }
+
+  .Payments p {
+    display: block;
+    font-size: 16px;
+  }
+}
