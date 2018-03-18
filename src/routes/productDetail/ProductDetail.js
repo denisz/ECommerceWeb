@@ -21,9 +21,10 @@ export default class ProductDetail extends StoreComponent {
   }
 
   handleCart = async () => {
-    const { amount, id: productID, name } = this.state;
+    const { amount, ...product } = this.state;
     try {
-      await Actions.insert({ amount, productID });
+      await Actions.insert(product, amount);
+      const { name } = product;
       toast.info(`${name} добавлен в корзину покупок!`, {
         hideProgressBar: true,
         position: toast.POSITION.TOP_CENTER

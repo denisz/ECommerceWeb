@@ -20,3 +20,16 @@
 .Intro-sign {
   text-align: right;
 }
+
+
+@media (max-width: 575px) {
+  .Intro {
+    background-image: none;
+  }
+}
+
+@media (max-width: 767px) {
+  .Intro {
+    background-image: none;
+  }
+}

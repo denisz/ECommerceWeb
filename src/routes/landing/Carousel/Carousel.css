@@ -1,5 +1,4 @@
 .Carousel {
-  background-color: #D7E5EC;
   position: relative;
 }
 
@@ -12,6 +11,10 @@
 
 .Carousel-item {
   height: 366px;
+}
+
+.Carousel-item img {
+  width: 100%;
 }
 
 .Carousel-slider {

@@ -16,9 +16,9 @@ export default class Sales extends QueryComponent {
 
   handleAdd(product) {
     return async (amount) => {
-      const {id: productID, name} = product;
       try {
-        await Actions.insert({ amount, productID });
+        await Actions.insert(product, amount);
+        const {name} = product;
         toast.info(`${name} добавлен в корзину покупок!`, {
           hideProgressBar: true,
           position: toast.POSITION.TOP_CENTER

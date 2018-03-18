@@ -27,7 +27,9 @@ export default class Carousel extends Component {
       speed: 500,
       dots: true,
       fade: false,
+      arrows: false,
       infinite: true,
+      autoplay: true,
       slidesToShow: 1,
       slidesToScroll: 1,
       beforeChange: this.onBeforeChange,
@@ -36,23 +38,16 @@ export default class Carousel extends Component {
 
     return (
       <div className={cx("Carousel", this.props.className)}>
-        <Image src="bg_carousel_decal.png" className="Carousel-decal"/>
         <Slider {...settings} className="Carousel-slider">
-          <div>
-            <h3 className="Carousel-item">
-              <div className="">БЕСПЛАТНАЯ ДОСТАВКА</div>
-            </h3>
+          <div className="Carousel-item">
+            <Image src="banners/1.png" />
           </div>
-          <div>
-            <h3 className="Carousel-item">2</h3></div>
-          <div>
-            <h3 className="Carousel-item">3</h3></div>
-          <div>
-            <h3 className="Carousel-item">4</h3></div>
-          <div>
-            <h3 className="Carousel-item">5</h3></div>
-          <div>
-            <h3 className="Carousel-item">6</h3></div>
+          <div className="Carousel-item">
+            <Image src="banners/2.png"/>
+          </div>
+          <div className="Carousel-item">
+            <Image src="banners/3.png"/>
+          </div>
         </Slider>
       </div>
     );
