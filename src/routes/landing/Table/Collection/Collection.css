@@ -40,7 +40,8 @@
 .Collection-name {
   color: #43525A;
   font-size: 22px;
-  text-transform: uppercase;
+  text-align: center;
+  /*text-transform: uppercase;*/
   font-weight: bold;
   text-shadow:
     -1px -1px 0 #fff,

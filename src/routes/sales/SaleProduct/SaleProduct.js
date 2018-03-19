@@ -25,7 +25,7 @@ export default class SaleProduct extends Component {
     const { amount } = this.state;
     return (
       <div className={cx('SaleProduct', className)}>
-        <Image src={picture} className="SaleProduct-picture" onClick={onClick} />
+        <Image src={picture} placeholder={"no_photo.jpg"} className="SaleProduct-picture" onClick={onClick} />
         <div className="SaleProduct-info">
           <div className="SaleProduct-name">{name}</div>
           <div className="SaleProduct-producer">{producer}</div>

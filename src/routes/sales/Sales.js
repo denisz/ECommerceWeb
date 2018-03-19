@@ -53,7 +53,7 @@ export default class Sales extends QueryComponent {
                 name={i.name}
                 price={i.price}
                 producer={i.producer}
-                picture={i.pictures[0]}
+                picture={`${i.pictures[0]}`}
                 onClick={this.handleClick(i)}
                 onAdd={this.handleAdd(i)}
                 className="SaleProducts-table-item-product"

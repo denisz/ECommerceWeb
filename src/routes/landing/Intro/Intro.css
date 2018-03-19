@@ -19,17 +19,35 @@
 
 .Intro-sign {
   text-align: right;
+  font-weight: bolder;
+}
+
+.Into-h {
+  font-size: 30px;
+  font-weight: bolder;
 }
 
 
 @media (max-width: 575px) {
-  .Intro {
-    background-image: none;
+  .Into-p  {
+    font-size: 20px;
+  }
+  .Into-h {
+    font-size: 24px;
+  }
+  .Intro-sign {
+    font-size: 24px;
   }
 }
 
 @media (max-width: 767px) {
-  .Intro {
-    background-image: none;
+  .Into-p  {
+    font-size: 20px;
+  }
+  .Into-h {
+    font-size: 24px;
+  }
+  .Intro-sign {
+    font-size: 24px;
   }
 }

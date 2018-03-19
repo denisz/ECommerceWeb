@@ -90,6 +90,8 @@
 
 .Product-detail-description {
   max-width: 1024px;
+  font-size: 24px;
+  line-height: 1.3em;
   padding: 20px;
 }
 
@@ -101,6 +103,10 @@
   .Product-detail-range {
     justify-content: center;
   }
+
+  .Product-detail-description {
+    font-size: 26px;
+  }
 }
 
 @media (max-width: 767px) {
@@ -110,5 +116,9 @@
 
   .Product-detail-range {
     justify-content: center;
+  }
+
+  .Product-detail-description {
+    font-size: 26px;
   }
 }

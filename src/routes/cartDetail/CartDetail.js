@@ -32,8 +32,8 @@ export default class CartDetail extends StoreComponent {
           {
             positions
               .map((i)=>({
+                ...products.find( p => p.SKU === i.productSKU),
                 amount: i.amount,
-                ...products.find( p => p.id === i.productID)
               }))
               .map((i)=><CartItem
               amount={i.amount}
@@ -41,11 +41,8 @@ export default class CartDetail extends StoreComponent {
               name={i.name}
               producer={i.producer}
               picture={i.pictures[0]}
-              onDelete={()=>Actions.delete(i.id)}
-              onChange={(value)=>Actions.update({
-                productID: i.id,
-                amount: value,
-              })}
+              onDelete={()=>Actions.delete(i)}
+              onChange={(value)=>Actions.update(i, value)}
               className="Cart-detail-item"
             />)
           }

@@ -3,6 +3,7 @@ import { StoreComponent } from 'modules/Flux';
 import Cart from 'flux/Cart';
 import Product from 'flux/Product';
 import Actions from 'flux/CartActions';
+import Carousel from 'components/Carousel';
 import Image from 'components/Image';
 import Range from 'components/Range';
 import Currency from 'components/Currency';
@@ -45,14 +46,15 @@ export default class ProductDetail extends StoreComponent {
       <div className="Product-detail">
         <div className="Product-detail-row">
           <div className="Product-detail-view">
-            {/*Slick*/}
             <div className="Product-detail-picture">
-              <Image src={pictures[0]} className="Product-detail-picture-image" />
+              <Image src={pictures[0]} placeholder={"no_photo.jpg"}
+                     className="Product-detail-picture-image" />
             </div>
 
             <div className="Product-detail-pictures">
               {
-                pictures.map((i, idx)=> <Image key={idx} src={i} className="Product-detail-pictures-item" />)
+                pictures.map((i, idx)=>
+                  <Image key={idx} src={i} placeholder={"no_photo.jpg"} className="Product-detail-pictures-item" />)
               }
             </div>
           </div>

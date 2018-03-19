@@ -19,7 +19,7 @@ export default class Product extends PureComponent {
                   offset={100}
                   debounce={100}
                   placeholder={<Placeholder className="Product-list-picture" />}>
-          <Image src={picture} className="Product-list-picture"/>
+          <Image src={picture} placeholder={"no_photo.jpg"} className="Product-list-picture"/>
         </LazyLoad>
         <div className="Product-list-name">{name}</div>
         <div className="Product-list-producer">{producer}</div>
