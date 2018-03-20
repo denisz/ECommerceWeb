@@ -4,12 +4,16 @@ import './Intro.css';
 
 export default ({ className })=>(
   <div className={cx('Intro', className)}>
-    <p className="Into-h">What is Lorem Ipsum?</p>
-    <p className="Into-p">
-      Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
+    <p className="Into-header">Доброго всем здоровья!</p>
+    <br/>
+    <p className="Into-paragraph">
+      Продвинутые пользователи и начинающие - Друзья!
+      <br/>Не собираюсь тратить Ваше время, и рассказывать какие мы порядочные, авторитетные, и профессиональные ребята, о важности нашей миссиии возвышенных целях. Ведь вы прекрасно понимаете, что по сути товар у всех один и тот же, и что единственными факторами различия явялются, цена и условия доставки.
+      <br/>Мы не жадные!
+      <br/>И по этому собираемся радовать вас самой низкой ценой и бесплатной доставкой.
+      <br/>Все осталосбное  - это треп, от маркетолога!
     </p>
-    <p className="Intro-sign">
-      Администрация
-    </p>
+    <br/>
+    <p className="Intro-sign">Администрация</p>
   </div>
 )

@@ -1,7 +1,7 @@
 .Intro {
   background-image: url(/img/bg_page_decal.jpg);
   font-size: 20px;
-  line-height: 1.5em;
+  line-height: 1.1em;
   padding: 20px;
   text-align: center;
   background-size: cover;
@@ -12,42 +12,26 @@
   min-height: 600px;
 }
 
-.Into-p {
+.Intro p {
+  font-weight: 300;
+}
+
+.Into-paragraph {
   text-align: center;
   max-width: 800px;
 }
 
 .Intro-sign {
   text-align: right;
-  font-weight: bolder;
+  width: 100%;
 }
 
-.Into-h {
-  font-size: 30px;
-  font-weight: bolder;
+.Into-header {
 }
 
 
 @media (max-width: 575px) {
-  .Into-p  {
-    font-size: 20px;
-  }
-  .Into-h {
-    font-size: 24px;
-  }
-  .Intro-sign {
-    font-size: 24px;
-  }
 }
 
 @media (max-width: 767px) {
-  .Into-p  {
-    font-size: 20px;
-  }
-  .Into-h {
-    font-size: 24px;
-  }
-  .Intro-sign {
-    font-size: 24px;
-  }
 }
