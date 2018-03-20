@@ -4,7 +4,6 @@ import Cart from 'flux/Cart';
 import { FormGroupValidate, Form } from 'modules/Form';
 import Image from 'components/Image';
 import ComboBox from 'components/ComboBox';
-import Actions from 'flux/CartActions';
 import cx from 'classnames';
 import TextField from 'components/TextField';
 import GeoTextField from 'components/GeoTextField';

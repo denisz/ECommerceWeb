@@ -63,11 +63,11 @@ export default class ProductDetail extends StoreComponent {
             <div className="Product-detail-producer">
               {producer}
             </div>
-            <div className="Product-detail-form">
-              {form}
-            </div>
             <div className="Product-detail-factor">
               {factor}
+            </div>
+            <div className="Product-detail-form">
+              {form}
             </div>
             <div className="Product-detail-price">
               <Currency value={price} discount={discount} />

@@ -11,7 +11,6 @@ import Profile from './profile';
 import Privacy from './privacy';
 import Checkout from './checkout';
 import Shipment from './shipment';
-import Partners from './partners';
 import Payments from './payments';
 import NotFound from './notFound';
 import Forbidden from './forbidden';
@@ -38,7 +37,6 @@ export default {
     ProductDetail,
     Checkout,
     Shipment,
-    Partners,
     Payments,
     Privacy,
     Forbidden,
