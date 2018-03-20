@@ -9,7 +9,7 @@ import './Product.css';
 
 export default class Product extends PureComponent {
   render() {
-    const { name, picture, producer, price, className, onClick } = this.props;
+    const { name, pictures, producer, price, discount, className, onClick } = this.props;
 
     return (
       <div className={cx('Product-list', className)} onClick={onClick}>
@@ -19,12 +19,16 @@ export default class Product extends PureComponent {
                   offset={100}
                   debounce={100}
                   placeholder={<Placeholder className="Product-list-picture" />}>
-          <Image src={picture} placeholder={"no_photo.jpg"} className="Product-list-picture"/>
+          <Image
+            src={pictures[0]}
+            placeholder={"no_photo.jpg"}
+            className="Product-list-picture"
+          />
         </LazyLoad>
         <div className="Product-list-name">{name}</div>
         <div className="Product-list-producer">{producer}</div>
         <div className="Product-list-price">
-          <Currency value={price}/>
+          <Currency value={price} discount={discount}/>
         </div>
       </div>
     );
@@ -35,7 +39,11 @@ Product.propTypes = {
   onClick: PropTypes.func,
   className: PropTypes.string,
   name: PropTypes.string,
-  picture: PropTypes.string,
+  pictures: PropTypes.arrayOf(PropTypes.string),
+  discount: PropTypes.shape({
+    type: PropTypes.string,
+    amount: PropTypes.number,
+  }),
   price: PropTypes.number,
   currency: PropTypes.string,
   producer: PropTypes.string,
@@ -43,5 +51,7 @@ Product.propTypes = {
 };
 Product.defaultProps = {
   currency: 'RUB',
+  discount: null,
+  pictures: [],
   onClick: ()=>{},
 };

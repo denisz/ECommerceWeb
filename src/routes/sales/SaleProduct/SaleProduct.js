@@ -21,11 +21,11 @@ export default class SaleProduct extends Component {
   };
 
   render() {
-    const { className, price, discount, picture, name, producer, onClick } = this.props;
+    const { className, price, discount, pictures, name, producer, onClick } = this.props;
     const { amount } = this.state;
     return (
       <div className={cx('SaleProduct', className)}>
-        <Image src={picture} placeholder={"no_photo.jpg"} className="SaleProduct-picture" onClick={onClick} />
+        <Image src={pictures[0]} placeholder={"no_photo.jpg"} className="SaleProduct-picture" onClick={onClick} />
         <div className="SaleProduct-info">
           <div className="SaleProduct-name">{name}</div>
           <div className="SaleProduct-producer">{producer}</div>
@@ -48,12 +48,18 @@ SaleProduct.propTypes = {
   name: PropTypes.string,
   onAdd: PropTypes.func,
   price: PropTypes.number,
+  discount: PropTypes.shape({
+    type: PropTypes.string,
+    amount: PropTypes.number,
+  }),
   onClick: PropTypes.func,
-  picture: PropTypes.string,
+  pictures: PropTypes.arrayOf(PropTypes.string),
   producer: PropTypes.string,
   className: PropTypes.string,
 };
 SaleProduct.defaultProps = {
+  pictures: [],
+  discount: null,
   onAdd: () => { },
   onClick: () => {},
 };

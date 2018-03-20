@@ -14,12 +14,6 @@ export default class Table extends QueryComponent {
     return QueryManager.queryForProducts(collectionId)
   }
 
-  didSelect(model) {
-    return ()=>{
-      history.push(`/product/${model.id}`);
-    }
-  }
-
   render() {
     const { query } = this.state;
     const { className } = this.props;
@@ -27,16 +21,20 @@ export default class Table extends QueryComponent {
     return (
       <div className={cx('Table-Products', className)}>
         <div className="Table-Products-body">
-          { query.isLoading() && <Loading size="big" color="teal" /> }
+          {
+            query.isLoading()
+            && <Loading size="big" color="teal" />
+          }
           {
             query.map((i)=><Product
               key={i.id}
               className="Table-Products-item"
               name={i.name}
               price={i.price}
-              picture={i.pictures[0]}
+              discount={i.discount}
+              pictures={i.pictures}
               producer={i.producer}
-              onClick={this.didSelect(i)}
+              onClick={()=>(history.push(`/product/${i.id}`))}
             />)
           }
         </div>

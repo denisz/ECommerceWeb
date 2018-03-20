@@ -47,8 +47,10 @@ export default class CartDetail extends StoreComponent {
               amount={i.amount}
               key={i.id}
               name={i.name}
+              price={i.price}
+              discount={i.discount}
               producer={i.producer}
-              picture={i.pictures[0]}
+              pictures={i.pictures}
               onClick={() => history.push(`/product/${i.id}`)}
               onDelete={() => Actions.delete(i)}
               onChange={value => Actions.update(i, value)}
