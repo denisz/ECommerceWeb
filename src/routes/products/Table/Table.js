@@ -55,5 +55,5 @@ Table.propTypes = {
   collectionId: PropTypes.number.isRequired,
 };
 Table.defaultProps = {
-  objectsPerPage: 6,
+  objectsPerPage: 12,
 };
