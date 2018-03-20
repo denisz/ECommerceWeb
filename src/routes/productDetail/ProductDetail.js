@@ -46,17 +46,26 @@ export default class ProductDetail extends StoreComponent {
       <div className="Product-detail">
         <div className="Product-detail-row">
           <div className="Product-detail-view">
-            <div className="Product-detail-picture">
-              <Image src={pictures[0]} placeholder={"no_photo.jpg"}
-                     className="Product-detail-picture-image" />
-            </div>
-
-            <div className="Product-detail-pictures">
+            <Carousel
+              dots
+              arrows={false}
+              className="Product-detail-carousel"
+            >
               {
-                pictures.map((i, idx)=>
-                  <Image key={idx} src={i} placeholder={"no_photo.jpg"} className="Product-detail-pictures-item" />)
+                pictures.map((src, idx)=>(
+                  <div key={idx} className="Product-detail-carousel-image">
+                    <Image src={src} placeholder={"no_photo.jpg"} />
+                  </div>
+                ))
               }
-            </div>
+            </Carousel>
+
+            {/*<div className="Product-detail-pictures">*/}
+              {/*{*/}
+                {/*pictures.map((i, idx)=>*/}
+                  {/*<Image key={idx} src={i} placeholder={"no_photo.jpg"} className="Product-detail-pictures-item" />)*/}
+              {/*}*/}
+            {/*</div>*/}
           </div>
           <div className="Product-detail-info">
             <div className="Product-detail-name">
