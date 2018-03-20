@@ -1,6 +1,5 @@
 .SaleProduct {
   display: flex;
-  /*flex-wrap: wrap;*/
   flex-direction: row;
   max-width: 1024px;
   justify-content: flex-start;
@@ -22,20 +21,20 @@
 
 .SaleProduct-name {
   font-size: 40px;
-  color: black;
+  color: #43525A;
   line-height: 1.3em;
 }
 
 .SaleProduct-producer {
   font-size: 30px;
-  color: black;
-  line-height: 1em;
+  color: #43525A;
+  line-height: 1.3em;
   margin-bottom: 30px;
 }
 
 .SaleProduct-price {
   font-size: 40px;
-  color: black;
+  color: #43525A;
   line-height: 1.3em;
   margin-bottom: 20px;
 }
@@ -68,7 +67,6 @@
 
   .SaleProduct-picture {
     width: auto;
-    /*height: 200px;*/
     cursor: pointer;
   }
 
@@ -94,7 +92,6 @@
 
   .SaleProduct-picture {
     width: auto;
-    /*height: 200px;*/
     cursor: pointer;
   }
 

@@ -6,6 +6,7 @@
 .CartItem-picture {
   width: 100px;
   height: 100px;
+  cursor: pointer;
 }
 
 .CartItem-describe {
@@ -30,5 +31,5 @@
 }
 
 .CartItem-delete {
-
+  cursor: pointer;
 }

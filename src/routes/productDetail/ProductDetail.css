@@ -46,24 +46,33 @@
 }
 
 .Product-detail-name {
-  font-size: 60px;
+  font-size: 40px;
   color: #43525A;
-  line-height: 1em;
-  margin-bottom: 10px;
+  line-height: 1.3em;
 }
 
 .Product-detail-producer {
-  font-size: 32px;
+  font-size: 30px;
   color: #43525A;
-  line-height: 1em;
-  margin-bottom: 30px;
+  line-height: 1.3em;
+}
+
+.Product-detail-form {
+  font-size: 20px;
+  color: #43525A;
+}
+
+.Product-detail-factor {
+  font-size: 20px;
+  color: #43525A;
+  margin-bottom: 20px;
 }
 
 .Product-detail-price {
   font-size: 80px;
   color: #43525A;
   line-height: 1em;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .Product-detail-range {

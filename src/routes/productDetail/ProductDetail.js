@@ -40,17 +40,13 @@ export default class ProductDetail extends StoreComponent {
   };
 
   render() {
-    const { name, pictures, price, producer, amount } = this.state;
+    const { name, pictures, price, form, factor, producer, amount } = this.state;
 
     return (
       <div className="Product-detail">
         <div className="Product-detail-row">
           <div className="Product-detail-view">
-            <Carousel
-              dots
-              arrows={false}
-              className="Product-detail-carousel"
-            >
+            <Carousel dots arrows={false} className="Product-detail-carousel">
               {
                 pictures.map((src, idx)=>(
                   <div key={idx} className="Product-detail-carousel-image">
@@ -59,7 +55,6 @@ export default class ProductDetail extends StoreComponent {
                 ))
               }
             </Carousel>
-
             {/*<div className="Product-detail-pictures">*/}
               {/*{*/}
                 {/*pictures.map((i, idx)=>*/}
@@ -73,6 +68,12 @@ export default class ProductDetail extends StoreComponent {
             </div>
             <div className="Product-detail-producer">
               {producer}
+            </div>
+            <div className="Product-detail-form">
+              {form}
+            </div>
+            <div className="Product-detail-factor">
+              {factor}
             </div>
             <div className="Product-detail-price">
               <Currency value={price}/>

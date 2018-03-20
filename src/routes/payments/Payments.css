@@ -6,7 +6,7 @@
 
 .Payments-image {
   height: 120px;
-  margin: 0 20px;
+  margin: 20px;
   float: left;
 }
 
@@ -22,9 +22,11 @@
   }
 
   .Payments-image {
-    height: 80px;
-    margin: 0 10px 10px 0;
+    margin: 10px;
     float: left;
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
   }
 
   .Payments p {
@@ -39,9 +41,11 @@
   }
 
   .Payments-image {
-    height: 80px;
-    margin: 0 10px 10px 0;
+    margin: 10px;
     float: left;
+    max-width: 100%;
+    height: auto;
+    max-height: 80px;
   }
 
   .Payments p {

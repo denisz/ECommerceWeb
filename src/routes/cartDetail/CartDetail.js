@@ -6,6 +6,16 @@ import history from 'core/history';
 import CartItem from './CartItem';
 import './CartDetail.css';
 
+const EmptyCart = () => (
+  <div className="Cart-detail">
+    <div className="Cart-detail-empty">Ваша корзина пуста</div>
+  </div>
+);
+
+const CheckoutButton = () => (
+  <button onClick={() => history.push('/checkout') } type="button" className="btn btn-primary">Сделать заказ</button>
+);
+
 export default class CartDetail extends StoreComponent {
   getInitialStore() {
     return [Cart];
@@ -22,9 +32,7 @@ export default class CartDetail extends StoreComponent {
     const { positions, products } = this.state;
 
     if (positions.length === 0)
-      return (<div className="Cart-detail">
-        <div className="Cart-detail-empty">Ваша корзина пуста</div>
-      </div>);
+      return <EmptyCart/>;
 
     return (
       <div className="Cart-detail">
@@ -41,19 +49,17 @@ export default class CartDetail extends StoreComponent {
               name={i.name}
               producer={i.producer}
               picture={i.pictures[0]}
-              onDelete={()=>Actions.delete(i)}
-              onChange={(value)=>Actions.update(i, value)}
+              onClick={() => history.push(`/product/${i.id}`)}
+              onDelete={() => Actions.delete(i)}
+              onChange={value => Actions.update(i, value)}
               className="Cart-detail-item"
             />)
           }
         </div>
 
         <div>
-          <button onClick={() => (history.push('/checkout')) }
-                  type="button"
-                  className="btn btn-primary">Сделать заказ</button>
+          <CheckoutButton/>
         </div>
-
       </div>
     );
   }

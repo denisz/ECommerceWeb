@@ -5,9 +5,14 @@ import Range from 'components/Range';
 import './CartItem.css';
 
 const noop = ()=>{};
-export default ({ className, picture, name, producer, amount, onDelete = noop, onChange = noop}) => (
+export default ({ className, picture, name, producer, amount, onClick = noop, onDelete = noop, onChange = noop}) => (
   <div className={cx('CartItem', className)}>
-    <Image src={picture} placeholder={"no_photo.jpg"} className="CartItem-picture"/>
+    <Image
+      src={picture}
+      onClick={onClick}
+      placeholder={"no_photo.jpg"}
+      className="CartItem-picture"
+    />
     <div className="CartItem-describe">
       <div className="CartItem-name">{name}</div>
       <div className="CartItem-producer">{producer}</div>

@@ -7,6 +7,7 @@
 .Product-list-picture {
   width: 270px;
   height: 300px;
+  cursor: pointer;
 }
 
 .Product-list-name {
@@ -16,16 +17,17 @@
 }
 
 .Product-list-producer {
+  font-size: 30px;
   color: #43525A;
-  font-size: 20px;
   line-height: 1.3em;
+  margin-bottom: 30px;
 }
 
 .Product-list-price {
-  color: black;
-  margin-top: 20px;
   font-size: 40px;
+  color: #43525A;
   line-height: 1.3em;
+  margin-bottom: 20px;
 }
 
 

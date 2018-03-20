@@ -39,9 +39,9 @@
 
 .Collection-name {
   color: #43525A;
-  font-size: 22px;
+  line-height: 1.2em;
+  font-size: 34px;
   text-align: center;
-  /*text-transform: uppercase;*/
   font-weight: bold;
   text-shadow:
     -1px -1px 0 #fff,
