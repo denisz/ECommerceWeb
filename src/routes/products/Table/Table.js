@@ -14,6 +14,11 @@ export default class Table extends QueryComponent {
     return QueryManager.queryForProducts(collectionId)
   }
 
+  queryObjectsDidLoad(query) {
+    super.queryObjectsDidLoad(query);
+    window.scrollTo(0, 0);
+  }
+
   render() {
     const { query } = this.state;
     const { className } = this.props;
