@@ -50,7 +50,7 @@ export default {
     const route = await next();
 
     // Provide default values for title, description etc.
-    route.title = `${route.title || 'App'}`;
+    route.title = `${route.title || 'Store'}`;
     route.description = route.description || '';
 
     return route;

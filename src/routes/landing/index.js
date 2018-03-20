@@ -6,7 +6,7 @@ export default {
   path: '/',
   async action() {
     return {
-      title: 'Test',
+      title: 'Dark Waters',
       component: <Layout><Landing /></Layout>,
     }
   }

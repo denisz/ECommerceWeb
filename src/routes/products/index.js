@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from 'components/Layout';
 import Action from 'flux/CollectionActions';
-import 'flux/Collection';
+import Collection from 'flux/Collection';
 import Products from './Products';
 
 export default {
@@ -14,7 +14,7 @@ export default {
         await Action.fetch(id);
 
         return {
-          title: 'Profile',
+          title: Collection.get('name'),
           component: <Layout><Products key={`products-${id}`} /></Layout>,
         };
       },
