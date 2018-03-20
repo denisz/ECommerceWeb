@@ -21,7 +21,7 @@ export default class SaleProduct extends Component {
   };
 
   render() {
-    const { className, price, picture, name, producer, onClick } = this.props;
+    const { className, price, discount, picture, name, producer, onClick } = this.props;
     const { amount } = this.state;
     return (
       <div className={cx('SaleProduct', className)}>
@@ -30,7 +30,7 @@ export default class SaleProduct extends Component {
           <div className="SaleProduct-name">{name}</div>
           <div className="SaleProduct-producer">{producer}</div>
           <div className="SaleProduct-price">
-            <Currency value={price}/>
+            <Currency value={price} discount={discount}/>
           </div>
           <div className="SaleProduct-range">
             <Range value={amount} onChange={(a)=>{ this.setState({ amount: a })}} />

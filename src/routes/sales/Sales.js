@@ -53,6 +53,7 @@ export default class Sales extends QueryComponent {
                 name={i.name}
                 price={i.price}
                 producer={i.producer}
+                discount={i.discount}
                 picture={`${i.pictures[0]}`}
                 onClick={this.handleClick(i)}
                 onAdd={this.handleAdd(i)}

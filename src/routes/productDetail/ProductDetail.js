@@ -40,7 +40,7 @@ export default class ProductDetail extends StoreComponent {
   };
 
   render() {
-    const { name, pictures, price, form, factor, producer, amount } = this.state;
+    const { name, discount, pictures, price, form, factor, producer, amount } = this.state;
 
     return (
       <div className="Product-detail">
@@ -55,12 +55,6 @@ export default class ProductDetail extends StoreComponent {
                 ))
               }
             </Carousel>
-            {/*<div className="Product-detail-pictures">*/}
-              {/*{*/}
-                {/*pictures.map((i, idx)=>*/}
-                  {/*<Image key={idx} src={i} placeholder={"no_photo.jpg"} className="Product-detail-pictures-item" />)*/}
-              {/*}*/}
-            {/*</div>*/}
           </div>
           <div className="Product-detail-info">
             <div className="Product-detail-name">
@@ -76,7 +70,7 @@ export default class ProductDetail extends StoreComponent {
               {factor}
             </div>
             <div className="Product-detail-price">
-              <Currency value={price}/>
+              <Currency value={price} discount={discount} />
             </div>
             <div className="Product-detail-range">
               <Range value={amount} onChange={(a)=>{ this.setState({ amount: a })}} />
