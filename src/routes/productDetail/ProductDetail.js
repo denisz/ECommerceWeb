@@ -46,7 +46,11 @@ export default class ProductDetail extends StoreComponent {
       <div className="Product-detail">
         <div className="Product-detail-row">
           <div className="Product-detail-view">
-            <Carousel dots arrows={false} className="Product-detail-carousel">
+            <Carousel
+              dots
+              arrows={false}
+              infinity={false}
+              className="Product-detail-carousel">
               {
                 pictures.map((src, idx)=>(
                   <div key={idx} className="Product-detail-carousel-image">

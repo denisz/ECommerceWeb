@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
-import Image from 'components/Image';
+import Picture from 'components/Picture';
 import Range from 'components/Range';
 import Currency from 'components/Currency';
 import './SaleProduct.css';
@@ -23,9 +23,10 @@ export default class SaleProduct extends Component {
   render() {
     const { className, price, discount, pictures, name, producer, onClick } = this.props;
     const { amount } = this.state;
+
     return (
       <div className={cx('SaleProduct', className)}>
-        <Image src={pictures[0]} placeholder={"no_photo.jpg"} className="SaleProduct-picture" onClick={onClick} />
+        <Picture src={`/img/${pictures[0]}`} className="SaleProduct-picture" onClick={onClick} />
         <div className="SaleProduct-info">
           <div className="SaleProduct-name">{name}</div>
           <div className="SaleProduct-producer">{producer}</div>

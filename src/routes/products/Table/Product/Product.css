@@ -11,8 +11,10 @@
 }
 
 .Product-list-name {
+  height: 52px;
   color: #43525A;
   font-size: 40px;
+  overflow: hidden;
   line-height: 1.3em;
 }
 
