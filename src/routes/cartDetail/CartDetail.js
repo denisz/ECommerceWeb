@@ -45,7 +45,7 @@ export default class CartDetail extends StoreComponent {
               }))
               .map((i)=><CartItem
               amount={i.amount}
-              key={i.id}
+              key={i.SKU}
               name={i.name}
               price={i.price}
               discount={i.discount}
