@@ -85,10 +85,7 @@
   }
 
   .SaleProduct-cart {
-    height: 36px;
-    line-height: 36px;
-    font-size: 27px;
-    min-width: 180px;
     padding: 0 20px;
+    width: 200px;
   }
 }

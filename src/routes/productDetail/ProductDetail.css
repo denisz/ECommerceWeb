@@ -120,4 +120,9 @@
     height: 366px;
     margin: 0 auto;
   }
+
+  .Product-detail-cart {
+    width: 200px;
+    align-self: center;
+  }
 }

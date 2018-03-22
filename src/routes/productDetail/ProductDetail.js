@@ -8,6 +8,7 @@ import Image from 'components/Image';
 import Range from 'components/Range';
 import Currency from 'components/Currency';
 import { toast } from 'react-toastify';
+import { css } from 'glamor';
 import './ProductDetail.css';
 
 export default class ProductDetail extends StoreComponent {
@@ -28,7 +29,10 @@ export default class ProductDetail extends StoreComponent {
       const { name } = product;
       toast.info(`${name} добавлен в корзину покупок!`, {
         hideProgressBar: true,
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
+        className: css({
+          minHeight: 40
+        })
       });
     } catch(e) {
       console.log(e);
@@ -67,11 +71,13 @@ export default class ProductDetail extends StoreComponent {
             <div className="Product-detail-producer">
               {producer}
             </div>
-            <div className="Product-detail-factor">
-              {factor}
-            </div>
-            <div className="Product-detail-form">
-              {form}
+            <div>
+              <div className="Product-detail-factor">
+                {factor}
+              </div>
+              <div className="Product-detail-form">
+                {form}
+              </div>
             </div>
             <div className="Product-detail-price">
               <Currency value={price} discount={discount} />
