@@ -5,9 +5,10 @@
 }
 
 .Payments-image {
-  height: 120px;
+  height: auto;
   margin: 20px;
   float: left;
+  max-width: 100%;
 }
 
 .Payments p {
