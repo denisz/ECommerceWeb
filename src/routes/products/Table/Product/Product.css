@@ -32,4 +32,14 @@
   margin-bottom: 20px;
 }
 
+@media (max-width: 767px) {
+  .Product-list-name{
+    height: auto;
+    overflow: visible;
+    text-align: center;
+  }
+}
+
+
+
 

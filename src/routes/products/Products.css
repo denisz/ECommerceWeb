@@ -18,14 +18,8 @@
   max-width: 910px;
 }
 
-@media (max-width: 575px) {
-  .Products-title {
-    font-size: 40px;
-  }
-}
-
 @media (max-width: 767px) {
   .Products-title {
-    font-size: 40px;
+    font-size: 35px;
   }
 }

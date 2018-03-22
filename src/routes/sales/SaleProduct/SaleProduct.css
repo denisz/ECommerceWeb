@@ -61,10 +61,17 @@
   background-color: #859DA9;
 }
 
+
 @media (max-width: 575px) {
   .SaleProduct {
     justify-content: center;
     flex-direction: column;
+  }
+
+  .SaleProduct-name{
+    height: auto;
+    overflow: visible;
+    text-align: center;
   }
 
   .SaleProduct-range {
@@ -85,6 +92,12 @@
   .SaleProduct {
     justify-content: center;
     flex-direction: column;
+  }
+
+  .SaleProduct-name{
+    height: auto;
+    overflow: visible;
+    text-align: center;
   }
 
   .SaleProduct-range {
