@@ -1,5 +1,6 @@
 .Product-list {
   display: flex;
+  width: 300px;
   align-items: center;
   flex-direction: column;
 }

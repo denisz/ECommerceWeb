@@ -38,7 +38,10 @@ export default class ProductDetail extends StoreComponent {
       console.log(e);
       toast.error(`Ошибка при работе с корзиной`, {
         hideProgressBar: true,
-        position: toast.POSITION.TOP_CENTER
+        position: toast.POSITION.TOP_CENTER,
+        className: css({
+          minHeight: 40
+        })
       });
     }
   };

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { css } from 'glamor';
 import history from 'core/history';
 import Actions from 'flux/CartActions';
 import { toast } from 'react-toastify';
@@ -21,21 +22,21 @@ export default class Sales extends QueryComponent {
         const {name} = product;
         toast.info(`${name} добавлен в корзину покупок!`, {
           hideProgressBar: true,
-          position: toast.POSITION.TOP_CENTER
+          position: toast.POSITION.TOP_CENTER,
+          className: css({
+            minHeight: 40
+          })
         });
       } catch(e) {
         console.log(e);
         toast.error(`Ошибка при работе с корзиной`, {
           hideProgressBar: true,
-          position: toast.POSITION.TOP_CENTER
+          position: toast.POSITION.TOP_CENTER,
+          className: css({
+            minHeight: 40
+          })
         });
       }
-    }
-  }
-
-  handleClick(product) {
-    return () => {
-      history.push(`/product/${product.id}`)
     }
   }
 
@@ -55,7 +56,7 @@ export default class Sales extends QueryComponent {
                 producer={i.producer}
                 discount={i.discount}
                 pictures={i.pictures}
-                onClick={this.handleClick(i)}
+                onClick={()=>(history.push(`/product/${i.id}`))}
                 onAdd={this.handleAdd(i)}
                 className="SaleProducts-table-item-product"
               />
