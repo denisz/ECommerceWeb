@@ -96,30 +96,6 @@
   padding: 20px;
 }
 
-@media (max-width: 575px) {
-  .Product-detail-picture {
-    width: 100%;
-  }
-
-  .Product-detail-range {
-    justify-content: center;
-  }
-
-  .Product-detail-description {
-    font-size: 26px;
-  }
-
-  .Product-detail-carousel {
-    width: 100vw;
-    margin: 20px 0;
-    max-height: 366px;
-  }
-
-  .Product-detail-carousel-image img {
-    height: 366px;
-    margin: 0 auto;
-  }
-}
 
 @media (max-width: 767px) {
   .Product-detail-picture {

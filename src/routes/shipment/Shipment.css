@@ -22,22 +22,6 @@
 }
 
 
-@media (max-width: 575px) {
-  .Shipment {
-    padding: 20px;
-  }
-
-  .Shipment-image {
-    height: 80px;
-    margin: 0 10px 10px 0;
-    float: left;
-  }
-
-  .Shipment p {
-    display: block;
-    font-size: 16px;
-  }
-}
 
 @media (max-width: 767px) {
   .Shipment {

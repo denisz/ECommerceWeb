@@ -62,31 +62,6 @@
 }
 
 
-@media (max-width: 575px) {
-  .SaleProduct {
-    justify-content: center;
-    flex-direction: column;
-  }
-
-  .SaleProduct-name{
-    height: auto;
-    overflow: visible;
-    text-align: center;
-  }
-
-  .SaleProduct-range {
-    justify-content: center;
-  }
-
-  .SaleProduct-info {
-    align-items: center;
-    margin-left: 0;
-  }
-
-  .SaleProduct-cart {
-    height: 50px;
-  }
-}
 
 @media (max-width: 767px) {
   .SaleProduct {
@@ -110,6 +85,10 @@
   }
 
   .SaleProduct-cart {
-    height: 50px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 27px;
+    min-width: 180px;
+    padding: 0 20px;
   }
 }

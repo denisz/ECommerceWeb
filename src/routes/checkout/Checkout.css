@@ -69,15 +69,6 @@
   border-color: #e6e6e6;
 }
 
-@media (max-width: 575px) {
-  .Checkout-method-shipments{
-    flex-direction: column;
-  }
-
-  .Checkout-method-shipment {
-    height: 76px;
-  }
-}
 
 @media (max-width: 767px) {
   .Checkout-method-shipments{
