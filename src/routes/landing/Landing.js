@@ -5,7 +5,15 @@ import Table from './Table';
 import Intro from './Intro';
 import './Landing.css';
 
-export default ({banners = ['banners/1.png', 'banners/2.png', 'banners/3.png']}) => (
+
+const banners_list = [
+  'banners/ads_1.png',
+  'banners/ads_2.png',
+  'banners/ads_3.png',
+  'banners/ads_4.png'
+];
+
+export default ({ banners = banners_list }) => (
   <div className="Landing">
     <Carousel
       dots
