@@ -4,6 +4,7 @@ import Cart from 'flux/Cart';
 import { FormGroupValidate, Form } from 'modules/Form';
 import Image from 'components/Image';
 import ComboBox from 'components/ComboBox';
+import Telephone from 'components/Telephone';
 import cx from 'classnames';
 import TextField from 'components/TextField';
 import GeoTextField from 'components/GeoTextField';
@@ -35,7 +36,6 @@ export default class Checkout extends FormComponent {
             <FormGroupValidate className="form-group">
               <TextField
                 label="Email"
-                className="form-control"
                 value={form.getObject(keys.kEmailKey)}
                 onChange={form.wrapperChange(keys.kEmailKey)}
               />
@@ -44,15 +44,15 @@ export default class Checkout extends FormComponent {
             <div className="form-row">
               <FormGroupValidate className="form-group col-md-6">
                 <TextField
-                  label="Email"
-                  className="form-control"
+                  label="Город"
                   value={form.getObject(keys.kCityKey)}
                   onChange={form.wrapperChange(keys.kCityKey)}
                 />
               </FormGroupValidate>
+
               <FormGroupValidate className="form-group col-md-4">
                 <ComboBox
-                    label="State"
+                    label="Регион"
                     value={form.getObject('testcombo')}
                     onChange={form.wrapperChange('testcombo')}
                     choices={[
@@ -62,9 +62,13 @@ export default class Checkout extends FormComponent {
                     ]}
                 />
               </FormGroupValidate>
+
               <FormGroupValidate className="form-group col-md-2">
-                <label htmlFor="inputZip">Zip</label>
-                <input type="text" className="form-control" />
+                <TextField
+                  label="Индекс"
+                  value={form.getObject(keys.kPostalCodeKey)}
+                  onChange={form.wrapperChange(keys.kPostalCodeKey)}
+                />
               </FormGroupValidate>
             </div>
 
@@ -77,14 +81,12 @@ export default class Checkout extends FormComponent {
             </FormGroupValidate>
 
             <FormGroupValidate className="form-group">
-              <TextField
-                label="Телефон"
-                className="form-control"
+              <Telephone
+                label="Номер телефона"
                 value={form.getObject(keys.kPhoneKey)}
                 onChange={form.wrapperChange(keys.kPhoneKey)}
               />
             </FormGroupValidate>
-
           </div>
 
           <h3>Шаг 2. Способ доставки</h3>
