@@ -55,8 +55,8 @@
 }
 
 .Product-detail-range {
-  margin-top: 30px;
-  margin-bottom: 30px;
+  margin-top: 20px;
+  margin-bottom: 20px;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -64,9 +64,9 @@
 
 .Product-detail-cart {
   height: 50px;
+  width: 160px;
   color: white;
-  width: 200px;
-  font-size: 32px;
+  font-size: 28px;
   font-weight: bold;
   line-height: 50px;
   text-align: center;
@@ -122,8 +122,11 @@
     margin: 0 auto;
   }
 
+  .Product-detail-price {
+    align-self: center;
+  }
+
   .Product-detail-cart {
-    width: 200px;
     align-self: center;
   }
 }

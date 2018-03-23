@@ -2,6 +2,7 @@
   border: 1px solid #879FAB;
   background-image: url(/img/bg_collection_decal.jpg);
   background-size: auto 350px;
+  box-shadow: 0 0 8px rgba(100, 120, 129, 0.57);
   height: 140px;
   width: 300px;
   border-radius: 30px;
