@@ -9,16 +9,44 @@ export default {
 
   children: [
     {
-      path: '/:id',
-      async action({ params: { id } }) {
-        await Action.fetch(id);
+      path: '/:id/page/:page',
+      async action({ params: { id, page } }) {
+        await Action.fetchIfNeeded(id);
 
         return {
           title: Collection.get('name'),
-          component: <Layout><Products key={`products-${id}`} /></Layout>,
+          component: (
+            <Layout>
+              <Products
+                page={parseInt(page, 10)}
+                collectionId={id}
+                key={`products-${id}`}
+                name={Collection.get('name')}
+              />
+            </Layout>
+          ),
         };
       },
-    }
+    },
+    {
+      path: '/:id',
+      async action({ params: { id } }) {
+        await Action.fetchIfNeeded(id);
+
+        return {
+          title: Collection.get('name'),
+          component: (
+            <Layout>
+              <Products
+                collectionId={id}
+                key={`products-${id}`}
+                name={Collection.get('name')}
+              />
+            </Layout>
+          ),
+        };
+      },
+    },
   ],
 
   async action({ next }) {

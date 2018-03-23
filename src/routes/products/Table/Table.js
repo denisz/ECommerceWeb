@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { QueryComponent, PaginationView } from 'modules/QueryController';
+import { QueryComponent, PaginationHistoryView as PaginationView } from 'modules/QueryController';
 import QueryManager from 'flux/QueryManager';
 import Loading from 'components/Loading';
 import history from 'core/history';
@@ -14,24 +14,18 @@ export default class Table extends QueryComponent {
     return QueryManager.queryForProducts(collectionId)
   }
 
-  queryObjectsDidLoad(query) {
-    super.queryObjectsDidLoad(query);
-    window.scrollTo(0, 0);
-  }
-
   render() {
     const { query } = this.state;
-    const { className } = this.props;
+    const { className, collectionId } = this.props;
 
     return (
       <div className={cx('Table-Products', className)}>
         <div className="Table-Products-body">
           {
-            query.isLoading()
-            && <Loading size="big" color="teal" />
+            query.isLoading() && <Loading size="big" color="teal" />
           }
           {
-            query.map((i)=><Product
+            query.map( i => <Product
               key={i.id}
               className="Table-Products-item"
               name={i.name}
@@ -43,7 +37,11 @@ export default class Table extends QueryComponent {
             />)
           }
         </div>
-        <PaginationView query={query} className="Table-Products-pagination" />
+        <PaginationView
+          query={query}
+          className="Table-Products-pagination"
+          createLink={(page)=> `/products/${collectionId}/page/${page}`}
+        />
       </div>
     );
   }
@@ -51,9 +49,11 @@ export default class Table extends QueryComponent {
 
 Table.propTypes = {
   className: PropTypes.string,
+  page: PropTypes.number,
   objectsPerPage: PropTypes.number,
-  collectionId: PropTypes.number.isRequired,
+  collectionId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
 };
 Table.defaultProps = {
+  page: 0,
   objectsPerPage: 12,
 };
