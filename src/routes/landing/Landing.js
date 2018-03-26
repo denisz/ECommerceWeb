@@ -1,35 +1,31 @@
 import React from 'react';
 import Carousel  from 'components/Carousel';
 import Image from 'components/Image';
+import Title from 'components/Title';
+import history from 'core/history';
 import Table from './Table';
 import Intro from './Intro';
 import './Landing.css';
 
 
-const banners_list = [
-  'banners/ads_1.png',
-  'banners/ads_2.png',
-  'banners/ads_3.png',
-  'banners/ads_4.png'
-];
-
-export default ({ banners = banners_list }) => (
+export default ({ banners = [] }) => (
   <div className="Landing">
     <Carousel
       dots
       infinite
       autoplay
       arrows={false}
-      className="Landing-carousel" >
+      className="Landing__carousel" >
       {
-        banners.map((src, idx)=>(
-          <div key={idx} className="Landing-carousel-item">
-            <Image src={src} />
+        banners.map((obj, idx)=>(
+          <div key={idx} className="Landing__carousel-item">
+            <Image src={obj.img} onClick={()=> obj.href && history.push(obj.href)} />
           </div>
         ))
       }
     </Carousel>
-    <Table className="Landing-table"/>
-    <Intro className="Landing-intro"/>
+    <Title className="Landing__title">Категории</Title>
+    <Table className="Landing__table"/>
+    <Intro className="Landing__intro"/>
   </div>
 )

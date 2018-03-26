@@ -5,13 +5,13 @@
   flex-direction: column;
 }
 
-.Product-list-picture {
+.Product-list__picture {
   width: 270px;
   height: 300px;
   cursor: pointer;
 }
 
-.Product-list-name {
+.Product-list__name {
   height: 52px;
   color: #43525A;
   font-size: 40px;
@@ -19,14 +19,13 @@
   line-height: 1.3em;
 }
 
-.Product-list-producer {
+.Product-list__producer {
   font-size: 30px;
   color: #43525A;
   line-height: 1.3em;
-  margin-bottom: 30px;
 }
 
-.Product-list-price {
+.Product-list__price {
   font-size: 40px;
   color: #43525A;
   line-height: 1.3em;
@@ -34,7 +33,7 @@
 }
 
 @media (max-width: 767px) {
-  .Product-list-name{
+  .Product-list__name{
     height: auto;
     overflow: visible;
     text-align: center;

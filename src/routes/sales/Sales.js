@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { css } from 'glamor';
 import history from 'core/history';
+import Title from 'components/Title';
 import Actions from 'flux/CartActions';
 import { toast } from 'react-toastify';
 import QueryManager from 'flux/QueryManager';
@@ -44,26 +45,26 @@ export default class Sales extends QueryComponent {
     const { query } = this.state;
 
     return (
-      <div className="SaleProducts">
-        <div className="SaleProducts-title">Распродажа</div>
-        <div className="SaleProducts-table">
+      <div className="Sales">
+        <Title >Распродажа</Title>
+        <div className="Sales__table">
           {
-            query.map(i => <div key={i.id} className="SaleProducts-table-item">
-              <SaleBadge {...i.discount} className="SaleProducts-table-item-badge"/>
+            query.map(i => <div key={i.id} className="Sales__table-item">
+              <SaleBadge {...i.discount} className="Sales__table-item__badge"/>
               <SaleProduct
                 name={i.name}
                 price={i.price}
                 producer={i.producer}
                 discount={i.discount}
                 pictures={i.pictures}
-                onClick={()=>(history.push(`/product/${i.id}`))}
+                onClick={()=>(history.push(`/product/${i.SKU}`))}
                 onAdd={this.handleAdd(i)}
-                className="SaleProducts-table-item-product"
+                className="Sales__table-item__product"
               />
             </div>)
           }
         </div>
-        <PaginationView query={query} className="SaleProducts-pagination" />
+        <PaginationView query={query} className="Sales__pagination" />
       </div>
     );
   }

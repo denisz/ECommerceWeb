@@ -15,7 +15,7 @@ export default class Table extends QueryComponent {
 
   didSelect(collection) {
     return ()=>{
-      history.push(`/products/${collection.id}`);
+      history.push(`/products/${collection.SKU}`);
     }
   }
 
@@ -30,7 +30,7 @@ export default class Table extends QueryComponent {
             key={i.id}
             name={i.name}
             onClick={this.didSelect(i)}
-            className="Table-Collections-item"/>)
+            className="Table-Collections__item"/>)
         }
       </div>
     );

@@ -4,7 +4,7 @@
   flex-direction: column;
 }
 
-.Table-Products-body {
+.Table-Products__grid {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
@@ -13,10 +13,10 @@
   margin-bottom: 20px;
 }
 
-.Table-Products-item {
+.Table-Products__grid-item {
   cursor: pointer;
 }
 
-.Table-Products-pagination {
+.Table-Products__pagination {
   margin-bottom: 20px;
 }

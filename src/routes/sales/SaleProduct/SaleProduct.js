@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import cx from 'classnames';
+import Button from 'components/Button';
 import Picture from 'components/Picture';
 import Range from 'components/Range';
 import Currency from 'components/Currency';
@@ -25,20 +26,20 @@ export default class SaleProduct extends Component {
     const { amount } = this.state;
 
     return (
-      <div className={cx('SaleProduct', className)}>
-        <Picture src={`/img/${pictures[0]}`} className="SaleProduct-picture" onClick={onClick} />
-        <div className="SaleProduct-info">
-          <div className="SaleProduct-name">{name}</div>
-          <div className="SaleProduct-producer">{producer}</div>
-          <div className="SaleProduct-price">
+      <div className={cx('Sale-product', className)}>
+        <Picture src={`/img/${pictures[0]}`} className="Sale-product__picture" onClick={onClick} />
+        <div className="Sale-product__info">
+          <div className="Sale-product__name">{name}</div>
+          <div className="Sale-product__producer">{producer}</div>
+          <div className="Sale-product__price">
             <Currency value={price} discount={discount}/>
           </div>
-          <div className="SaleProduct-range">
-            <Range value={amount} onChange={(a)=>{ this.setState({ amount: a })}} />
+          <div className="Sale-product__range">
+            <Range value={amount} onChange={ a =>{ this.setState({ amount: a }) }} />
           </div>
-          <div className="SaleProduct-cart" onClick={this.handleCart}>
+          <Button onClick={this.handleCart}>
             В корзину
-          </div>
+          </Button>
         </div>
       </div>
     )

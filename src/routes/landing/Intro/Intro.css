@@ -16,17 +16,17 @@
   font-weight: 300;
 }
 
-.Into-paragraph {
+.Into__paragraph {
   text-align: center;
   max-width: 800px;
 }
 
-.Intro-sign {
+.Intro__sign {
   text-align: right;
   width: 100%;
 }
 
-.Into-header {
+.Into__header {
 }
 
 

@@ -1,5 +1,9 @@
 import React from 'react';
 import { StoreComponent } from 'modules/Flux';
+import Title from 'components/Title';
+import Button from 'components/Button';
+import Toolbar from 'components/ButtonToolbar';
+import Currency from 'components/Currency';
 import Cart from 'flux/Cart';
 import Actions from 'flux/CartActions';
 import history from 'core/history';
@@ -8,12 +12,8 @@ import './CartDetail.css';
 
 const EmptyCart = () => (
   <div className="Cart-detail">
-    <div className="Cart-detail-empty">Ваша корзина пуста</div>
+    <div className="Cart-detail__empty">Ваша корзина пуста</div>
   </div>
-);
-
-const CheckoutButton = () => (
-  <button onClick={() => history.push('/checkout') } type="button" className="btn btn-primary">Сделать заказ</button>
 );
 
 export default class CartDetail extends StoreComponent {
@@ -24,44 +24,58 @@ export default class CartDetail extends StoreComponent {
   retrieveStoreData(store, attrs) {
     return {
       positions: attrs.positions || [],
-      products: attrs.products || [],
+      totalPrice: attrs.totalPrice || 0,
     }
   }
 
   render() {
-    const { positions, products } = this.state;
+    const { positions, totalPrice } = this.state;
 
     if (positions.length === 0)
       return <EmptyCart/>;
 
     return (
       <div className="Cart-detail">
-        <div className="Cart-detail-items">
+        <Title>Корзина</Title>
+        <div className="Cart-detail__grid">
           {
             positions
-              .map((i)=>({
-                ...products.find( p => p.SKU === i.productSKU),
-                amount: i.amount,
-              }))
               .map((i)=><CartItem
-              amount={i.amount}
-              key={i.SKU}
-              name={i.name}
+
               price={i.price}
+              amount={i.amount}
+              key={i.productSKU}
               discount={i.discount}
-              producer={i.producer}
-              pictures={i.pictures}
-              onClick={() => history.push(`/product/${i.id}`)}
-              onDelete={() => Actions.delete(i)}
-              onChange={value => Actions.update(i, value)}
-              className="Cart-detail-item"
+
+              name={i.product.name}
+              form={i.product.form}
+              producer={i.product.producer}
+              pictures={i.product.pictures}
+
+              onDelete={() => Actions.delete(i.product)}
+              onChange={value => Actions.update(i.product, value)}
+              onClick={() => history.push(`/product/${i.product.SKU}`)}
+              className="Cart-detail__grid-item"
             />)
           }
         </div>
 
-        <div>
-          <CheckoutButton/>
+        <hr className="Cart-detail__hr"/>
+
+        <div className="Cart-detail__footer">
+          <div className="Cart-detail__total">
+            <Currency value={totalPrice} />
+          </div>
         </div>
+
+        <Toolbar right>
+          <Button
+            onClick={() => history.push('/') }
+            className="Cart-detail__back">В каталог</Button>
+          <Button
+            onClick={() => history.push('/checkout') }
+            className="Cart-detail__checkout">Оформить</Button>
+        </Toolbar>
       </div>
     );
   }

@@ -3,24 +3,34 @@
   flex-direction: column;
 }
 
-.Landing-carousel {
+.Landing__carousel {
   margin-top: 30px;
 }
 
-.Landing-table {
-  margin-top: 83px;
+.Landing__title {
+  margin-top: 43px;
 }
 
-.Landing-intro {
+.Landing__table {
+  margin-top: 0;
+}
+
+.Landing__intro {
   margin-top: 30px;
   margin-bottom: 30px;
 }
 
-.Landing-carousel-item {
+.Landing__carousel-item {
 
 }
 
-.Landing-carousel-item img {
+.Landing__carousel-item img {
   width: 100%;
 }
 
+
+@media (max-width: 767px) {
+  .Landing__table {
+    margin-top: 0;
+  }
+}

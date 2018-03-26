@@ -9,9 +9,9 @@ export default {
 
   children: [
     {
-      path: '/:id/page/:page',
-      async action({ params: { id, page } }) {
-        await Action.fetchIfNeeded(id);
+      path: '/:sku/page/:page',
+      async action({ params: { sku, page } }) {
+        await Action.fetchIfNeeded(sku);
 
         return {
           title: Collection.get('name'),
@@ -19,8 +19,8 @@ export default {
             <Layout>
               <Products
                 page={parseInt(page, 10)}
-                collectionId={id}
-                key={`products-${id}`}
+                sku={sku}
+                key={`products-${sku}`}
                 name={Collection.get('name')}
               />
             </Layout>
@@ -29,17 +29,17 @@ export default {
       },
     },
     {
-      path: '/:id',
-      async action({ params: { id } }) {
-        await Action.fetchIfNeeded(id);
+      path: '/:sku',
+      async action({ params: { sku } }) {
+        await Action.fetchIfNeeded(sku);
 
         return {
           title: Collection.get('name'),
           component: (
             <Layout>
               <Products
-                collectionId={id}
-                key={`products-${id}`}
+                sku={sku}
+                key={`products-${sku}`}
                 name={Collection.get('name')}
               />
             </Layout>

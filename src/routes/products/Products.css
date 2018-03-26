@@ -1,25 +1,14 @@
 .Products {
+  padding: 20px;
+  margin: 0 auto;
+  max-width: 1024px;
+}
+
+.Products__table {
   display: flex;
   align-items: center;
   flex-direction: column;
 }
 
-.Products-title {
-  color: #43525A;
-  font-size: 60px;
-  margin-top: 30px;
-  font-weight: bold;
-  line-height: 1.3em;
-  text-align: center;
-}
-
-.Products-table {
-  margin-top: 30px;
-  max-width: 910px;
-}
-
 @media (max-width: 767px) {
-  .Products-title {
-    font-size: 35px;
-  }
 }

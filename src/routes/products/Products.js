@@ -1,10 +1,11 @@
 import React from 'react';
+import Title from 'components/Title';
 import Table from './Table';
 import './Products.css';
 
-export default ({ collectionId, page = 0, name }) => (
+export default ({ sku, page = 0, name }) => (
   <div className="Products">
-    <div className="Products-title">{name}</div>
-    <Table collectionId={collectionId} page={page} className="Products-table"/>
+    <Title>{name}</Title>
+    <Table sku={sku} page={page} className="Products__table"/>
   </div>
 )

@@ -13,12 +13,12 @@ export default ({ name, pictures = [], producer, price, discount, className, onC
               height={300}
               offset={100}
               debounce={100}
-              placeholder={<Placeholder className="Product-list-picture" />}>
-      <Picture src={`/img/${pictures[0]}`} className="Product-list-picture"/>
+              placeholder={<Placeholder className="Product-list__picture" />}>
+      <Picture src={`/img/${pictures[0]}`} className="Product-list__picture"/>
     </LazyLoad>
-    <div className="Product-list-name">{name}</div>
-    <div className="Product-list-producer">{producer}</div>
-    <div className="Product-list-price">
+    <div className="Product-list__name">{name}</div>
+    <div className="Product-list__producer">{producer}</div>
+    <div className="Product-list__price">
       <Currency value={price}/>
     </div>
   </div>

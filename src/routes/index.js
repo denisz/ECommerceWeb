@@ -1,13 +1,7 @@
-import AuthStore from 'flux/Auth';
-import { anonymous, authorize, exceptions } from './helper';
 import Error from './error';
-import Login from './login';
 import Sales from './sales';
-import SignIn from './signin';
-import Logout from './logout';
 import Landing from './landing';
 import Products from './products';
-import Profile from './profile';
 import Privacy from './privacy';
 import Checkout from './checkout';
 import Shipment from './shipment';
@@ -17,18 +11,9 @@ import Forbidden from './forbidden';
 import CartDetail from './cartDetail';
 import ProductDetail from './productDetail';
 
-const debugMode = false;
-const authWrapper = route => exceptions(authorize(route, '/login', debugMode));
-const anonymousWrapper = route => exceptions(anonymous(route, '/', debugMode));
-
 export default {
   path: '/',
   children: [
-    anonymousWrapper(Login),
-    anonymousWrapper(SignIn),
-    authWrapper(Logout),
-    authWrapper(Profile),
-
     Landing,
     Sales,
     Error,
@@ -42,8 +27,7 @@ export default {
     Forbidden,
     NotFound,
   ],
-  async action({ next }, context) {
-    context.isAuthenticated = AuthStore.isAuthenticated(); //eslint-disable-line
+  async action({ next }) {
     // Execute each child route until one of them return the result
     const route = await next();
 
