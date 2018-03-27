@@ -13,7 +13,7 @@
 
 .Landing__table {
   max-width: 1024px;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 
 .Landing__intro {
@@ -32,6 +32,6 @@
 
 @media (max-width: 767px) {
   .Landing__table {
-    margin-top: 0;
+
   }
 }
