@@ -4,11 +4,10 @@
 }
 
 .Cart-item__picture {
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
   cursor: pointer;
   flex-shrink: 0;
-  margin-right: 20px;
 }
 
 .Cart-item__describe {

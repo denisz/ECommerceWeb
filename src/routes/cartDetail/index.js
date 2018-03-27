@@ -10,7 +10,7 @@ export default {
     await CartActions.detail();
 
     return {
-      title: '',
+      title: 'Cart',
       component: <Layout><CartDetail /></Layout>,
     };
   }

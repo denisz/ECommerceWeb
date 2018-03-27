@@ -1,0 +1,47 @@
+.Address {
+
+}
+
+.Address__form {
+
+}
+
+.Address .form-group {
+
+}
+
+.Address .form-group.has-error {
+}
+
+.Address .form-group .help-block {
+  font-size: 12px;
+}
+
+.Address .form-group.has-error .help-block {
+  color: #e83c19
+}
+
+.Address .form-group.has-error .form-control {
+  border-color: #e83c19 !important;
+  color: #e83c19 !important;
+  box-shadow: none !important;
+}
+
+.Address .form-group.has-error .form-control::placeholder {
+  color: #e83c19;
+}
+
+.Address input[type="text"].form-control,
+.Address input[type="email"].form-control,
+.Address input[type="number"].form-control{
+  border: 2px solid #859DA9;
+  border-radius: 6px;
+}
+
+
+@media (max-width: 767px) {
+  .Address__form {
+    overflow: hidden;
+    padding: 10px;
+  }
+}

@@ -13,6 +13,12 @@ import './CartDetail.css';
 const EmptyCart = () => (
   <div className="Cart-detail">
     <div className="Cart-detail__empty">Ваша корзина пуста</div>
+    <Toolbar center className="Cart-detail__button-toolbar">
+      <Button
+        onClick={() => history.push('/') }
+        className="Cart-detail__back">В каталог</Button>
+    </Toolbar>
+
   </div>
 );
 
@@ -23,16 +29,16 @@ export default class CartDetail extends StoreComponent {
 
   retrieveStoreData(store, attrs) {
     return {
+      isEmpty: store.isEmpty(),
       positions: attrs.positions || [],
       totalPrice: attrs.totalPrice || 0,
     }
   }
 
   render() {
-    const { positions, totalPrice } = this.state;
+    const { positions, totalPrice, isEmpty } = this.state;
 
-    if (positions.length === 0)
-      return <EmptyCart/>;
+    if (isEmpty) return <EmptyCart/>;
 
     return (
       <div className="Cart-detail">
@@ -63,8 +69,11 @@ export default class CartDetail extends StoreComponent {
         <hr className="Cart-detail__hr"/>
 
         <div className="Cart-detail__footer">
-          <div className="Cart-detail__total">
-            <Currency value={totalPrice} />
+          <div className="Cart-detail__footer-row">
+            <div className="Cart-detail__total-label">Цена товара</div>
+            <div className="Cart-detail__total">
+              <Currency value={totalPrice} />
+            </div>
           </div>
         </div>
 

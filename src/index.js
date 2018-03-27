@@ -36,6 +36,11 @@ const renderBefore = (location, action) => (route) => {
     scrollY: window.pageYOffset,
   };
 
+  if (route.redirect) {
+    history.replace(route.redirect);
+    return
+  }
+
   if (action === 'PUSH') {
     delete scrollPositionsHistory[location.key];
   }
@@ -46,6 +51,8 @@ const renderBefore = (location, action) => (route) => {
 };
 
 const renderAfter = (location, action) => (route) => {
+  if (!route) return;
+
   document.title = route.title;
 
   updateMeta('description', route.description);

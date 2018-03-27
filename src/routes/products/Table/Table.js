@@ -3,9 +3,9 @@ import PropTypes from 'prop-types';
 import { QueryComponent, PaginationHistoryView as PaginationView } from 'modules/QueryController';
 import QueryManager from 'flux/QueryManager';
 import Loading from 'components/Loading';
+import Product from 'components/Product';
 import history from 'core/history';
 import cx from 'classnames';
-import Product from './Product';
 import './Table.css';
 
 export default class Table extends QueryComponent {
