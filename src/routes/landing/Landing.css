@@ -12,7 +12,8 @@
 }
 
 .Landing__table {
-  margin-top: 0;
+  max-width: 1024px;
+  margin: 0 auto;
 }
 
 .Landing__intro {

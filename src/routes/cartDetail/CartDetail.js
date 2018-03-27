@@ -68,7 +68,7 @@ export default class CartDetail extends StoreComponent {
           </div>
         </div>
 
-        <Toolbar right>
+        <Toolbar right className="Cart-detail__button-toolbar">
           <Button
             onClick={() => history.push('/') }
             className="Cart-detail__back">В каталог</Button>

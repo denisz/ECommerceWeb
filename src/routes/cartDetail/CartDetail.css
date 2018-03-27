@@ -44,6 +44,10 @@
   flex-direction: column;
 }
 
+.Cart-detail__button-toolbar {
+
+}
+
 .Cart-detail__back,
 .Cart-detail__checkout {
   margin-left: 40px;
@@ -53,10 +57,14 @@
   .Cart-detail__footer {
     padding: 0;
   }
+
+  .Cart-detail__button-toolbar {
+    justify-content: center;
+  }
+
   .Cart-detail__back,
   .Cart-detail__checkout {
     margin: 5px;
-    flex: 1;
   }
 
 }
