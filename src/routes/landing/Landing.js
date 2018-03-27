@@ -1,12 +1,10 @@
 import React from 'react';
 import Carousel  from 'components/Carousel';
 import Image from 'components/Image';
-import Title from 'components/Title';
 import history from 'core/history';
 import Table from './Table';
 import Intro from './Intro';
 import './Landing.css';
-
 
 export default ({ banners = [] }) => (
   <div className="Landing">
@@ -24,7 +22,6 @@ export default ({ banners = [] }) => (
         ))
       }
     </Carousel>
-    <Title className="Landing__title">Категории</Title>
     <Table className="Landing__table"/>
     <Intro className="Landing__intro"/>
   </div>

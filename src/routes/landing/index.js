@@ -11,7 +11,7 @@ export default {
 
     return {
       title: 'Dark Waters',
-      component: <Layout><Landing banners={Settings.get('banners')}/></Layout>,
+      component: <Layout><Landing banners={Settings.get('banners', [])}/></Layout>,
     }
   }
 }
