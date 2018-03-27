@@ -9,7 +9,7 @@ import routes from './routes';
 import App from './App';
 import Error from './Error';
 import initialize from './init';
-// import './normalize.css';
+import './normalize.css';
 import './theme/bootstrap-polaris.min.css';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
