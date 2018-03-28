@@ -31,14 +31,27 @@
   color: #e83c19;
 }
 
+.Address select.form-control:required:invalid {
+  color: #637381;
+}
+.Address select.form-control option[value=""][disabled] {
+  display: none;
+}
+
+.Address select.form-control,
 .Address input[type="text"].form-control,
 .Address input[type="email"].form-control,
 .Address input[type="number"].form-control,
 .Address input[type="tel"].form-control{
   border: 2px solid #859DA9;
+  font-size: 18px;
   border-radius: 6px;
 }
 
+.Checkout__manual-address {
+  text-align: right;
+  cursor: pointer;
+}
 
 @media (max-width: 767px) {
   .Address__form {
