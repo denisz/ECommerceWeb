@@ -68,7 +68,7 @@
 
 @media (max-width: 767px) {
   .Cart-item {
-    flex-wrap: wrap;
+    /*flex-wrap: wrap;*/
   }
 
   .Cart-item__amount {

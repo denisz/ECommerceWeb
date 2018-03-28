@@ -30,13 +30,14 @@ export default class CartDetail extends StoreComponent {
   retrieveStoreData(store, attrs) {
     return {
       isEmpty: store.isEmpty(),
+      discount: attrs.discount,
       positions: attrs.positions || [],
       totalPrice: attrs.totalPrice || 0,
     }
   }
 
   render() {
-    const { positions, totalPrice, isEmpty } = this.state;
+    const { positions, totalPrice, discount, isEmpty } = this.state;
 
     if (isEmpty) return <EmptyCart/>;
 
@@ -72,7 +73,7 @@ export default class CartDetail extends StoreComponent {
           <div className="Cart-detail__footer-row">
             <div className="Cart-detail__total-label">Цена товара</div>
             <div className="Cart-detail__total">
-              <Currency value={totalPrice} />
+              <Currency value={totalPrice} discount={discount} />
             </div>
           </div>
         </div>
