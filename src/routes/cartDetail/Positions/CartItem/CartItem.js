@@ -30,7 +30,7 @@ export default ({ className, pictures, name, price, discount, producer, form, am
       </div>
 
       <div className="Cart-item__price">
-        <Currency value={price} discount={discount} amount={amount} />
+        <Currency value={price} discount={discount} />
       </div>
     </div>
 

@@ -3,7 +3,6 @@ import Sales from './sales';
 import Landing from './landing';
 import Products from './products';
 import Privacy from './privacy';
-import Checkout from './checkout';
 import Shipment from './shipment';
 import Payments from './payments';
 import NotFound from './notFound';
@@ -20,7 +19,6 @@ export default {
     Products,
     CartDetail,
     ProductDetail,
-    Checkout,
     Shipment,
     Payments,
     Privacy,

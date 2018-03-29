@@ -20,7 +20,7 @@ export default class ProductDetail extends StoreComponent {
   }
 
   getInitialStore() {
-    return [Product, Cart];
+    return [ Product ];
   }
 
   handleCart = async () => {
@@ -48,7 +48,7 @@ export default class ProductDetail extends StoreComponent {
   };
 
   render() {
-    const { name, discount, pictures, price, form, factor, producer, amount } = this.state;
+    const { name, discount, quantity, pictures, price, form, factor, producer, amount } = this.state;
 
     return (
       <div className="Product-detail">
@@ -87,7 +87,11 @@ export default class ProductDetail extends StoreComponent {
               <Currency value={price} discount={discount} />
             </div>
             <div className="Product-detail__range">
-              <Range value={amount} onChange={(a)=>{ this.setState({ amount: a })}} />
+              <Range
+                value={amount}
+                onChange={(a)=>{ this.setState({ amount: a })}}
+                max={quantity}
+              />
             </div>
             <Button onClick={this.handleCart} className="Product-detail__cart">
               В корзину

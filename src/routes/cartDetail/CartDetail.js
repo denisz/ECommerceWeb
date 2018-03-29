@@ -1,91 +1,29 @@
-import React from 'react';
-import { StoreComponent } from 'modules/Flux';
-import Title from 'components/Title';
-import Button from 'components/Button';
-import Toolbar from 'components/ButtonToolbar';
-import Currency from 'components/Currency';
-import Cart from 'flux/Cart';
-import Actions from 'flux/CartActions';
-import history from 'core/history';
-import CartItem from './CartItem';
+import React, { Component } from 'react';
+import { NavComponent, NavAdapter } from 'modules/NavController';
+import transitions from './transitions';
 import './CartDetail.css';
 
-const EmptyCart = () => (
-  <div className="Cart-detail">
-    <div className="Cart-detail__empty">Ваша корзина пуста</div>
-    <Toolbar center className="Cart-detail__button-toolbar">
-      <Button
-        onClick={() => history.push('/') }
-        className="Cart-detail__back">В каталог</Button>
-    </Toolbar>
-
-  </div>
-);
-
-export default class CartDetail extends StoreComponent {
-  getInitialStore() {
-    return [Cart];
+export default class CartDetail extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      adapter: new NavAdapter(this, transitions, {
+        currentState: 0,
+      }),
+    };
   }
 
-  retrieveStoreData(store, attrs) {
-    return {
-      isEmpty: store.isEmpty(),
-      discount: attrs.discount,
-      positions: attrs.positions || [],
-      totalPrice: attrs.totalPrice || 0,
-    }
+  navAdapterDidUpdate(adapter) {
+    window.scrollTo(0,0);
+    this.setState({ adapter });
   }
 
   render() {
-    const { positions, totalPrice, discount, isEmpty } = this.state;
-
-    if (isEmpty) return <EmptyCart/>;
+    const { adapter } = this.state;
 
     return (
       <div className="Cart-detail">
-        <Title>Корзина</Title>
-        <div className="Cart-detail__grid">
-          {
-            positions
-              .map((i)=><CartItem
-
-              price={i.price}
-              amount={i.amount}
-              key={i.productSKU}
-              discount={i.discount}
-
-              name={i.product.name}
-              form={i.product.form}
-              producer={i.product.producer}
-              pictures={i.product.pictures}
-
-              onDelete={() => Actions.delete(i.product)}
-              onChange={value => Actions.update(i.product, value)}
-              onClick={() => history.push(`/product/${i.product.SKU}`)}
-              className="Cart-detail__grid-item"
-            />)
-          }
-        </div>
-
-        <hr className="Cart-detail__hr"/>
-
-        <div className="Cart-detail__footer">
-          <div className="Cart-detail__footer-row">
-            <div className="Cart-detail__total-label">Цена товара</div>
-            <div className="Cart-detail__total">
-              <Currency value={totalPrice} discount={discount} />
-            </div>
-          </div>
-        </div>
-
-        <Toolbar right className="Cart-detail__button-toolbar">
-          <Button
-            onClick={() => history.push('/') }
-            className="Cart-detail__back">В каталог</Button>
-          <Button
-            onClick={() => history.push('/checkout') }
-            className="Cart-detail__checkout">Оформить</Button>
-        </Toolbar>
+        <NavComponent adapter={adapter} />
       </div>
     );
   }

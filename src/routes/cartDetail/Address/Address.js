@@ -7,9 +7,10 @@ import Title from 'components/Title';
 import Button from 'components/Button';
 import ComboBox from 'components/ComboBox';
 import Telephone from 'components/Telephone';
+import CityInput from 'components/CityInput';
 import TextField from 'components/TextField';
-import Toolbar from 'components/ButtonToolbar';
-import CityTextField from 'components/CityInput';
+import ButtonToolbar from 'components/ButtonToolbar';
+import { NavAdapter } from 'modules/NavController';
 import MForm from './MForm';
 import * as keys from './constants';
 import { RegionsMap } from './constants';
@@ -23,6 +24,7 @@ export default class Address extends FormComponent {
 
   render() {
     const { form } = this.state;
+    const { adapter } = this.context;
     const { className } = this.props;
 
     return (
@@ -97,17 +99,25 @@ export default class Address extends FormComponent {
               !form.getObject(keys.kManualInputAddressKey) &&
               <FormGroupValidate tabindex={6} className="form-group col-md-12" ref={keys.kAddressKey}>
                 <div
-                  className="Checkout__manual-address"
+                  className="Address__manual-address"
                   onClick={form.wrapperConstant(keys.kManualInputAddressKey, true)}
                 >ручной ввод адреса
                 </div>
 
-                <CityTextField
+                <CityInput
                   name="ship-address"
                   autoComplete="shipping street-address"
                   placeholder="Адрес"
                   value={form.getObject(keys.kAddressKey)}
                   onChange={form.wrapperChange(keys.kAddressKey)}
+                  onRequest={({ geoPoint, locality: { city, district, country }}) => {
+                    form.transaction(()=>{
+                      form.setObject(keys.kCityKey, city);
+                      form.setObject(keys.kGeoPointKey, geoPoint);
+                      form.setObject(keys.kCountryKey, country);
+                      form.setObject(keys.kDistrictKey, district);
+                    })
+                  }}
                 />
               </FormGroupValidate>
             }
@@ -180,14 +190,14 @@ export default class Address extends FormComponent {
 
         </Form>
 
-        <Toolbar right className="Checkout__button-toolbar">
+        <ButtonToolbar right className="Address__button-toolbar">
           <Button
-            onClick={() => history.push('/cart') }
-            className="Checkout__edit">Изменить</Button>
+            onClick={adapter.handleBack }
+            className="Address__edit">Изменить</Button>
           <Button
             onClick={this.onSubmit}
-            className="Checkout__next">Продолжить</Button>
-        </Toolbar>
+            className="Address__next">Продолжить</Button>
+        </ButtonToolbar>
       </div>
     );
   }
@@ -197,3 +207,7 @@ Address.propTypes = {
   className: PropTypes.string,
 };
 Address.defaultProps = {};
+
+Address.contextTypes = {
+  adapter: PropTypes.instanceOf(NavAdapter).isRequired,
+};

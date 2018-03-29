@@ -51,7 +51,7 @@ SaleProduct.propTypes = {
   onAdd: PropTypes.func,
   price: PropTypes.number,
   discount: PropTypes.shape({
-    type: PropTypes.string,
+    type: PropTypes.any,
     amount: PropTypes.number,
   }),
   onClick: PropTypes.func,

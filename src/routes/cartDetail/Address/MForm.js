@@ -6,6 +6,7 @@ export default class MFormImpl extends MForm {
   getDefaultProps() {
     return {
       [keys.kManualInputAddressKey]: false,
+      [keys.kCountryKey]: "Россия"
     }
   }
 
