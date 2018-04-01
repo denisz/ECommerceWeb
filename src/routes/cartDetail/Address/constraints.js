@@ -50,6 +50,7 @@ export default {
 
   [keys.kRoomKey]:{},
   [keys.kHouseKey]: {},
+  [keys.kStreetKey]: {},
   [keys.kGeoPointKey]:{},
   [keys.kCountryKey]: {},
   [keys.kDistrictKey]: {},
