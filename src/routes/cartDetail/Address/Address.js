@@ -97,13 +97,25 @@ export default class Address extends FormComponent {
 
             {
               !form.getObject(keys.kManualInputAddressKey) &&
-              <FormGroupValidate tabindex={6} className="form-group col-md-12" ref={keys.kAddressKey}>
-                <div
-                  className="Address__manual-address"
-                  onClick={form.wrapperConstant(keys.kManualInputAddressKey, true)}
-                >ручной ввод адреса
-                </div>
+              <div
+                className="Address__manual-address col-md-12"
+                onClick={form.wrapperConstant(keys.kManualInputAddressKey, true)}
+              >ручной ввод адреса
+              </div>
+            }
 
+            {
+              form.getObject(keys.kManualInputAddressKey) &&
+              <div
+                className="Address__manual-address col-md-12"
+                onClick={form.wrapperConstant(keys.kManualInputAddressKey, false)}
+              >авто ввод адреса
+              </div>
+            }
+
+            {
+              !form.getObject(keys.kManualInputAddressKey) &&
+              <FormGroupValidate tabindex={6} className="form-group col-md-12" ref={keys.kAddressKey}>
                 <CityInput
                   name="ship-address"
                   autoComplete="shipping street-address"
@@ -128,12 +140,6 @@ export default class Address extends FormComponent {
             {
               form.getObject(keys.kManualInputAddressKey) &&
               <FormGroupValidate tabindex={7} className="form-group col-md-4 col-12" ref={keys.kRegionKey}>
-                <div
-                  className="Address__manual-address"
-                  onClick={form.wrapperConstant(keys.kManualInputAddressKey, false)}
-                >Авто ввод адреса
-                </div>
-
                 <ComboBox
                   required
                   name="region"
