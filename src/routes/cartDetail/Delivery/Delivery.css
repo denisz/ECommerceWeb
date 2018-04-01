@@ -11,15 +11,23 @@
 
 .Delivery__provider_russiapost,
 .Delivery__provider_boxberry {
-  flex: 0;
-  width: 50%;
+  flex: 1;
+  height: 100px;
   padding: 5px;
-  margin: 10px;
+  margin: 5px;
   cursor: pointer;
   max-width: 200px;
+  position: relative;
+  text-align: center;
   border-radius: 4px;
   box-sizing: border-box;
   border: 1px solid #e6e6e6;
+}
+
+.Delivery__provider_russiapost img,
+.Delivery__provider_boxberry img {
+  width: auto;
+  height: 100%;
 }
 
 .Delivery__provider_russiapost:hover,
@@ -27,12 +35,30 @@
   border-color: #0055A6;
 }
 
+.Delivery__provider_russiapost:before,
+.Delivery__provider_boxberry:before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: -1px;
+  bottom: -1px;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  border-radius: inherit;
+}
+
 .Delivery__provider--active {
   border-color: #0055A6;
 }
 
+.Delivery__provider--active:before {
+  border-color: inherit;
+}
+
 .Delivery__methods {
   display: flex;
+  margin: 20px 0;
   flex-direction: row;
   align-items: center;
   justify-content: center;
@@ -48,9 +74,24 @@
   display: block;
   cursor: pointer;
   max-width: 120px;
+  position: relative;
   border-radius: 4px;
   box-sizing: border-box;
   border: 1px solid #e6e6e6;
+}
+
+.Delivery__method_standard:before,
+.Delivery__method_rapid:before,
+.Delivery__method_emc:before {
+  content: '';
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: -1px;
+  bottom: -1px;
+  box-sizing: border-box;
+  border: 2px solid transparent;
+  border-radius: inherit;
 }
 
 .Delivery__method_standard img,
@@ -68,6 +109,10 @@
 
 .Delivery__method--active {
   border-color: #0055A6;
+}
+
+.Delivery__method--active:before {
+  border-color: inherit;
 }
 
 .Delivery__method-title {
@@ -130,13 +175,15 @@
 @media (max-width: 767px) {
   .Delivery__provider_russiapost,
   .Delivery__provider_boxberry {
-    max-width: 130px;
+    max-width: 100%;
+    height: 68px;
   }
 
   .Delivery__methods {
     align-items: stretch;
     flex-direction: column;
     justify-content: center;
+    margin: 20px 0;
   }
 
   .Delivery__method_standard,

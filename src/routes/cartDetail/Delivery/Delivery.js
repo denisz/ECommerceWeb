@@ -26,9 +26,14 @@ export default class Delivery extends FormComponent {
     }
   }
 
-  formDidChangeValues(form, context) {
+  async formDidChangeValues(form, context) {
+    if (context.comparePath(keys.kProviderKey)) {
+      form.unset(keys.kMethodKey);
+    }
+
     if (context.comparePath(keys.kMethodKey)) {
-      // context.getObject()
+      const attrs = await this.onSubmit();
+      console.log(attrs)
     }
 
     super.formDidChangeValues(form, context);
@@ -44,20 +49,23 @@ export default class Delivery extends FormComponent {
         <Title>Способ доставки</Title>
 
         <div className="Delivery__providers">
-          <Image
-            src="ic_delivery_russiapost.png"
+          <div
             className={cx('Delivery__provider_russiapost', {
               'Delivery__provider--active': form.isEqual(keys.kProviderKey, keys.kProviderRussiaPost),
             })}
             onClick={form.wrapperConstant(keys.kProviderKey, keys.kProviderRussiaPost)}
-          />
-          <Image
-            src="ic_delivery_boxberry.png"
+          >
+            <Image src="ic_delivery_russiapost.png"/>
+          </div>
+
+          <div
             className={cx('Delivery__provider_boxberry', {
               'Delivery__provider--active': form.isEqual(keys.kProviderKey, keys.kProviderBoxberry),
             })}
             onClick={form.wrapperConstant(keys.kProviderKey, keys.kProviderBoxberry)}
-          />
+          >
+            <Image src="ic_delivery_boxberry.png"/>
+          </div>
         </div>
 
         {

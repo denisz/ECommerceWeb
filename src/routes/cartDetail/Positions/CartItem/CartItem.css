@@ -8,13 +8,14 @@
   height: 140px;
   cursor: pointer;
   flex-shrink: 0;
+  margin-right: 20px;
 }
 
 .Cart-item__describe {
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 }
 
 .Cart-item__name {
@@ -77,6 +78,10 @@
     max-width: 160px;
   }
 
+  .Cart-item__describe {
+    justify-content: space-between;
+  }
+
   .Cart-item__price {
     width: 100%;
     max-width: 160px;
@@ -84,6 +89,10 @@
 
   .Cart-item__delete  {
     display: none;
+  }
+
+  .Cart-item__picture {
+    margin: 0;
   }
 
   .Cart-item__body {
