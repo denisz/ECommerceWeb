@@ -1,7 +1,9 @@
 import React from 'react';
-import Positions from './Positions';
+import Cart from 'flux/Cart';
+import CartActions from 'flux/CartActions';
 import Address from './Address';
 import Delivery from './Delivery';
+import Positions from './Positions';
 
 export default [
   {
@@ -19,10 +21,10 @@ export default [
     key: 'address',
     title: 'Address',
     async form() {
-      return props => <Address {...props} />;
+      return props => <Address {...props} value={Cart.address} />;
     },
     async next(attrs) {
-      console.log(attrs);
+      await CartActions.address(attrs);
     },
     nextBtn: 'Save',
     prevBtn: 'Back',

@@ -48,8 +48,13 @@
   border-radius: 6px;
 }
 
-.Address__edit,
-.Address__next {
+.Address .form-control:focus {
+  border-color: #454f5b !important;
+  box-shadow: none;
+}
+
+.Address__btn_edit,
+.Address__btn_next {
   width: 180px;
   padding: 0 10px;
   margin-left: 40px;
@@ -73,8 +78,8 @@
     justify-content: center;
   }
 
-  .Address__edit,
-  .Address__next {
+  .Address__btn_edit,
+  .Address__btn_next {
     margin: 5px;
   }
 }

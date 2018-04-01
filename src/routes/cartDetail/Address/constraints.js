@@ -36,5 +36,22 @@ export default {
     presence: {
       message: 'Не может быть пустым'
     }
-  }
+  },
+  [keys.kRegionKey]: {
+    presence: {
+      message: 'Не может быть пустым'
+    }
+  },
+  [keys.kCityKey]: {
+    presence: {
+      message: 'Не может быть пустым'
+    }
+  },
+
+  [keys.kRoomKey]:{},
+  [keys.kHouseKey]: {},
+  [keys.kGeoPointKey]:{},
+  [keys.kCountryKey]: {},
+  [keys.kDistrictKey]: {},
+  [keys.kManualInputAddressKey]: {}
 };

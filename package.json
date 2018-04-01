@@ -28,6 +28,7 @@
     "react-overlays": "^0.8.3",
     "react-sanfona": "^1.0.6",
     "react-slick": "^0.18.0",
+    "react-sticky-state": "^2.1.9",
     "react-toastify": "^3.3.4",
     "serve": "^6.5.1",
     "shell-escape": "^0.2.0",

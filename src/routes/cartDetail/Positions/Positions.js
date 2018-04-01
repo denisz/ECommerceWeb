@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { StoreComponent } from 'modules/Flux';
+import cx from 'classnames';
 import Title from 'components/Title';
 import Button from 'components/Button';
 import Currency from 'components/Currency';
@@ -39,13 +40,14 @@ export default class Positions extends StoreComponent {
   }
 
   render() {
+    const { className } = this.props;
     const { positions, price, discount, isEmpty } = this.state;
     const { adapter } = this.context;
 
     if (isEmpty) return <EmptyCart/>;
 
     return (
-      <div className="Positions">
+      <div className={cx('Positions', className)}>
         <Title>Корзина</Title>
         <div className="Positions__grid">
           {
@@ -75,8 +77,8 @@ export default class Positions extends StoreComponent {
 
         <div className="Positions__footer">
           <div className="Positions__footer-row">
-            <div className="Positions__total-label">Цена товара</div>
-            <div className="Positions__total">
+            <div className="Positions__footer-label">Цена товара</div>
+            <div className="Positions__footer-value">
               <Currency value={price} discount={discount} />
             </div>
           </div>
@@ -95,7 +97,9 @@ export default class Positions extends StoreComponent {
   }
 }
 
-Positions.propTypes = {};
+Positions.propTypes = {
+  className: PropTypes.string,
+};
 Positions.defaultProps = {};
 
 Positions.contextTypes = {

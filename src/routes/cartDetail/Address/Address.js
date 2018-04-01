@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import history from 'core/history';
 import { FormComponent, FormGroupValidate, Form } from 'modules/Form';
 import cx from 'classnames';
 import Title from 'components/Title';
@@ -30,6 +29,7 @@ export default class Address extends FormComponent {
     return (
       <div className={cx('Address', className)}>
         <Title>Адрес доставки</Title>
+
         <Form className="Address__form">
 
           <div className="form-row">
@@ -91,7 +91,7 @@ export default class Address extends FormComponent {
                 autoComplete="shipping postal-code"
                 placeholder="Индекс"
                 value={form.getObject(keys.kPostalCodeKey)}
-                onChange={form.wrapperChange(keys.kPostalCodeKey)}
+                onChange={form.wrapperChange(keys.kPostalCodeKey, String)}
               />
             </FormGroupValidate>
 
@@ -110,12 +110,15 @@ export default class Address extends FormComponent {
                   placeholder="Адрес"
                   value={form.getObject(keys.kAddressKey)}
                   onChange={form.wrapperChange(keys.kAddressKey)}
-                  onRequest={({ geoPoint, locality: { city, district, country }}) => {
+                  onRequest={({ geoPoint, locality: { city, house, street, region, district, country }}) => {
                     form.transaction(()=>{
                       form.setObject(keys.kCityKey, city);
-                      form.setObject(keys.kGeoPointKey, geoPoint);
+                      form.setObject(keys.kHouseKey, house);
+                      form.setObject(keys.kStreetKey, street);
+                      form.setObject(keys.kRegionKey, region);
                       form.setObject(keys.kCountryKey, country);
                       form.setObject(keys.kDistrictKey, district);
+                      form.setObject(keys.kGeoPointKey, geoPoint);
                     })
                   }}
                 />
@@ -124,24 +127,43 @@ export default class Address extends FormComponent {
 
             {
               form.getObject(keys.kManualInputAddressKey) &&
-              <FormGroupValidate tabindex={7} className="form-group col-md-6 col-12" ref={keys.kDistrictKey}>
+              <FormGroupValidate tabindex={7} className="form-group col-md-4 col-12" ref={keys.kRegionKey}>
+                <div
+                  className="Address__manual-address"
+                  onClick={form.wrapperConstant(keys.kManualInputAddressKey, false)}
+                >Авто ввод адреса
+                </div>
+
                 <ComboBox
                   required
-                  name="district"
+                  name="region"
                   placeholder="Регион"
-                  choices={[{ value:"", label: "Регион", disabled: true, selected: true, }, ...RegionsMap]}
-                  value={form.getObject(keys.kDistrictKey)}
-                  onChange={form.wrapperChange(keys.kDistrictKey)}/>
+                  choices={RegionsMap}
+                  value={form.getObject(keys.kRegionKey)}
+                  onChange={form.wrapperChange(keys.kRegionKey)}/>
               </FormGroupValidate>
             }
 
             {
               form.getObject(keys.kManualInputAddressKey) &&
-              <FormGroupValidate tabindex={8} className="form-group col-md-6 col-12" ref={keys.kCityKey}>
+              <FormGroupValidate tabindex={7} className="form-group col-md-4 col-12" ref={keys.kDistrictKey}>
+                <TextField
+                  name="district"
+                  autoComplete="district"
+                  placeholder="Район"
+                  value={form.getObject(keys.kDistrictKey)}
+                  onChange={form.wrapperChange(keys.kDistrictKey)}
+                />
+              </FormGroupValidate>
+            }
+
+            {
+              form.getObject(keys.kManualInputAddressKey) &&
+              <FormGroupValidate tabindex={8} className="form-group col-md-4 col-12" ref={keys.kCityKey}>
                 <TextField
                   name="city"
                   autoComplete="city"
-                  placeholder="Город"
+                  placeholder="Город/Населенный пункт"
                   value={form.getObject(keys.kCityKey)}
                   onChange={form.wrapperChange(keys.kCityKey)}
                 />
@@ -193,10 +215,10 @@ export default class Address extends FormComponent {
         <ButtonToolbar right className="Address__button-toolbar">
           <Button
             onClick={adapter.handleBack }
-            className="Address__edit">Изменить</Button>
+            className="Address__btn_edit">Изменить</Button>
           <Button
-            onClick={this.onSubmit}
-            className="Address__next">Продолжить</Button>
+            onClick={adapter.handleNext}
+            className="Address__btn_next">Продолжить</Button>
         </ButtonToolbar>
       </div>
     );

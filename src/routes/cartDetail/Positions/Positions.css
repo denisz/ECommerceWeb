@@ -31,6 +31,7 @@
   display: flex;
   align-items: flex-end;
   flex-direction: column;
+  margin-bottom: 20px;
 }
 
 .Positions__footer-row {
@@ -43,7 +44,7 @@
   justify-content: flex-end;
 }
 
-.Positions__total {
+.Positions__footer-value {
   font-size: 32px;
   width: 200px;
   color: #43525A;
@@ -52,7 +53,7 @@
   flex-direction: column;
 }
 
-.Positions__total-label {
+.Positions__footer-label {
 
 }
 
@@ -66,6 +67,10 @@
 }
 
 @media (max-width: 767px) {
+  .Positions__footer {
+    margin: 0;
+  }
+
   .Positions__footer-row {
     padding: 0;
   }
@@ -79,7 +84,7 @@
     margin: 5px;
   }
 
-  .Positions__total {
+  .Positions__footer-value {
     max-width: 160px;
   }
 }
