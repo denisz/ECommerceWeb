@@ -116,7 +116,7 @@ export default class Delivery extends FormComponent {
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Цена доставки</div>
             <div className="Delivery__footer-value">
-              <Currency value={0} discount={discount} />
+              <Currency value={0} />
             </div>
           </div>
 
