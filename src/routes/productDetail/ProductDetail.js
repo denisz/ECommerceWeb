@@ -1,6 +1,5 @@
 import React from 'react';
 import { StoreComponent } from 'modules/Flux';
-import Cart from 'flux/Cart';
 import Product from 'flux/Product';
 import Actions from 'flux/CartActions';
 import Carousel from 'components/Carousel';

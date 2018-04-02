@@ -24,7 +24,13 @@ export default class Delivery extends FormComponent {
       isEmpty: store.isEmpty(),
       discount: attrs.discount,
       positions: attrs.positions || [],
+      deliveryPrice: attrs.deliveryPrice || 0,
     }
+  }
+
+  didChangeStoreState(store, attrs) {
+    const { form } = this.state;
+    form.setValues(store.delivery)
   }
 
   async formDidChangeValues(form, context) {
@@ -35,7 +41,8 @@ export default class Delivery extends FormComponent {
     if (context.comparePath(keys.kMethodKey)) {
       try {
         const attrs = await this.onSubmit();
-        await CartActions.calcDelivery(attrs);
+        await CartActions.delivery(attrs);
+
       } catch (e) {
         console.error(e)
       }
@@ -46,7 +53,7 @@ export default class Delivery extends FormComponent {
 
   render() {
     const { className } = this.props;
-    const { form, price, discount } = this.state;
+    const { form, price, deliveryPrice, discount } = this.state;
     const { adapter } = this.context;
 
     return (
@@ -121,14 +128,14 @@ export default class Delivery extends FormComponent {
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Цена доставки</div>
             <div className="Delivery__footer-value">
-              <Currency value={0} />
+              <Currency value={deliveryPrice} />
             </div>
           </div>
 
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Итого к оплате</div>
             <div className="Delivery__footer-value">
-              <Currency value={0} />
+              <Currency value={price + deliveryPrice} />
             </div>
           </div>
         </div>

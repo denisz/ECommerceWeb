@@ -33,10 +33,10 @@ export default [
     key: 'delivery',
     title: 'Delivery',
     async form() {
-      return props => <Delivery {...props} />;
+      return props => <Delivery {...props} value={Cart.delivery} />;
     },
     async next(attrs) {
-      console.log(attrs);
+      await CartActions.delivery(attrs);
     },
     nextBtn: 'Save',
     prevBtn: 'Back',
