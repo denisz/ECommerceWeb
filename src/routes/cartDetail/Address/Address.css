@@ -39,18 +39,23 @@
 }
 
 .Address select.form-control,
+.Address textarea.form-control,
 .Address input[type="text"].form-control,
 .Address input[type="email"].form-control,
 .Address input[type="number"].form-control,
 .Address input[type="tel"].form-control{
   border: 2px solid #859DA9;
-  font-size: 18px;
+  font-size: 16px;
   border-radius: 6px;
 }
 
 .Address .form-control:focus {
   border-color: #454f5b !important;
   box-shadow: none;
+}
+
+.Address textarea.form-control {
+  height: 100px;
 }
 
 .Address__btn_edit,
