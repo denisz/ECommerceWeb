@@ -30,7 +30,7 @@ export default {
   [keys.kPostalCodeKey]: {
     presence: {
       message: 'Не может быть пустым'
-    }
+    },
   },
   [keys.kPhoneKey]: {
     presence: {

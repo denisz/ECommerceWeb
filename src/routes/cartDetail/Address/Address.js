@@ -233,7 +233,7 @@ export default class Address extends FormComponent {
           <div className="form-row">
             <FormGroupValidate tabindex={11} className="form-group col-md-12 col-12" ref={keys.kCommentKey}>
               <Textarea
-                maxlength={140}
+                maxLength={140}
                 name="comment"
                 placeholder="Комментарий"
                 value={form.getObject(keys.kCommentKey)}

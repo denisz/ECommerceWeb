@@ -7,6 +7,7 @@ import Currency from 'components/Currency';
 import ButtonToolbar from 'components/ButtonToolbar';
 import cx from 'classnames';
 import Cart from 'flux/Cart';
+import CartActions from 'flux/CartActions';
 import { FormComponent } from 'modules/Flux';
 import { NavAdapter } from 'modules/NavController';
 import './Delivery.css';
@@ -32,9 +33,12 @@ export default class Delivery extends FormComponent {
     }
 
     if (context.comparePath(keys.kMethodKey)) {
-      const attrs = await this.onSubmit();
-      console.log(attrs)
-
+      try {
+        const attrs = await this.onSubmit();
+        await CartActions.calcDelivery(attrs);
+      } catch (e) {
+        console.error(e)
+      }
     }
 
     super.formDidChangeValues(form, context);
