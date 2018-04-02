@@ -34,6 +34,7 @@ export default class Delivery extends FormComponent {
     if (context.comparePath(keys.kMethodKey)) {
       const attrs = await this.onSubmit();
       console.log(attrs)
+
     }
 
     super.formDidChangeValues(form, context);

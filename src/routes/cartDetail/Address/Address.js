@@ -37,7 +37,7 @@ export default class Address extends FormComponent {
             <FormGroupValidate tabindex={0} className="form-group col-md-4 col-6" ref={keys.kLastNameKey}>
               <TextField
                 name="lname"
-                autoComplete="lname"
+                autoComplete="family-name"
                 placeholder="Фамилия"
                 value={form.getObject(keys.kLastNameKey)}
                 onChange={form.wrapperChange(keys.kLastNameKey)}
@@ -47,7 +47,7 @@ export default class Address extends FormComponent {
             <FormGroupValidate tabindex={1} className="form-group col-md-4 col-6" ref={keys.kFirstNameKey}>
               <TextField
                 name="fname"
-                autoComplete="fname"
+                autoComplete="given-name"
                 placeholder="Имя"
                 value={form.getObject(keys.kFirstNameKey)}
                 onChange={form.wrapperChange(keys.kFirstNameKey)}
@@ -57,7 +57,7 @@ export default class Address extends FormComponent {
             <FormGroupValidate tabindex={2} className="form-group col-md-4" ref={keys.kMiddleNameKey}>
               <TextField
                 name="mname"
-                autoComplete="mname"
+                autoComplete="additional-name"
                 placeholder="Отчество"
                 value={form.getObject(keys.kMiddleNameKey)}
                 onChange={form.wrapperChange(keys.kMiddleNameKey)}
@@ -156,7 +156,7 @@ export default class Address extends FormComponent {
               <FormGroupValidate tabindex={7} className="form-group col-md-4 col-12" ref={keys.kDistrictKey}>
                 <TextField
                   name="district"
-                  autoComplete="district"
+                  autoComplete="shipping region"
                   placeholder="Район"
                   value={form.getObject(keys.kDistrictKey)}
                   onChange={form.wrapperChange(keys.kDistrictKey)}
@@ -169,7 +169,7 @@ export default class Address extends FormComponent {
               <FormGroupValidate tabindex={8} className="form-group col-md-4 col-12" ref={keys.kCityKey}>
                 <TextField
                   name="city"
-                  autoComplete="city"
+                  autoComplete="shipping locality"
                   placeholder="Город/Населенный пункт"
                   value={form.getObject(keys.kCityKey)}
                   onChange={form.wrapperChange(keys.kCityKey)}
@@ -182,7 +182,7 @@ export default class Address extends FormComponent {
               <FormGroupValidate tabindex={8} className="form-group col-md-4 col-12" ref={keys.kStreetKey}>
                 <TextField
                   name="street"
-                  autoComplete="street"
+                  autoComplete="shipping street-address"
                   placeholder="Улица"
                   value={form.getObject(keys.kStreetKey)}
                   onChange={form.wrapperChange(keys.kStreetKey)}
@@ -205,18 +205,6 @@ export default class Address extends FormComponent {
 
             {
               form.getObject(keys.kManualInputAddressKey) &&
-              <FormGroupValidate tabindex={10} className="form-group col-md-3 col-4" ref={keys.kRoomKey}>
-                <TextField
-                  name="room"
-                  autoComplete="room"
-                  placeholder="Квартира"
-                  value={form.getObject(keys.kRoomKey)}
-                  onChange={form.wrapperChange(keys.kRoomKey)}
-                />
-              </FormGroupValidate>
-            }
-            {
-              form.getObject(keys.kManualInputAddressKey) &&
               <FormGroupValidate tabindex={10} className="form-group col-md-2 col-4" ref={keys.kBuildingKey}>
                 <TextField
                   name="building"
@@ -227,11 +215,25 @@ export default class Address extends FormComponent {
                 />
               </FormGroupValidate>
             }
+
+            {
+              form.getObject(keys.kManualInputAddressKey) &&
+              <FormGroupValidate tabindex={10} className="form-group col-md-3 col-4" ref={keys.kRoomKey}>
+                <TextField
+                  name="room"
+                  autoComplete="room"
+                  placeholder="Квартира"
+                  value={form.getObject(keys.kRoomKey)}
+                  onChange={form.wrapperChange(keys.kRoomKey)}
+                />
+              </FormGroupValidate>
+            }
           </div>
 
           <div className="form-row">
             <FormGroupValidate tabindex={11} className="form-group col-md-12 col-12" ref={keys.kCommentKey}>
               <Textarea
+                maxlength={140}
                 name="comment"
                 placeholder="Комментарий"
                 value={form.getObject(keys.kCommentKey)}

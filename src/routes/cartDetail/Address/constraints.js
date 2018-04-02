@@ -47,7 +47,11 @@ export default {
       message: 'Не может быть пустым'
     }
   },
+  [keys.kCommentKey]: {
+    length: { maximum: 140 }
+  },
 
+  [keys.kBuildingKey]: {},
   [keys.kRoomKey]:{},
   [keys.kHouseKey]: {},
   [keys.kStreetKey]: {},

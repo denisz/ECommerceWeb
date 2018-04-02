@@ -63,6 +63,8 @@
 
 .Positions__back,
 .Positions__checkout {
+  width: 180px;
+  padding: 0 10px;
   margin-left: 40px;
 }
 
