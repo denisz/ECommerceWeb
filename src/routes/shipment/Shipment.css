@@ -15,9 +15,10 @@
 }
 
 .Shipment p {
+  clear: both;
+  display: flex;
   font-size: 20px;
   margin-bottom: 40px;
-  display: flex;
   flex-direction: row;
 }
 

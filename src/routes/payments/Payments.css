@@ -13,8 +13,9 @@
 
 .Payments p {
   font-size: 20px;
-  margin-bottom: 40px;
   display: block;
+  clear: both;
+  margin-bottom: 40px;
 }
 
 @media (max-width: 767px) {

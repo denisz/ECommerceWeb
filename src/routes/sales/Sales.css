@@ -28,6 +28,16 @@
   margin-bottom: 20px;
 }
 
+.Sales__info {
+
+}
+
+.Sales__info p {
+  display: block;
+  clear: both;
+  margin-bottom: 20px;
+}
+
 @media (max-width: 767px) {
   .Sales {
     display: flex;
