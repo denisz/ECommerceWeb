@@ -21,7 +21,7 @@
 .Sales__table-item__badge {
   position: absolute;
   top: -20px;
-  left: 20px;
+  left: -40px;
 }
 
 .Sales__pagination {
@@ -32,9 +32,16 @@
 
 }
 
+.Sales__info h3 {
+  font-size: 30px;
+  line-height: 1.3;
+}
+
 .Sales__info p {
   display: block;
   clear: both;
+  font-size: 20px;
+  line-height: 1.3;
   margin-bottom: 20px;
 }
 
@@ -47,6 +54,10 @@
 
   .Sales__table-item__product {
     align-items: center;
+  }
+
+  .Sales__table-item__badge {
+    left: 20px;
   }
 
   .Sales__table {

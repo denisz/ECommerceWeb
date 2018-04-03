@@ -67,7 +67,7 @@ export default class Sales extends QueryComponent {
         <PaginationView query={query} className="Sales__pagination" />
 
         <div className="Sales__info">
-          <h2 className="text-center">Скидки</h2>
+          <h3 className="text-center">Скидки</h3>
           <p>
             В магазине действует специальная система скидок, которая зависит от суммы покупки.  Скидка рассчитывается автоматически в корзине покупок при оформлении заказа.
           </p>
