@@ -1,3 +1,77 @@
+@font-face {
+  font-family: "Stem";
+  font-weight: bold;
+  src: url("/fonts/Stem-Bold.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: bold;
+  font-style: italic;
+  src: url("/fonts/Stem-BoldItalic.otf") format("opentype");
+}
+
+
+@font-face {
+  font-family: "Stem";
+  font-weight: normal;
+  src: url("/fonts/Stem-Regular.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: 500;
+  src: url("/fonts/Stem-Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: 500;
+  font-style: italic;
+  src: url("/fonts/Stem-MediumItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: 300;
+  src: url("/fonts/Stem-Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: 300;
+  font-style: italic;
+  src: url("/fonts/Stem-LightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: 200;
+  src: url("/fonts/Stem-ExtraLight.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: 200;
+  font-style: italic;
+  src: url("/fonts/Stem-ExtraLightItalic.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Stem";
+  font-weight: 100;
+  src: url("/fonts/Stem-Thin.otf") format("opentype");
+}
+
+
+html {
+  font-family: Stem, -apple-system, "BlinkMacSystemFont", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
+body {
+  font-family: Stem, -apple-system, "BlinkMacSystemFont", "San Francisco", "Roboto", "Segoe UI", "Helvetica Neue", sans-serif;
+}
+
 img {
   -webkit-user-drag: none;
 }

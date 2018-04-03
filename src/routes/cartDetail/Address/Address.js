@@ -16,7 +16,6 @@ import * as keys from './constants';
 import { RegionsMap } from './constants';
 import './Address.css';
 
-
 export default class Address extends FormComponent {
   getDefaultModel() {
     return new MForm(this);
