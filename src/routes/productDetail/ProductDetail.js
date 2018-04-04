@@ -67,6 +67,7 @@ export default class ProductDetail extends StoreComponent {
       amount,
       product: { name, discount, quantity, pictures, price, form, factor, producer },
       notation: {
+        research,
         prescribing,
         description,
         composition },
@@ -134,6 +135,10 @@ export default class ProductDetail extends StoreComponent {
                 {
                   title: 'Описание',
                   body: description || defaultText,
+                },
+                {
+                  title: 'Исследования',
+                  body: research || defaultText,
                 },
                 {
                   title: 'Рекомендации' ,
