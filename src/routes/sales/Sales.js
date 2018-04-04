@@ -22,18 +22,22 @@ export default class Sales extends QueryComponent {
         await Actions.insert(product, amount);
         const {name} = product;
         toast.info(`${name} добавлен в корзину покупок!`, {
+          autoClose: 2000,
           hideProgressBar: true,
           position: toast.POSITION.TOP_CENTER,
           className: css({
+            top: 40,
             minHeight: 40
           })
         });
       } catch(e) {
         console.log(e);
         toast.error(`Ошибка при работе с корзиной`, {
+          autoClose: 2000,
           hideProgressBar: true,
           position: toast.POSITION.TOP_CENTER,
           className: css({
+            top: 40,
             minHeight: 40
           })
         });
@@ -46,7 +50,7 @@ export default class Sales extends QueryComponent {
 
     return (
       <div className="Sales">
-        <Title >Распродажа</Title>
+        <Title>Распродажа</Title>
         <div className="Sales__table">
           {
             query.map(i => <div key={i.id} className="Sales__table-item">
@@ -67,7 +71,7 @@ export default class Sales extends QueryComponent {
         <PaginationView query={query} className="Sales__pagination" />
 
         <div className="Sales__info">
-          <h3 className="text-center">Скидки</h3>
+          <Title>Скидки</Title>
           <p>
             В магазине действует специальная система скидок, которая зависит от суммы покупки.  Скидка рассчитывается автоматически в корзине покупок при оформлении заказа.
           </p>
