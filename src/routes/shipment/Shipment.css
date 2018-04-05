@@ -31,7 +31,8 @@
   }
 
   .Shipment__image {
-    height: 80px;
+    width: 100px;
+    height: auto;
     margin: 0 10px 10px 0;
     float: left;
   }
