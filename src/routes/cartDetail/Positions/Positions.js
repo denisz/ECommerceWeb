@@ -10,7 +10,7 @@ import { NavAdapter } from 'modules/NavController';
 import Cart from 'flux/Cart';
 import Actions from 'flux/CartActions';
 import history from 'core/history';
-import CartItem from './CartItem';
+import Position from './Position';
 import './Positions.css';
 
 const EmptyCart = () => (
@@ -21,7 +21,6 @@ const EmptyCart = () => (
         onClick={() => history.push('/') }
         className="Positions__back">В каталог</Button>
     </Toolbar>
-
   </div>
 );
 
@@ -52,7 +51,7 @@ export default class Positions extends StoreComponent {
         <div className="Positions__grid">
           {
             positions
-              .map((i)=><CartItem
+              .map((i)=><Position
 
               price={i.price}
               amount={i.amount}

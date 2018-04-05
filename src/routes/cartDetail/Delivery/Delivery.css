@@ -180,31 +180,23 @@
   }
 
   .Delivery__methods {
-    align-items: stretch;
-    flex-direction: column;
-    justify-content: center;
-    margin: 20px 0;
   }
 
   .Delivery__method_standard,
   .Delivery__method_rapid,
   .Delivery__method_emc {
-    max-width: 100%;
-    height: 80px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+    max-width: 90px;
   }
 
   .Delivery__method_standard img,
   .Delivery__method_rapid img,
   .Delivery__method_emc img {
-    width: 95px;
-    height: 70px;
+    width: 100%;
+    height: auto;
   }
 
   .Delivery__method-title {
-    font-size: 15px;
+    font-size: 12px;
   }
 
   .Delivery__button-toolbar {
