@@ -140,7 +140,6 @@
 .Delivery__footer-row {
   font-size: 20px;
   padding: 0 42px;
-  min-height: 80px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -148,8 +147,8 @@
 }
 
 .Delivery__footer-value {
-  font-size: 32px;
-  width: 200px;
+  font-size: 30px;
+  width: 130px;
   color: #43525A;
   display: flex;
   align-items: center;
@@ -157,7 +156,7 @@
 }
 
 .Delivery__footer-label {
-
+  width: 160px;
 }
 
 .Delivery__button-toolbar {
@@ -205,10 +204,6 @@
 
   .Delivery__footer-row {
     padding: 0;
-  }
-
-  .Delivery__footer-value {
-    max-width: 160px;
   }
 
   .Delivery__btn_edit,

@@ -4,7 +4,7 @@ import { StoreComponent } from 'modules/Flux';
 import cx from 'classnames';
 import Title from 'components/Title';
 import Button from 'components/Button';
-import Currency from 'components/Currency';
+import { Price } from 'components/Currency';
 import Toolbar from 'components/ButtonToolbar';
 import { NavAdapter } from 'modules/NavController';
 import Cart from 'flux/Cart';
@@ -78,7 +78,7 @@ export default class Positions extends StoreComponent {
           <div className="Positions__footer-row">
             <div className="Positions__footer-label">Цена товара</div>
             <div className="Positions__footer-value">
-              <Currency value={price} discount={discount} />
+              <Price value={price} discount={discount} />
             </div>
           </div>
         </div>

@@ -3,7 +3,7 @@ import cx from 'classnames';
 import Range from 'components/Range';
 import Delete from 'components/Delete';
 import Picture from 'components/Picture';
-import Currency from 'components/Currency';
+import { Price } from 'components/Currency';
 import './Position.css';
 
 const noop = ()=>{};
@@ -30,7 +30,7 @@ export default ({ className, pictures, name, price, discount, producer, form, am
       </div>
 
       <div className="Position__price">
-        <Currency value={price} discount={discount} />
+        <Price value={price} discount={discount} />
       </div>
     </div>
 

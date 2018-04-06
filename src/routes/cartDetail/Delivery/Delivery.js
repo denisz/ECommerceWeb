@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Image from 'components/Image';
 import Title from 'components/Title';
 import Button from 'components/Button';
-import Currency from 'components/Currency';
+import { Price } from 'components/Currency';
 import ButtonToolbar from 'components/ButtonToolbar';
 import cx from 'classnames';
 import Cart from 'flux/Cart';
@@ -24,6 +24,7 @@ export default class Delivery extends FormComponent {
       isEmpty: store.isEmpty(),
       discount: attrs.discount,
       positions: attrs.positions || [],
+      totalPrice: attrs.totalPrice || 0,
       deliveryPrice: attrs.deliveryPrice || 0,
     }
   }
@@ -53,7 +54,7 @@ export default class Delivery extends FormComponent {
 
   render() {
     const { className } = this.props;
-    const { form, price, deliveryPrice, discount } = this.state;
+    const { form, price, deliveryPrice, totalPrice, discount } = this.state;
     const { adapter } = this.context;
 
     return (
@@ -121,21 +122,21 @@ export default class Delivery extends FormComponent {
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Цена товара</div>
             <div className="Delivery__footer-value">
-              <Currency value={price} discount={discount} />
+              <Price value={price} discount={discount} />
             </div>
           </div>
 
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Цена доставки</div>
             <div className="Delivery__footer-value">
-              <Currency value={deliveryPrice} />
+              <Price value={deliveryPrice} />
             </div>
           </div>
 
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Итого к оплате</div>
             <div className="Delivery__footer-value">
-              <Currency value={price + deliveryPrice} />
+              <Price value={totalPrice} />
             </div>
           </div>
         </div>
