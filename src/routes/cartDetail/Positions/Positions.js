@@ -31,16 +31,15 @@ export default class Positions extends StoreComponent {
 
   retrieveStoreData(store, attrs) {
     return {
-      price: attrs.price || 0,
+      total: attrs.total || 0,
       isEmpty: store.isEmpty(),
-      discount: attrs.discount,
       positions: attrs.positions || [],
     }
   }
 
   render() {
     const { className } = this.props;
-    const { positions, price, discount, isEmpty } = this.state;
+    const { positions, total, isEmpty } = this.state;
     const { adapter } = this.context;
 
     if (isEmpty) return <EmptyCart/>;
@@ -78,7 +77,7 @@ export default class Positions extends StoreComponent {
           <div className="Positions__footer-row">
             <div className="Positions__footer-label">Цена товара</div>
             <div className="Positions__footer-value">
-              <Price value={price} discount={discount} />
+              <Price value={total} />
             </div>
           </div>
         </div>

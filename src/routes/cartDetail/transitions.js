@@ -1,44 +1,55 @@
 import React from 'react';
-import Cart from 'flux/Cart';
+import 'flux/Cart';
+import 'flux/Order';
 import CartActions from 'flux/CartActions';
+import OrderActions from 'flux/OrderActions';
+import Order from './Order';
 import Address from './Address';
 import Delivery from './Delivery';
 import Positions from './Positions';
 
 export default [
-  {
-    key: 'positions',
-    title: 'Positions',
-    async form() {
-      return props => <Positions {...props} />;
+    {
+        key: 'positions',
+        title: 'Positions',
+        async form() {
+            return props => <Positions {...props} />;
+        },
+        async next(attrs) {
+            console.log(attrs);
+        },
+        nextBtn: 'Save',
     },
-    async next(attrs) {
-      console.log(attrs);
+    {
+        key: 'address',
+        title: 'Address',
+        async form() {
+            return props => <Address {...props} />;
+        },
+        async next(attrs) {
+            await CartActions.address(attrs);
+        },
+        nextBtn: 'Save',
+        prevBtn: 'Back',
     },
-    nextBtn: 'Save',
-  },
-  {
-    key: 'address',
-    title: 'Address',
-    async form() {
-      return props => <Address {...props} value={Cart.address} />;
+    {
+        key: 'delivery',
+        title: 'Delivery',
+        async form() {
+            return props => <Delivery {...props} />;
+        },
+        async next(attrs) {
+            await CartActions.delivery(attrs);
+            await CartActions.checkout();
+        },
+        nextBtn: 'Save',
+        prevBtn: 'Back',
     },
-    async next(attrs) {
-      await CartActions.address(attrs);
+    {
+        key: 'order',
+        title: 'Order',
+        async form() {
+            return props => <Order {...props} />;
+        },
     },
-    nextBtn: 'Save',
-    prevBtn: 'Back',
-  },
-  {
-    key: 'delivery',
-    title: 'Delivery',
-    async form() {
-      return props => <Delivery {...props} value={Cart.delivery} />;
-    },
-    async next(attrs) {
-      await CartActions.delivery(attrs);
-    },
-    nextBtn: 'Save',
-    prevBtn: 'Back',
-  },
 ];

@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { FormComponent } from 'modules/Flux';
 import Image from 'components/Image';
 import Title from 'components/Title';
 import Button from 'components/Button';
@@ -8,7 +9,6 @@ import ButtonToolbar from 'components/ButtonToolbar';
 import cx from 'classnames';
 import Cart from 'flux/Cart';
 import CartActions from 'flux/CartActions';
-import { FormComponent } from 'modules/Flux';
 import { NavAdapter } from 'modules/NavController';
 import './Delivery.css';
 import * as keys from './constants';
@@ -18,13 +18,17 @@ export default class Delivery extends FormComponent {
     return [Cart];
   }
 
+  getDataForModel() {
+      return Cart.delivery;
+  }
+
   retrieveStoreData(store, attrs) {
     return {
+      total: attrs.total || 0,
       price: attrs.price || 0,
       isEmpty: store.isEmpty(),
       discount: attrs.discount,
       positions: attrs.positions || [],
-      totalPrice: attrs.totalPrice || 0,
       deliveryPrice: attrs.deliveryPrice || 0,
     }
   }
@@ -54,7 +58,7 @@ export default class Delivery extends FormComponent {
 
   render() {
     const { className } = this.props;
-    const { form, price, deliveryPrice, totalPrice, discount } = this.state;
+    const { form, price, deliveryPrice, total, discount } = this.state;
     const { adapter } = this.context;
 
     return (
@@ -136,7 +140,7 @@ export default class Delivery extends FormComponent {
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Итого к оплате</div>
             <div className="Delivery__footer-value">
-              <Price value={totalPrice} />
+              <Price value={total} />
             </div>
           </div>
         </div>

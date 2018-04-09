@@ -1,49 +1,29 @@
 import * as keys from './constants';
 
 export default {
-  [keys.kFirstNameKey]: {
+  [keys.kManualInputAddressKey]: {},
+  [keys.kNameKey]: {
     presence: {
-      message: 'Не может быть пустым'
-    }
-  },
-  [keys.kLastNameKey]: {
-    presence: {
-      message: 'Не может быть пустым'
-    }
-  },
-  [keys.kMiddleNameKey]: {
-    presence: {
+      allowEmpty: false,
       message: 'Не может быть пустым'
     }
   },
   [keys.kEmailKey]: {
     presence: {
+      allowEmpty: false,
       message: 'Не может быть пустым'
     },
     email: true,
   },
-  [keys.kAddressKey]: {
-    presence: {
-      message: 'Не может быть пустым'
-    }
-  },
   [keys.kPostalCodeKey]: {
     presence: {
+      allowEmpty: false,
       message: 'Не может быть пустым'
     },
   },
   [keys.kPhoneKey]: {
     presence: {
-      message: 'Не может быть пустым'
-    }
-  },
-  [keys.kRegionKey]: {
-    presence: {
-      message: 'Не может быть пустым'
-    }
-  },
-  [keys.kCityKey]: {
-    presence: {
+      allowEmpty: false,
       message: 'Не может быть пустым'
     }
   },
@@ -51,12 +31,38 @@ export default {
     length: { maximum: 140 }
   },
 
-  [keys.kBuildingKey]: {},
   [keys.kRoomKey]:{},
+  [keys.kCityKey]: {},
   [keys.kHouseKey]: {},
+  [keys.kRegionKey]: {},
   [keys.kStreetKey]: {},
+  [keys.kAddressKey]: {},
   [keys.kGeoPointKey]:{},
   [keys.kCountryKey]: {},
   [keys.kDistrictKey]: {},
-  [keys.kManualInputAddressKey]: {}
+  [keys.kBuildingKey]: {},
+};
+
+export const manualConstraints = {
+  [keys.kRegionKey]: {
+    presence: {
+      allowEmpty: false,
+      message: 'Не может быть пустым'
+    }
+  },
+  [keys.kCityKey]: {
+    presence: {
+      allowEmpty: false,
+      message: 'Не может быть пустым'
+    }
+  },
+};
+
+export const autoConstraints = {
+  [keys.kAddressKey]: {
+    presence: {
+      allowEmpty: false,
+      message: 'Не может быть пустым'
+    }
+  }
 };

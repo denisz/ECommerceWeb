@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import history from 'core/history';
 import { NavComponent, NavAdapter } from 'modules/NavController';
 import transitions from './transitions';
 import './CartDetail.css';
@@ -16,6 +17,10 @@ export default class CartDetail extends Component {
   navAdapterDidUpdate(adapter) {
     window.scrollTo(0,0);
     this.setState({ adapter });
+  }
+
+  navAdapterDidRichEnd() {
+    history.push("/");
   }
 
   render() {

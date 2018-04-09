@@ -49,6 +49,14 @@
   border-radius: 6px;
 }
 
+
+.Address input[type="number"]::-webkit-outer-spin-button,
+.Address input[type="number"]::-webkit-inner-spin-button {
+  /* display: none; <- Crashes Chrome on hover */
+  -webkit-appearance: none;
+  margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
 .Address .form-control:focus {
   border-color: #454f5b !important;
   box-shadow: none;
