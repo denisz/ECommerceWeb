@@ -13,6 +13,10 @@
   justify-content: center;
 }
 
+.Sale-product__picture_container {
+  position: relative;
+}
+
 .Sale-product__picture {
   width: 270px;
   height: 300px;

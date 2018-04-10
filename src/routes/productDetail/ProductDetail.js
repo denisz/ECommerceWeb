@@ -120,10 +120,13 @@ export default class ProductDetail extends StoreComponent {
                     onChange={(a) => {
                       this.setState({amount: a});
                     }}
+                    disabled={quantity === 0}
                     max={quantity}
                 />
               </div>
-              <Button onClick={this.handleCart}
+              <Button
+                  disabled={quantity === 0}
+                  onClick={this.handleCart}
                       className="Product-detail__cart">
                 В корзину
               </Button>

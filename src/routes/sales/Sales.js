@@ -61,6 +61,7 @@ export default class Sales extends QueryComponent {
                 producer={i.producer}
                 discount={i.discount}
                 pictures={i.pictures}
+                quantity={i.quantity}
                 onClick={()=>(history.push(`/product/${i.SKU}`))}
                 onAdd={this.handleAdd(i)}
                 className="Sales__table-item__product"

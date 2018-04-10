@@ -33,6 +33,7 @@ export default class Table extends QueryComponent {
               discount={i.discount}
               pictures={i.pictures}
               producer={i.producer}
+              quantity={i.quantity}
               onClick={()=>(history.push(`/product/${i.SKU}`))}
             />)
           }
