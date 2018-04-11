@@ -8,6 +8,7 @@ import Payments from './payments';
 import NotFound from './notFound';
 import Forbidden from './forbidden';
 import CartDetail from './cartDetail';
+import OrderDetail from './orderDetail';
 import ProductDetail from './productDetail';
 
 export default {
@@ -18,6 +19,7 @@ export default {
     Error,
     Products,
     CartDetail,
+    OrderDetail,
     ProductDetail,
     Shipment,
     Payments,

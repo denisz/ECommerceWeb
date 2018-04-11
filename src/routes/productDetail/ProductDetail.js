@@ -1,15 +1,16 @@
 import React from 'react';
-import {StoreComponent} from 'modules/Flux';
 import Product from 'flux/Product';
 import Notation from 'flux/Notation';
 import Actions from 'flux/CartActions';
-import Carousel from 'components/Carousel';
-import Button from 'components/Button';
+import Sold from 'components/Sold';
+import List from 'components/List';
 import Title from 'components/Title';
 import Image from 'components/Image';
 import Range from 'components/Range';
-import List from 'components/List';
+import Button from 'components/Button';
+import Carousel from 'components/Carousel';
 import Currency from 'components/Currency';
+import {StoreComponent} from 'modules/Flux';
 import {toast} from 'react-toastify';
 import {css} from 'glamor';
 import './ProductDetail.css';
@@ -114,22 +115,32 @@ export default class ProductDetail extends StoreComponent {
               <div className="Product-detail__price">
                 <Currency value={price} discount={discount}/>
               </div>
-              <div className="Product-detail__range">
-                <Range
-                    value={amount}
-                    onChange={(a) => {
-                      this.setState({amount: a});
-                    }}
+              {
+                quantity > 0 &&
+                <div className="Product-detail__range">
+                  <Range
+                      value={amount}
+                      onChange={(a) => {
+                        this.setState({amount: a});
+                      }}
+                      disabled={quantity === 0}
+                      max={quantity}
+                  />
+                </div>
+              }
+              {
+                quantity > 0 &&
+                <Button
                     disabled={quantity === 0}
-                    max={quantity}
-                />
-              </div>
-              <Button
-                  disabled={quantity === 0}
-                  onClick={this.handleCart}
-                      className="Product-detail__cart">
-                В корзину
-              </Button>
+                    onClick={this.handleCart}
+                    className="Product-detail__cart">
+                  В корзину
+                </Button>
+              }
+              {
+                quantity <= 0 &&
+                <div className="Product-detail__sold">Нет в наличии</div>
+              }
             </div>
           </div>
           <div className="Product-detail__row">

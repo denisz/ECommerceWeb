@@ -4,8 +4,48 @@
     max-width: 1024px;
 }
 
+.Order-detail__table {
+    margin: 1rem 0;
+}
+
+.Order-detail__table.table thead th {
+    border-bottom: none;
+}
+
+.Order-detail__table.table td {
+    vertical-align: middle;
+}
+
+.Order-detail__price {
+    align-items: start;
+}
+
+.Order-detail__address {
+
+}
+
+.Order-detail__button-toolbar {
+
+}
+
+.Order-detail__back {
+    width: 180px;
+    padding: 0 10px;
+    margin-left: 40px;
+}
+
+
 @media (max-width: 767px) {
     .Order-detail {
 
     }
+
+    .Order-detail__button-toolbar {
+        justify-content: center;
+    }
+
+    .Order-detail__back {
+        margin: 5px;
+    }
 }
+

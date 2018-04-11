@@ -52,7 +52,7 @@ export default class Positions extends StoreComponent {
             positions
               .map((i)=><Position
 
-              price={i.price}
+              price={i.total}
               amount={i.amount}
               key={i.productSKU}
               discount={i.discount}

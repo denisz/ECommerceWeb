@@ -40,21 +40,27 @@ export default class SaleProduct extends Component {
             <div className="Sale-product__price">
               <Currency value={price} discount={discount}/>
             </div>
-            <div className="Sale-product__range">
-              <Range
-                  min={Math.min(1, quantity)}
-                  max={2}
-                  value={amount}
+            {
+              quantity > 0 &&
+              <div className="Sale-product__range">
+                <Range
+                    min={Math.min(1, quantity)}
+                    max={2}
+                    value={amount}
+                    disabled={quantity === 0}
+                    onChange={a => {
+                      this.setState({amount: a});
+                    }}/>
+              </div>
+            }
+            {
+              quantity > 0 &&
+              <Button
                   disabled={quantity === 0}
-                  onChange={a => {
-                    this.setState({amount: a});
-                  }}/>
-            </div>
-            <Button
-                disabled={quantity === 0}
-                onClick={this.handleCart}>
-              В корзину
-            </Button>
+                  onClick={this.handleCart}>
+                В корзину
+              </Button>
+            }
           </div>
         </div>
     );

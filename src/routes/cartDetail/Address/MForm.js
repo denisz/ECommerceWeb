@@ -12,7 +12,7 @@ export default class MFormImpl extends MForm {
 
   getDefaultConstraints() {
     const isManual = !!this.getObject(keys.kManualInputAddressKey);
-    console.log(isManual);
+
     if (isManual) {
       return {...constraints, ...manualConstraints};
     }

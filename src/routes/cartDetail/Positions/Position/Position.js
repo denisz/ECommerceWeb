@@ -7,7 +7,7 @@ import { Price } from 'components/Currency';
 import './Position.css';
 
 const noop = ()=>{};
-export default ({ className, pictures, name, price, discount, producer, form, amount, onClick = noop, onDelete = noop, onChange = noop}) => (
+export default ({ className, pictures, name, price, producer, form, amount, onClick = noop, onDelete = noop, onChange = noop}) => (
   <div className={cx('Position', className)}>
     <Picture
       src={`img/${pictures[0]}`}
@@ -30,7 +30,7 @@ export default ({ className, pictures, name, price, discount, producer, form, am
       </div>
 
       <div className="Position__price">
-        <Price value={price} discount={discount} />
+        <Price value={price} />
       </div>
     </div>
 

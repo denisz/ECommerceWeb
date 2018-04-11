@@ -95,7 +95,6 @@ export default class Address extends FormComponent {
                 <TextField
                     required
                     name="ship-zip"
-                    type="number"
                     autoComplete="shipping postal-code"
                     placeholder="Индекс"
                     value={form.getObject(keys.kPostalCodeKey)}

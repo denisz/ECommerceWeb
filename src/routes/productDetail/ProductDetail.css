@@ -14,8 +14,15 @@
 }
 
 .Product-detail__view {
+  position: relative;
   display: flex;
   flex-direction: column;
+}
+
+.Product-detail__sold {
+  text-align: center;
+  font-size: 20px;
+  color: orangered;
 }
 
 .Product-detail__info {

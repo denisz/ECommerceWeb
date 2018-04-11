@@ -25,11 +25,11 @@ export default class Delivery extends FormComponent {
   retrieveStoreData(store, attrs) {
     return {
       total: attrs.total || 0,
-      price: attrs.price || 0,
-      isEmpty: store.isEmpty(),
       discount: attrs.discount,
-      positions: attrs.positions || [],
       deliveryPrice: attrs.deliveryPrice || 0,
+      isEmpty: store.isEmpty(),
+      subtotal: attrs.subtotal || 0,
+      positions: attrs.positions || [],
     }
   }
 
@@ -58,7 +58,7 @@ export default class Delivery extends FormComponent {
 
   render() {
     const { className } = this.props;
-    const { form, price, deliveryPrice, total, discount } = this.state;
+    const { form, subtotal, deliveryPrice, total } = this.state;
     const { adapter } = this.context;
 
     return (
@@ -126,7 +126,7 @@ export default class Delivery extends FormComponent {
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Цена товара</div>
             <div className="Delivery__footer-value">
-              <Price value={price} discount={discount} />
+              <Price value={subtotal} />
             </div>
           </div>
 
