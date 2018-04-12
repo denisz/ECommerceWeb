@@ -58,7 +58,7 @@ export default class Delivery extends FormComponent {
 
   render() {
     const { className } = this.props;
-    const { form, subtotal, deliveryPrice, total, discount } = this.state;
+    const { form, subtotal, deliveryPrice, total } = this.state;
     const { adapter } = this.context;
 
     return (

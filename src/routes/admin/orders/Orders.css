@@ -1,0 +1,14 @@
+.Orders {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 10px 15px 50px;
+}
+
+.Orders__item {
+
+}
+
+.Orders__item_sale {
+    color: black !important;
+    font-size: 1em !important;
+}

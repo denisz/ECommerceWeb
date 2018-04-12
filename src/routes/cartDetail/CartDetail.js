@@ -23,7 +23,7 @@ export default class CartDetail extends Component {
   navAdapterDidRichEnd() {
     //перейти на страницу заказа
     const invoice = Cart.invoice;
-    history.push(`/order/${invoice}`);
+    history.push(`/order/check/${invoice}`);
   }
 
   render() {

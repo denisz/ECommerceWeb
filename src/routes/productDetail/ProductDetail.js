@@ -2,7 +2,6 @@ import React from 'react';
 import Product from 'flux/Product';
 import Notation from 'flux/Notation';
 import Actions from 'flux/CartActions';
-import Sold from 'components/Sold';
 import List from 'components/List';
 import Title from 'components/Title';
 import Image from 'components/Image';

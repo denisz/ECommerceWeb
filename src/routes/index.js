@@ -1,5 +1,6 @@
 import Error from './error';
 import Sales from './sales';
+import Admin from './admin';
 import Landing from './landing';
 import Products from './products';
 import Privacy from './privacy';
@@ -14,6 +15,7 @@ import ProductDetail from './productDetail';
 export default {
   path: '/',
   children: [
+    Admin,
     Landing,
     Sales,
     Error,
@@ -27,7 +29,7 @@ export default {
     Forbidden,
     NotFound,
   ],
-  async action({ next }) {
+  async action({ next }, context) {
     // Execute each child route until one of them return the result
     const route = await next();
 

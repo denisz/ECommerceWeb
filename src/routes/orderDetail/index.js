@@ -4,7 +4,7 @@ import OrderActions from 'flux/OrderActions';
 import OrderDetail from './OrderDetail';
 
 export default {
-  path: '/order/:invoice',
+  path: '/order/check/:invoice',
   async action({params: {invoice}}) {
     await OrderActions.fetch(invoice);
 

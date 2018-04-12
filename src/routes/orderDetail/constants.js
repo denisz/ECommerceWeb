@@ -11,3 +11,4 @@ export const kDiscountKey = 'discount';
 export const kPositionsKey = 'positions';
 export const kCreatedAtKey = 'createdAt';
 export const kDeliveryPriceKey = 'deliveryPrice';
+

@@ -1,0 +1,27 @@
+.Login {
+  background: transparent;
+  min-height: 100%; /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Login___form {
+  width: 300px;
+}
+
+.Login__header {
+  text-align: center;
+  border-bottom: 1px solid #d3d3d3;
+  padding-bottom: 10px;
+}
+
+
+@media (max-width: 767px) {
+  .Login {
+    background: transparent;
+    width: 100%;
+    padding: 15px;
+  }
+}
