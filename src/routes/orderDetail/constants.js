@@ -10,5 +10,6 @@ export const kSubtotalKey = 'subtotal';
 export const kDiscountKey = 'discount';
 export const kPositionsKey = 'positions';
 export const kCreatedAtKey = 'createdAt';
+export const kProductPriceKey = 'productPrice';
 export const kDeliveryPriceKey = 'deliveryPrice';
 

@@ -16,8 +16,22 @@
     vertical-align: middle;
 }
 
+.Order-detail__dict {
+
+}
+
+.Order-detail__dict dt {
+    font-weight: normal;
+}
+
 .Order-detail__price {
     align-items: start;
+    min-height: auto;
+}
+
+.Order-detail__sale {
+    color: black !important;
+    font-size: 1em !important;
 }
 
 .Order-detail__address {

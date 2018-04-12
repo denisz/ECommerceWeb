@@ -11,7 +11,6 @@ import Address, {parse} from 'components/Address';
 import './Orders.css';
 import * as keys from './constants';
 import PropTypes from 'prop-types';
-import {kStatusCell} from './constants';
 
 export default class Orders extends QueryComponent {
   queryForRequest() {
@@ -55,7 +54,8 @@ export default class Orders extends QueryComponent {
               {
                 discount &&
                 <span className="d-flex flex-row align-items-center">
-                  Cкидка: <Sale {...order[keys.kDiscountKey]} className="Orders__item_sale"/>
+                  Cкидка: <Sale {...order[keys.kDiscountKey]}
+                                className="Orders__item_sale"/>
                 </span>
               }
             </div>
@@ -81,6 +81,7 @@ export default class Orders extends QueryComponent {
                 onSelect: this.handleRowClick,
                 bgColor: '#fff',
               }}
+              emptyView={() => 'Нет данных'}
               query={query}
               renderCell={this.renderCell}
           />
