@@ -32,6 +32,7 @@ export default class Positions extends StoreComponent {
   retrieveStoreData(store, attrs) {
     return {
       total: attrs.total || 0,
+      subtotal: attrs.subtotal || 0,
       isEmpty: store.isEmpty(),
       positions: attrs.positions || [],
     }

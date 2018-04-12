@@ -58,7 +58,7 @@ export default class Delivery extends FormComponent {
 
   render() {
     const { className } = this.props;
-    const { form, subtotal, deliveryPrice, total } = this.state;
+    const { form, subtotal, deliveryPrice, total, discount } = this.state;
     const { adapter } = this.context;
 
     return (
@@ -126,7 +126,7 @@ export default class Delivery extends FormComponent {
           <div className="Delivery__footer-row">
             <div className="Delivery__footer-label">Цена товара</div>
             <div className="Delivery__footer-value">
-              <Price value={subtotal} />
+              <Price value={subtotal}/>
             </div>
           </div>
 

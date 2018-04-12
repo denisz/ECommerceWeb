@@ -77,8 +77,6 @@ export default class ProductDetail extends StoreComponent {
       },
     } = this.state;
 
-    console.log(prescribing);
-
     return (
         <div className="Product-detail">
           <div className="Product-detail__row">

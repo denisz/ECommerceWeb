@@ -80,9 +80,7 @@ export default class Sales extends QueryComponent {
               покупок при оформлении заказа.
             </p>
             <p>
-              <h2>
-                При покупке на сумму:
-              </h2>
+              <h5>При покупке на сумму:</h5>
               <ul className="list-unstyled">
                 <li>от 6000 руб. - 2,5%</li>
                 <li>от 10 000 руб. - 5%</li>
