@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import history from 'core/history';
-import Cart from 'flux/Cart';
 import { NavComponent, NavAdapter } from 'modules/NavController';
 import transitions from './transitions';
 import './CartDetail.css';
@@ -21,9 +20,7 @@ export default class CartDetail extends Component {
   }
 
   navAdapterDidRichEnd() {
-    //перейти на страницу заказа
-    const invoice = Cart.invoice;
-    history.push(`/order/check/${invoice}`);
+    history.push(`/`);
   }
 
   render() {

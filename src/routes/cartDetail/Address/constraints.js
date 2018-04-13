@@ -9,11 +9,9 @@ export default {
     }
   },
   [keys.kEmailKey]: {
-    presence: {
-      allowEmpty: false,
-      message: 'Не может быть пустым'
-    },
-    email: true,
+    email: {
+      message: 'Некорректный email',
+    }
   },
   [keys.kPostalCodeKey]: {
     presence: {

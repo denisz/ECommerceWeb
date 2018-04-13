@@ -40,7 +40,7 @@ export default class Positions extends StoreComponent {
 
   render() {
     const { className } = this.props;
-    const { positions, total, isEmpty } = this.state;
+    const { positions, subtotal, isEmpty } = this.state;
     const { adapter } = this.context;
 
     if (isEmpty) return <EmptyCart/>;
@@ -78,7 +78,7 @@ export default class Positions extends StoreComponent {
           <div className="Positions__footer-row">
             <div className="Positions__footer-label">Цена товара</div>
             <div className="Positions__footer-value">
-              <Price value={total} />
+              <Price value={subtotal} />
             </div>
           </div>
         </div>

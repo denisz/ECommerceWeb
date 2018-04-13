@@ -1,53 +1,53 @@
-.Order-detail {
-    padding: 10px;
+.Review {
     margin: 0 auto;
     max-width: 1024px;
 }
 
-.Order-detail__table {
+.Review__table {
     margin: 1rem 0;
 }
 
-.Order-detail__table.table thead th {
+.Review__table.table thead th {
     border-bottom: none;
 }
 
-.Order-detail__table.table td {
+.Review__table.table td {
     vertical-align: middle;
 }
 
-.Order-detail__dict {
+.Review__dict {
 
 }
 
-.Order-detail__dict dt {
+.Review__dict dt {
     font-weight: normal;
 }
 
-.Order-detail__price {
+.Review__price {
     align-items: start;
     min-height: auto;
 }
 
-.Order-detail__name {
+.Review__name {
     color: black;
     line-height: 1em;
 }
 
-.Order-detail__sale {
+.Review__sale {
     color: black !important;
     font-size: 1em !important;
 }
 
-.Order-detail__address {
+.Review__address {
 
 }
 
-.Order-detail__button-toolbar {
+.Review__button-toolbar {
 
 }
 
-.Order-detail__back {
+.Review__btn_edit,
+.Review__btn_next {
     width: 180px;
     padding: 0 10px;
     margin-left: 40px;
@@ -55,15 +55,16 @@
 
 
 @media (max-width: 767px) {
-    .Order-detail {
+    .Review {
 
     }
 
-    .Order-detail__button-toolbar {
+    .Review__button-toolbar {
         justify-content: center;
     }
 
-    .Order-detail__back {
+    .Review__btn_edit,
+    .Review__btn_next {
         margin: 5px;
     }
 }

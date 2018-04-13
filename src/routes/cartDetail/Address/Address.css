@@ -10,27 +10,6 @@
 
 }
 
-.Address .form-group.has-error {
-}
-
-.Address .form-group .help-block {
-  font-size: 12px;
-}
-
-.Address .form-group.has-error .help-block {
-  color: #e83c19
-}
-
-.Address .form-group.has-error .form-control {
-  border-color: #e83c19 !important;
-  color: #e83c19 !important;
-  box-shadow: none !important;
-}
-
-.Address .form-group.has-error .form-control::placeholder {
-  color: #e83c19;
-}
-
 .Address select.form-control:required:invalid {
   color: #637381;
 }

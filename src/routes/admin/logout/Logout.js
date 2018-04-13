@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import AuthActions from 'flux/AuthActions';
 import Link from 'components/Link';
+import history from 'core/history';
 import './Logout.css';
 
 export default class Logout extends Component {
@@ -12,6 +13,7 @@ export default class Logout extends Component {
   async componentWillMount() {
     try {
       await AuthActions.logout();
+      history.push('/');
     } catch ({ message }) {
       this.setState({ error: message });
     }

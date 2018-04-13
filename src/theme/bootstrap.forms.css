@@ -1,0 +1,22 @@
+.form-group.has-error {
+}
+
+.form-group .help-block {
+    font-size: 12px;
+}
+
+.form-group.has-error .help-block,
+.form-group.has-error .invalid-feedback{
+    color: #e83c19;
+    display: block;
+}
+
+.form-group.has-error .form-control {
+    border-color: #e83c19 !important;
+    color: #e83c19 !important;
+    box-shadow: none !important;
+}
+
+.form-group.has-error .form-control::placeholder {
+    color: #e83c19;
+}

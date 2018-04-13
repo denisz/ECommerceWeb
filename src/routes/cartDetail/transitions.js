@@ -1,7 +1,7 @@
 import React from 'react';
 import 'flux/Cart';
-import 'flux/Order';
 import CartActions from 'flux/CartActions';
+import Review from './Review';
 import Address from './Address';
 import Delivery from './Delivery';
 import Positions from './Positions';
@@ -39,6 +39,17 @@ export default [
     },
     async next(attrs) {
       await CartActions.delivery(attrs);
+    },
+    nextBtn: 'Save',
+    prevBtn: 'Back',
+  },
+  {
+    key: 'review',
+    title: 'Review',
+    async form() {
+      return props => <Review {...props} />;
+    },
+    async next() {
       await CartActions.checkout();
     },
     nextBtn: 'Save',

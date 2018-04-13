@@ -39,7 +39,7 @@ export default class Address extends FormComponent {
   }
 
   render() {
-    const {form} = this.state;
+    const {form, lock} = this.state;
     const {adapter} = this.context;
     const {className} = this.props;
 
@@ -260,6 +260,8 @@ export default class Address extends FormComponent {
                 onClick={adapter.handleBack}
                 className="Address__btn_edit">Изменить</Button>
             <Button
+                locked={lock.is()}
+                lock="Обработка..."
                 onClick={adapter.handleNext}
                 className="Address__btn_next">Продолжить</Button>
           </ButtonToolbar>
