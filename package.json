@@ -27,6 +27,7 @@
     "react-dom": "^16.2.0",
     "react-lazyload": "^2.3.0",
     "react-loaders": "^3.0.1",
+    "react-markdown": "^3.3.0",
     "react-maskedinput": "^4.0.1",
     "react-overlays": "^0.8.3",
     "react-sanfona": "^1.0.6",

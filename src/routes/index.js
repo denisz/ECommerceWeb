@@ -1,9 +1,9 @@
 import Error from './error';
 import Sales from './sales';
 import Admin from './admin';
+import Page from './page';
 import Landing from './landing';
 import Products from './products';
-import Privacy from './privacy';
 import Shipment from './shipment';
 import Payments from './payments';
 import NotFound from './notFound';
@@ -18,6 +18,7 @@ export default {
     Admin,
     Landing,
     Sales,
+    Page,
     Error,
     Products,
     CartDetail,
@@ -25,7 +26,6 @@ export default {
     ProductDetail,
     Shipment,
     Payments,
-    Privacy,
     Forbidden,
     NotFound,
   ],

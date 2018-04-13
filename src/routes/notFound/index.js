@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from 'components/Layout';
-
+import './NotFound.css'
 export default {
   path: '(.*)',
   action() {
@@ -9,10 +9,10 @@ export default {
       status: 404,
       component: (
         <Layout fullscreen>
-          <div className="vertical-center">
+          <div className="NotFound">
             <div className="container-fluid">
-              <h1 className="text-center">Page Not Found.</h1>
-              <p className="text-center">Go to <a href="/">Home Page</a></p>
+              <h3 className="text-center">Страница не найдена (404-я ошибка)</h3>
+              <p className="text-center"><a href="/">На главную</a></p>
             </div>
           </div>
         </Layout>

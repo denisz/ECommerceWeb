@@ -23,8 +23,8 @@ export default class Logout extends Component {
     return (
       <div className="Logout">
         <div className="container-fluid">
-          <h1 className="text-center">Вы покинули систему</h1>
-          <p className="text-center">Переход <Link to="/">на главную</Link></p>
+          <h3 className="text-center">Вы покинули систему</h3>
+          <p className="text-center"><Link to="/">На главную</Link></p>
         </div>
       </div>
     );

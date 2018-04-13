@@ -5,6 +5,7 @@ import Title from 'components/Title';
 import Button from 'components/Button';
 import {Price} from 'components/Currency';
 import Shipping from 'components/Shipping';
+import Dictionary from 'components/Dictionary';
 import Toolbar from 'components/ButtonToolbar';
 import Address, {parse} from 'components/Address';
 import {FormComponent} from 'modules/Flux';
@@ -66,25 +67,27 @@ export default class Review extends FormComponent {
             </tbody>
           </table>
 
-          <dl className="row Review__dict">
-            <dt className="col-sm-3 col-6">Цена товара:</dt>
-            <dd className="col-sm-9 col-6">
-              <Price value={form.getObject(keys.kProductPriceKey)}
-                     className="Review__price"/>
-            </dd>
-
-            <dt className="col-sm-3 col-6">Скидка:</dt>
-            <dd className="col-sm-9 col-6">
-              <Sale {...form.getObject(keys.kDiscountKey, {})}
-                    className="Review__sale"/>
-            </dd>
-
-            <dt className="col-sm-3 col-6">Цена со скидкой:</dt>
-            <dd className="col-sm-9 col-6">
-              <Price value={form.getObject(keys.kSubtotalKey)}
-                     className="Review__price"/>
-            </dd>
-          </dl>
+          <Dictionary
+              className="Review__dict"
+              pairs={[
+                {
+                  label: 'Цена товара:',
+                  value: <Price value={form.getObject(keys.kProductPriceKey)}
+                                className="Review__price"/>,
+                },
+                {
+                  // disabled: form.isNull(keys.kDiscountKey),
+                  label: 'Скидка:',
+                  value: <Sale {...form.getObject(keys.kDiscountKey, {})}
+                               className="Review__sale"/>,
+                },
+                {
+                  label: 'Цена со скидкой:',
+                  value: <Price value={form.getObject(keys.kSubtotalKey)}
+                                className="Review__price"/>,
+                },
+              ]}
+          />
 
           <h6 className="text-muted">
             <small>
@@ -94,25 +97,26 @@ export default class Review extends FormComponent {
             </small>
           </h6>
 
-          <dl className="row Review__dict">
-            <dt className="col-sm-3 col-6">Доставка:</dt>
-            <dd className="col-sm-9 col-6">
-              <Shipping {...form.getObject(keys.kDeliveryKey)}/>
-            </dd>
-
-            <dt className="col-sm-3 col-6">Цена доставки:</dt>
-            <dd className="col-sm-9 col-6">
-              <Price value={form.getObject(keys.kDeliveryPriceKey)}
-                     className="Review__price"/>
-            </dd>
-
-            <dt className="col-sm-3 col-6">Итого к оплате:</dt>
-            <dd className="col-sm-9 col-6">
-              <Price
-                  value={form.getObject(keys.kTotalKey)}
-                  className="Review__price"/>
-            </dd>
-          </dl>
+          <Dictionary
+              className="Review__dict"
+              pairs={[
+                {
+                  label: 'Доставка:',
+                  value: <Shipping {...form.getObject(keys.kDeliveryKey)}/>,
+                },
+                {
+                  label: 'Цена доставки:',
+                  value: <Price value={form.getObject(keys.kDeliveryPriceKey)}
+                                className="Review__price"/>,
+                },
+                {
+                  label: 'Итого к оплате:',
+                  value: <Price
+                      value={form.getObject(keys.kTotalKey)}
+                      className="Review__price"/>,
+                },
+              ]}
+          />
 
           <div className="Review__address">
             <Address {...parse(form.getObject(keys.kAddressKey, {}))}/>
