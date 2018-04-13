@@ -75,6 +75,7 @@ export default class Orders extends QueryComponent {
               allowSelect
               hideSelectColumn
               keyField={'id'}
+              className="Orders__table"
               headerStyle={{color: '#000', fontWeight: 400, fontSize: 14}}
               headers={keys.headers}
               optionsSelect={{

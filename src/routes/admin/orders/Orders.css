@@ -4,6 +4,12 @@
     padding: 10px 15px 50px;
 }
 
+.Orders__table {
+    overflow: auto;
+    display: block;
+    table-layout: auto;
+}
+
 .Orders__item {
 
 }
