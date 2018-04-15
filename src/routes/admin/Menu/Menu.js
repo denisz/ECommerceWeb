@@ -1,17 +1,16 @@
 import React from 'react';
 import Link from 'components/Link';
-import { slide as Menu } from 'react-burger-menu'
+import BurgerMenu from 'react-burger-menu';
 import './Menu.css';
-
 
 const menus = [
   {
     title: 'Магазин',
-    route: '/'
+    route: '/',
   },
   {
     title: 'Статистика',
-    route: '/admin/dashboard'
+    route: '/admin/dashboard',
   },
   {
     title: 'Заказы',
@@ -19,19 +18,29 @@ const menus = [
   },
   {
     title: 'Отчеты',
-    route: '/admin'
+    route: '/admin',
+  },
+  {
+    title: 'Команды',
+    route: '/admin/commands',
   },
   {
     title: 'Выход',
-    route: '/admin/logout'
-  }
+    route: '/admin/logout',
+  },
 ];
 
-export default ({ children }) => (
+const Menu = BurgerMenu['slide'];
+
+export default ({children}) => (
     <div id="outer-container" className="Menu">
-      <Menu pageWrapId={'page-wrap'} outerContainerId={'outer-container'}>
+      <Menu
+          width={ 230 }
+          pageWrapId={'page-wrap'}
+          outerContainerId={'outer-container'}
+      >
         {
-          menus.map((i, idx)=>(
+          menus.map((i, idx) => (
               <Link key={idx} className="Menu__nav_item" to={i.route}>
                 <span>{i.title}</span>
               </Link>
@@ -43,7 +52,7 @@ export default ({ children }) => (
           <div className="Menu__brand">Dark Waters</div>
           <div className="Menu__nav">
             {
-              menus.map((i, idx)=>(
+              menus.map((i, idx) => (
                   <Link key={idx} className="Menu__nav_item" to={i.route}>
                     <span>{i.title}</span>
                   </Link>

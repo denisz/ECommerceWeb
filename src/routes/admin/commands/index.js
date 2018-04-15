@@ -1,16 +1,16 @@
 import React from 'react';
 import Layout from 'components/Layout';
 import Menu from '../Menu';
-import Orders from './Orders';
+import Commands from './Commands';
 
 export default {
-  path: '/orders',
+  path: '/commands',
   async action() {
     return {
-      title: 'Заказы',
+      title: 'Панель',
       component: (
           <Layout fullscreen>
-            <Menu><Orders /></Menu>
+            <Menu><Commands/></Menu>
           </Layout>
       ),
     };
