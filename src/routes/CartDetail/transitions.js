@@ -1,10 +1,12 @@
 import React from 'react';
 import 'flux/Cart';
+import {toast} from 'react-toastify';
 import CartActions from 'flux/CartActions';
 import Review from './Review';
 import Address from './Address';
 import Delivery from './Delivery';
 import Positions from './Positions';
+import {css} from 'glamor';
 
 export default [
   {
@@ -51,6 +53,16 @@ export default [
     },
     async next() {
       await CartActions.checkout();
+
+      toast.info(`Спасибо, Ваш заказ принят`, {
+        hideProgressBar: true,
+        position: toast.POSITION.TOP_CENTER,
+        autoClose: 200000,
+        className: css({
+          top: 40,
+          minHeight: 40,
+        }),
+      });
     },
     nextBtn: 'Save',
     prevBtn: 'Back',

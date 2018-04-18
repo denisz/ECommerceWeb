@@ -1,16 +1,20 @@
 import React from 'react';
 import {QueryComponent, QueryTableView} from 'modules/QueryController';
+import {DialogFactory} from 'modules/Form';
 import QueryManager from 'flux/QueryManager';
-import Title from 'components/Title';
 import Sale from 'components/Sale';
 import Date from 'components/Date';
-import Shipping from 'components/Shipping';
+import Title from 'components/Title';
 import {Price} from 'components/Currency';
+import Shipping from 'components/Shipping';
 import Status from 'components/OrderStatus';
 import Address, {parse} from 'components/Address';
+import OrderEdit from 'dialogs/OrderEdit';
 import './Orders.css';
 import * as keys from './constants';
 import PropTypes from 'prop-types';
+
+const kDialogKey = 'dialog';
 
 export default class Orders extends QueryComponent {
   queryForRequest() {
@@ -18,7 +22,14 @@ export default class Orders extends QueryComponent {
   }
 
   handleRowClick = (row) => {
-    console.log(row);
+    const {dialogs} = this.state;
+
+    dialogs.showDialog(kDialogKey, {
+      header: `Order ${row.invoice}`,
+      showHeader: true,
+      Component: <OrderEdit value={row}/>,
+    });
+
   };
 
   renderCell = (cell, order) => {
@@ -66,27 +77,31 @@ export default class Orders extends QueryComponent {
   };
 
   render() {
-    const {query} = this.state;
+    const {query, dialogs} = this.state;
 
     return (
         <div className="Orders">
           <Title>Заказы</Title>
-          <QueryTableView
-              allowSelect
-              hideSelectColumn
-              keyField={'id'}
-              classNameContainer="Orders__table_wrapper"
-              className="Orders__table"
-              headerStyle={{color: '#000', fontWeight: 400, fontSize: 14}}
-              headers={keys.headers}
-              optionsSelect={{
-                onSelect: this.handleRowClick,
-                bgColor: '#fff',
-              }}
-              emptyView={() => 'Нет данных'}
-              query={query}
-              renderCell={this.renderCell}
+          <QueryTableView allowSelect
+                          hideSelectColumn
+                          keyField={'id'}
+                          classNameContainer="Orders__table_wrapper"
+                          className="Orders__table"
+                          headerStyle={{
+                            color: '#000',
+                            fontWeight: 400,
+                            fontSize: 14,
+                          }}
+                          headers={keys.headers}
+                          optionsSelect={{
+                            onSelect: this.handleRowClick,
+                            bgColor: '#fff',
+                          }}
+                          emptyView={() => 'Нет данных'}
+                          query={query}
+                          renderCell={this.renderCell}
           />
+          <DialogFactory dialogKey={kDialogKey} dialogs={dialogs}/>
         </div>
     );
   }

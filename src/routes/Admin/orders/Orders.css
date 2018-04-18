@@ -5,13 +5,11 @@
 }
 
 .Orders__table {
-    /*overflow: auto;*/
-    /*display: block;*/
-    /*table-layout: auto;*/
+    /*pointer-events: none;*/
 }
 
 .Orders__table_wrapper .react-bootstrap-table {
-    overflow-x: auto;
+    /*overflow-x: scroll;*/
 }
 
 .Orders__item {

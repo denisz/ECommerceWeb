@@ -77,3 +77,19 @@ img {
 }
 
 
+.slick-dots li {
+  width: 36px;
+  height: 4px;
+}
+
+.slick-dots li button {
+  width: 36px;
+  height: 4px;
+}
+
+.slick-dots li button:before {
+  width: 36px;
+  height: 4px;
+  font-size: 0;
+  background-color: black;
+}

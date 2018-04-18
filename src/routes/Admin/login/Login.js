@@ -37,33 +37,30 @@ export default class Login extends FormComponent {
 
             <FormGroupValidate tabindex={-1} ref={kUserUsernameKey}
                                className="form-group">
-              <TextField
-                  label="Логин"
-                  type="text"
-                  id="inputEmail"
-                  placeholder="Введите логин"
-                  value={form.getObject(kUserUsernameKey)}
-                  onChange={form.wrapperChange(kUserUsernameKey)}
+              <TextField label="Логин"
+                         type="text"
+                         id="inputEmail"
+                         placeholder="Введите логин"
+                         value={form.getObject(kUserUsernameKey)}
+                         onChange={form.wrapperChange(kUserUsernameKey)}
               />
             </FormGroupValidate>
 
             <FormGroupValidate tabindex={-2} ref={kUserPasswordKey}
                                className="form-group">
-              <TextField
-                  label="Пароль"
-                  type="password"
-                  id="inputPassword"
-                  placeholder="Введите пароль"
-                  value={form.getObject(kUserPasswordKey)}
-                  onChange={form.wrapperChange(kUserPasswordKey)}
+              <TextField label="Пароль"
+                         type="password"
+                         id="inputPassword"
+                         placeholder="Введите пароль"
+                         value={form.getObject(kUserPasswordKey)}
+                         onChange={form.wrapperChange(kUserPasswordKey)}
               />
             </FormGroupValidate>
 
             <ButtonToolbar center>
-              <Button
-                  locked={lock.is()}
-                  lock="Обработка..."
-                  onClick={this.onSubmit}>Вход
+              <Button locked={lock.is()}
+                      lock="Обработка..."
+                      onClick={this.onSubmit}>Вход
               </Button>
             </ButtonToolbar>
 

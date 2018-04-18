@@ -1,16 +1,16 @@
-import Error from './error';
-import Sales from './sales';
-import Admin from './admin';
-import Page from './page';
-import Landing from './landing';
-import Products from './products';
-import Shipment from './shipment';
-import Payments from './payments';
-import NotFound from './notFound';
-import Forbidden from './forbidden';
-import CartDetail from './cartDetail';
-import OrderDetail from './orderDetail';
-import ProductDetail from './productDetail';
+import Error from './Error';
+import Sales from './Sales';
+import Admin from './Admin';
+import Page from './Page';
+import Landing from './Landing';
+import Products from './Products';
+import Shipment from './Shipment';
+import Payments from './Payments';
+import NotFound from './NotFound';
+import Forbidden from './Forbidden';
+import CartDetail from './CartDetail';
+import OrderDetail from './OrderDetail';
+import ProductDetail from './ProductDetail';
 
 export default {
   path: '/',
