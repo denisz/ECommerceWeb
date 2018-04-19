@@ -112,6 +112,10 @@
     width: 100%;
   }
 
+  .Product-detail__carousel_title {
+    font-size: 30px;
+  }
+
   .Product-detail__range {
     justify-content: center;
   }

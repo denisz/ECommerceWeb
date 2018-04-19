@@ -72,6 +72,7 @@ export default class ProductDetail extends StoreComponent {
         prescribing,
         description,
         effects,
+        matrix,
         composition,
       },
     } = this.state;
@@ -153,15 +154,18 @@ export default class ProductDetail extends StoreComponent {
                     title: 'Описание',
                     body: description || defaultText,
                   },
-                  effects
-                      ? {
-                        title: 'Эффекты',
-                        body: <List text={effects} />,
-                      }
-                      : {
-                        title: 'Исследования',
-                        body: research || defaultText,
-                      },
+                  effects ? {
+                    title: 'Эффекты',
+                    body: <List text={effects}/>,
+                  } : null,
+                  research ? {
+                    title: 'Исследования',
+                    body: research,
+                  } : null,
+                  matrix ? {
+                    title: 'Рабочая матрица',
+                    body: matrix,
+                  } : null,
                   {
                     title: 'Рекомендации',
                     body: prescribing || defaultText,
@@ -170,9 +174,9 @@ export default class ProductDetail extends StoreComponent {
                     title: 'Состав',
                     body: composition || defaultText,
                   },
-                ].map(({body, title}, idx) => (
+                ].filter(x => x).map(({body, title}, idx) => (
                     <div key={idx} className="Product-detail__text">
-                      <Title>{title}</Title>
+                      <Title className="Product-detail__carousel_title">{title}</Title>
                       <div>{body}</div>
                     </div>
                 ))

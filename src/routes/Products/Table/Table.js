@@ -22,7 +22,7 @@ export default class Table extends QueryComponent {
       <div className={cx('Table-Products', className)}>
         <div className="Table-Products__grid">
           {
-            query.isLoading() && <Loading size="big" color="teal" />
+            query.isLoading() && <Loading size="big" color="black" />
           }
           {
             query.map( i => <Product

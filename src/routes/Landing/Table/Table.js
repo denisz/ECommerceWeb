@@ -24,7 +24,7 @@ export default class Table extends QueryComponent {
 
     return (
       <div className={cx('Table-Collections', this.props.className)}>
-        { query.isLoading() && <Loading size="big" color="teal" /> }
+        { query.isLoading() && <Loading size="big" color="black" /> }
         {
           query.map((i)=><Collection
             key={i.id}
