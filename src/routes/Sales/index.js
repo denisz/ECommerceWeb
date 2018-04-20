@@ -7,7 +7,7 @@ export default {
   async action() {
     return {
       title: '',
-      component: <Layout><Sales/></Layout>,
+      component: <Layout fill><Sales/></Layout>,
     };
   }
 };

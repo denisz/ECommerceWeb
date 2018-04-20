@@ -16,7 +16,7 @@ export default {
         return {
           title: Collection.get('name'),
           component: (
-            <Layout>
+            <Layout fill>
               <Products
                 page={parseInt(page, 10)}
                 sku={sku}
@@ -36,7 +36,7 @@ export default {
         return {
           title: Collection.get('name'),
           component: (
-            <Layout>
+            <Layout fill>
               <Products
                 sku={sku}
                 key={`products-${sku}`}

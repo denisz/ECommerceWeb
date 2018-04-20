@@ -79,17 +79,17 @@ img {
 
 .slick-dots li {
   width: 36px;
-  height: 4px;
+  height: 2px;
 }
 
 .slick-dots li button {
   width: 36px;
-  height: 4px;
+  height: 2px;
 }
 
 .slick-dots li button:before {
   width: 36px;
-  height: 4px;
+  height: 2px;
   font-size: 0;
   background-color: black;
 }

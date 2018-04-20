@@ -57,7 +57,7 @@ export default [
       toast.info(`Спасибо, Ваш заказ принят`, {
         hideProgressBar: true,
         position: toast.POSITION.TOP_CENTER,
-        autoClose: 200000,
+        autoClose: 4000,
         className: css({
           top: 40,
           minHeight: 40,

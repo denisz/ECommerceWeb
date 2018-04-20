@@ -25,6 +25,7 @@ const options = {
   }
 };
 
+let tmpLocationKey = null;
 const router = new UniversalRouter(routes, options);
 const container = document.getElementById('root');
 const scrollPositionsHistory = {};
@@ -33,7 +34,7 @@ if (window.history && 'scrollRestoration' in window.history) {
 }
 
 const renderBefore = (location, action) => (route) => {
-  scrollPositionsHistory[location.key] = {
+  scrollPositionsHistory[tmpLocationKey] = {
     scrollX: window.pageXOffset,
     scrollY: window.pageYOffset,
   };
@@ -46,6 +47,8 @@ const renderBefore = (location, action) => (route) => {
   if (action === 'PUSH') {
     delete scrollPositionsHistory[location.key];
   }
+
+  console.log('before', tmpLocationKey, scrollPositionsHistory[tmpLocationKey]);
 
   ReactDOM.render(<App>{route.component}</App>, container);
 
@@ -61,7 +64,10 @@ const renderAfter = (location, action) => (route) => {
 
   let scrollX = 0;
   let scrollY = 0;
+
   const pos = scrollPositionsHistory[location.key];
+  tmpLocationKey = location.key;
+  console.log('after', tmpLocationKey, pos);
   if (pos) {
     scrollX = pos.scrollX;
     scrollY = pos.scrollY;
@@ -75,7 +81,7 @@ const renderAfter = (location, action) => (route) => {
     }
   }
 
-  window.scrollTo(scrollX, scrollY);
+  setTimeout(()=>{ window.scrollTo(scrollX, scrollY); }, 100);
 
   // Google Analytics tracking. Don't send 'pageview' event after
   // the initial rendering, as it was already sent

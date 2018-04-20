@@ -18,7 +18,7 @@ export default {
 
         return {
           title: Product.get('name', 'Store'),
-          component: <Layout><ProductDetail key={`product-${id}`}/></Layout>,
+          component: <Layout fill><ProductDetail key={`product-${id}`}/></Layout>,
         };
       },
     }
