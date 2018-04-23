@@ -27,7 +27,10 @@ export default class Orders extends QueryComponent {
     dialogs.showDialog(kDialogKey, {
       header: `Order ${row.invoice}`,
       showHeader: true,
-      Component: <OrderEdit value={row}/>,
+      size: 'large',
+      Component: <OrderEdit submitCancel
+                            value={row}
+                            onSubmit={console.log}/>,
     });
 
   };
