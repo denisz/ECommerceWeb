@@ -8,12 +8,20 @@
     /*pointer-events: none;*/
 }
 
+.Orders__table.table td {
+    padding: 0.3em;
+}
+
 .Orders__table_wrapper .react-bootstrap-table {
     /*overflow-x: scroll;*/
 }
 
 .Orders__item {
+    font-size: 0.7em;
+}
 
+.Orders__currency_price {
+    min-height: auto;
 }
 
 .Orders__item_sale {

@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import UniversalRouter from 'universal-router';
+import animateScrollTo from 'animated-scroll-to';
 import history from 'core/history';
 import { updateMeta } from 'core/DOMUtils';
 import { createPath } from 'history/PathUtils';
@@ -81,7 +82,12 @@ const renderAfter = (location, action) => (route) => {
     }
   }
 
-  setTimeout(()=>{ window.scrollTo(scrollX, scrollY); }, 100);
+  setTimeout(()=>{
+    animateScrollTo(scrollY, {
+      speed: 100
+    });
+    // window.scrollTo(scrollX, scrollY);
+    }, 100);
 
   // Google Analytics tracking. Don't send 'pageview' event after
   // the initial rendering, as it was already sent

@@ -17,24 +17,31 @@ export const kStatusCell = 'status';
 export const kCreatedAtCell = 'createdAt';
 export const kDeliveryCell = 'delivery';
 export const kAddressCell = 'address';
+export const kInvoiceCell = 'invoice';
 export const kTotalCell = 'total';
+export const kDateAndInvoiceCell = 'dateAndInvoice';
 
 export const headers = [
   {
-    dataField: kCreatedAtCell,
-    title: 'Дата',
+    dataField: kDateAndInvoiceCell,
+    title: 'Заказ',
     width: 200,
   },
-  {
-    dataField: kAddressCell,
-    title: 'Адрес',
-    width: 200,
-  },
-  {
-    dataField: kDeliveryCell,
-    title: 'Доставка',
-    width: 200,
-  },
+  // {
+  //   dataField: kInvoiceCell,
+  //   title: 'Номер',
+  //   width: 200,
+  // },
+  // {
+  //   dataField: kAddressCell,
+  //   title: 'Адрес',
+  //   width: 200,
+  // },
+  // {
+  //   dataField: kDeliveryCell,
+  //   title: 'Доставка',
+  //   width: 200,
+  // },
   {
     dataField: kTotalCell,
     title: 'Цена',

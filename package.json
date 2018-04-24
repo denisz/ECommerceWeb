@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "animated-scroll-to": "^1.2.0",
     "babel-cli": "^6.26.0",
     "babel-polyfill": "^6.26.0",
     "classnames": "^2.2.5",

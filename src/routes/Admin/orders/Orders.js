@@ -5,6 +5,7 @@ import QueryManager from 'flux/QueryManager';
 import Sale from 'components/Sale';
 import Date from 'components/Date';
 import Title from 'components/Title';
+import Invoice from 'components/Invoice';
 import {Price} from 'components/Currency';
 import Shipping from 'components/Shipping';
 import Status from 'components/OrderStatus';
@@ -13,6 +14,7 @@ import OrderEdit from 'dialogs/OrderEdit';
 import './Orders.css';
 import * as keys from './constants';
 import PropTypes from 'prop-types';
+import {kDateAndInvoiceCell} from './constants';
 
 const kDialogKey = 'dialog';
 
@@ -36,7 +38,15 @@ export default class Orders extends QueryComponent {
   };
 
   renderCell = (cell, order) => {
+    const address = parse(order[keys.kAddressKey]);
     switch (cell) {
+      case keys.kDateAndInvoiceCell:
+        return (
+            <div className="Orders__item">
+              <Invoice value={order[keys.kInvoiceKey]} />
+              <Date value={order[keys.kCreatedAtKey]}/>
+              <div>{address.name}</div>
+            </div>);
       case keys.kStatusCell:
         return (
             <div className="Orders__item">
@@ -48,6 +58,12 @@ export default class Orders extends QueryComponent {
               <Date value={order[keys.kCreatedAtKey]}/>
             </div>
         );
+      case keys.kInvoiceCell:
+        return (
+            <div className="Orders__item">
+              <Invoice value={order[keys.kInvoiceKey]} />
+            </div>
+        );
       case keys.kDeliveryCell:
         return (
             <div className="Orders__item">
@@ -57,18 +73,18 @@ export default class Orders extends QueryComponent {
       case keys.kAddressCell:
         return (
             <div className="Orders__item">
-              <Address {...parse(order[keys.kAddressKey])}/>
+              <Address {...address}/>
             </div>);
       case keys.kTotalCell:
         const discount = order[keys.kDiscountKey];
 
         return (
             <div className="Orders__item">
-              <Price value={order[keys.kTotalKey]}/>
+              <Price value={order[keys.kTotalKey]} className="Orders__currency_price"/>
               {
                 discount &&
                 <span className="d-flex flex-row align-items-center">
-                  Cкидка: <Sale {...order[keys.kDiscountKey]}
+                  <Sale {...order[keys.kDiscountKey]}
                                 className="Orders__item_sale"/>
                 </span>
               }

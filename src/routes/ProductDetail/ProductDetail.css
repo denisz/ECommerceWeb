@@ -107,6 +107,18 @@
 }
 
 
+.Product-detail__toolbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Product-detail__describe {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 @media (max-width: 767px) {
   .Product-detail__picture {
     width: 100%;

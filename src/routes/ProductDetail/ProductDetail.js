@@ -96,44 +96,48 @@ export default class ProductDetail extends StoreComponent {
               </Carousel>
             </div>
             <div className="Product-detail__info">
-              <div className="Product-detail__name">
-                {name}
-              </div>
-              <div className="Product-detail__producer">
-                {producer}
-              </div>
-              <div>
-                <div className="Product-detail__factor">
-                  {factor}
+              <div className="Product-detail__describe">
+                <div className="Product-detail__name">
+                  {name}
                 </div>
-                <div className="Product-detail__form">
-                  {form}
+
+                <div className="Product-detail__producer">
+                  {producer}
+                </div>
+
+                <div>
+                  <div className="Product-detail__factor">
+                    {factor}
+                  </div>
+                  <div className="Product-detail__form">
+                    {form}
+                  </div>
+                </div>
+                <div className="Product-detail__price">
+                  <Currency value={price} discount={discount}/>
                 </div>
               </div>
-              <div className="Product-detail__price">
-                <Currency value={price} discount={discount}/>
-              </div>
+
               {
                 quantity > 0 &&
-                <div className="Product-detail__range">
-                  <Range
-                      value={amount}
-                      onChange={(a) => {
-                        this.setState({amount: a});
-                      }}
+                <div className="Product-detail__toolbar">
+                  <div className="Product-detail__range">
+                    <Range
+                        value={amount}
+                        onChange={(a) => {
+                          this.setState({amount: a});
+                        }}
+                        disabled={quantity === 0}
+                        max={quantity}
+                    />
+                  </div>
+                  <Button
                       disabled={quantity === 0}
-                      max={quantity}
-                  />
+                      onClick={this.handleCart}
+                      className="Product-detail__cart">
+                    В корзину
+                  </Button>
                 </div>
-              }
-              {
-                quantity > 0 &&
-                <Button
-                    disabled={quantity === 0}
-                    onClick={this.handleCart}
-                    className="Product-detail__cart">
-                  В корзину
-                </Button>
               }
               {
                 quantity <= 0 &&
@@ -176,7 +180,8 @@ export default class ProductDetail extends StoreComponent {
                   },
                 ].filter(x => x).map(({body, title}, idx) => (
                     <div key={idx} className="Product-detail__text">
-                      <Title className="Product-detail__carousel_title">{title}</Title>
+                      <Title
+                          className="Product-detail__carousel_title">{title}</Title>
                       <div>{body}</div>
                     </div>
                 ))
