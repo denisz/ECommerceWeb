@@ -19,6 +19,7 @@ export default ({ banners = [] }) => (
       {
         banners
         .filter(i => i.type === keys.kBannerTypeMain )
+        .filter(i => i.active )
         .map((obj, idx)=>(
           <div key={idx} className="Landing__carousel-item">
             <Image src={obj.img} onClick={()=> obj.href && history.push(obj.href)} />
@@ -28,12 +29,11 @@ export default ({ banners = [] }) => (
     </Carousel>
     <Table className="Landing__table"/>
     <Intro className="Landing__intro"/>
-    <Title>Производители</Title>
     <Carousel
-        dots
+        dots={false}
         infinite
         slidesToShow={4}
-        slidesToScroll={4}
+        slidesToScroll={1}
         autoplay
         arrows={false}
         responsive={
@@ -42,14 +42,14 @@ export default ({ banners = [] }) => (
               breakpoint: 768,
               settings: {
                 slidesToShow: 3,
-                slidesToScroll: 3,
+                slidesToScroll: 1,
               }
             },
             {
               breakpoint: 480,
               settings: {
                 slidesToShow: 2,
-                slidesToScroll: 2,
+                slidesToScroll: 1,
               }
             }
           ]
@@ -58,6 +58,7 @@ export default ({ banners = [] }) => (
       {
         banners
         .filter(i => i.type === keys.kBannerTypeBrand )
+        .filter(i => i.active )
         .map((obj, idx)=>(
             <div key={idx} className="Landing__carousel-item">
               <Image src={obj.img} onClick={()=> obj.href && history.push(obj.href)} />

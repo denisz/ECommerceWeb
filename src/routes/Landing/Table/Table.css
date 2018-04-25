@@ -8,4 +8,21 @@
 
 .Table-Collections__item {
   cursor: pointer;
+  font-size: 33px;
+}
+
+@media (max-width: 767px) {
+  .Table-Collections__item {
+    margin: 10px;
+    width: 260px;
+    font-size: 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .Table-Collections__item {
+    margin: 15px;
+    width: 280px;
+    font-size: 33px;
+  }
 }
