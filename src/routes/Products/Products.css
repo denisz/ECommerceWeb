@@ -5,9 +5,6 @@
 }
 
 .Products__table {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
 }
 
 @media (max-width: 767px) {

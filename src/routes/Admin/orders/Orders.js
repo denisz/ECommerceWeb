@@ -2,7 +2,6 @@ import React from 'react';
 import {QueryComponent, QueryTableView} from 'modules/QueryController';
 import {DialogFactory} from 'modules/Form';
 import QueryManager from 'flux/QueryManager';
-import Sale from 'components/Sale';
 import Date from 'components/Date';
 import Title from 'components/Title';
 import Invoice from 'components/Invoice';
@@ -14,7 +13,6 @@ import OrderEdit from 'dialogs/OrderEdit';
 import './Orders.css';
 import * as keys from './constants';
 import PropTypes from 'prop-types';
-import {kDateAndInvoiceCell} from './constants';
 
 const kDialogKey = 'dialog';
 
@@ -76,18 +74,9 @@ export default class Orders extends QueryComponent {
               <Address {...address}/>
             </div>);
       case keys.kTotalCell:
-        const discount = order[keys.kDiscountKey];
-
         return (
             <div className="Orders__item">
               <Price value={order[keys.kTotalKey]} className="Orders__currency_price"/>
-              {
-                discount &&
-                <span className="d-flex flex-row align-items-center">
-                  <Sale {...order[keys.kDiscountKey]}
-                                className="Orders__item_sale"/>
-                </span>
-              }
             </div>
         );
       default :

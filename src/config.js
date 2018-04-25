@@ -5,3 +5,4 @@ export const apiURL = process.env.REACT_APP_API_URL || 'http://darkwaters.store:
 export const apiBasePath = '/api/v1';
 
 export const corpEmail = 'admin@darkwaters.store';
+export const cortPhone = '+7 (929) 747-50-33';

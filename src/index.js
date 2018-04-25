@@ -63,14 +63,12 @@ const renderAfter = (location, action) => (route) => {
 
   updateMeta('description', route.description);
 
-  let scrollX = 0;
   let scrollY = 0;
 
   const pos = scrollPositionsHistory[location.key];
   tmpLocationKey = location.key;
   console.log('after', tmpLocationKey, pos);
   if (pos) {
-    scrollX = pos.scrollX;
     scrollY = pos.scrollY;
   } else {
     const targetHash = location.hash.substr(1);
@@ -86,7 +84,7 @@ const renderAfter = (location, action) => (route) => {
     animateScrollTo(scrollY, {
       speed: 100
     });
-    // window.scrollTo(scrollX, scrollY);
+    // window.scrollTo(0, scrollY);
     }, 100);
 
   // Google Analytics tracking. Don't send 'pageview' event after

@@ -30,7 +30,8 @@ export default class Review extends FormComponent {
     return (
         <div className="Review">
           <Title>Заказ</Title>
-          <OrderView className={'Review__table'}
+          <OrderView help
+                     className={'Review__table'}
                      positions={form.getObject(keys.kPositionsKey, [])}
                      discount={form.getObject(keys.kDiscountKey, {})}
                      delivery={form.getObject(keys.kDeliveryKey)}
