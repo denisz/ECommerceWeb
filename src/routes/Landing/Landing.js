@@ -1,7 +1,6 @@
 import React from 'react';
 import Carousel  from 'components/Carousel';
 import Image from 'components/Image';
-import Title from 'components/Title';
 import history from 'core/history';
 import Table from './Table';
 import Intro from './Intro';

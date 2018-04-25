@@ -4,5 +4,6 @@ export default async () => {
   try {
     await AuthActions.authenticate();
   } catch (e) {
+    await AuthActions.clear();
   }
 };

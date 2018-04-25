@@ -27,6 +27,8 @@ const options = {
 };
 
 let tmpLocationKey = null;
+let tmpClassName = null;
+
 const router = new UniversalRouter(routes, options);
 const container = document.getElementById('root');
 const scrollPositionsHistory = {};
@@ -40,6 +42,11 @@ const renderBefore = (location, action) => (route) => {
     scrollY: window.pageYOffset,
   };
 
+  if (tmpClassName) {
+    document.body.classList.remove(tmpClassName);
+    tmpClassName = null;
+  }
+
   if (route.redirect) {
     history.replace(route.redirect);
     return
@@ -48,8 +55,6 @@ const renderBefore = (location, action) => (route) => {
   if (action === 'PUSH') {
     delete scrollPositionsHistory[location.key];
   }
-
-  console.log('before', tmpLocationKey, scrollPositionsHistory[tmpLocationKey]);
 
   ReactDOM.render(<App>{route.component}</App>, container);
 
@@ -61,13 +66,18 @@ const renderAfter = (location, action) => (route) => {
 
   document.title = route.title;
 
+  if (route.className) {
+    document.body.classList.add(route.className);
+    tmpClassName = route.className;
+  }
+
   updateMeta('description', route.description);
 
   let scrollY = 0;
 
   const pos = scrollPositionsHistory[location.key];
   tmpLocationKey = location.key;
-  console.log('after', tmpLocationKey, pos);
+
   if (pos) {
     scrollY = pos.scrollY;
   } else {
