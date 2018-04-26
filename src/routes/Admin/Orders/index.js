@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from 'components/Layout';
-import Menu from '../Menu';
 import Orders from './Orders';
+import Menu from '../Menu';
 
 export default {
   path: '/orders',
@@ -10,7 +10,9 @@ export default {
       title: 'Заказы',
       component: (
           <Layout fullscreen>
-            <Menu><Orders /></Menu>
+            <Menu>
+              <Orders/>
+            </Menu>
           </Layout>
       ),
     };

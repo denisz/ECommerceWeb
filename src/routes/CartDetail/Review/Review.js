@@ -41,7 +41,9 @@ export default class Review extends FormComponent {
                      deliveryPrice={form.getObject(keys.kDeliveryPriceKey)}
                      address={form.getObject(keys.kAddressKey, {})}
           />
-          <Toolbar right className="Review__button-toolbar">
+
+          <Toolbar right
+                   className="Review__button-toolbar">
             <Button onClick={adapter.handleBack}
                     className="Review__btn_edit">Изменить</Button>
             <Button locked={lock.is()}

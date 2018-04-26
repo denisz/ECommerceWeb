@@ -3,6 +3,7 @@ import Sales from './Sales';
 import Admin from './Admin';
 import Page from './Page';
 import Brand from './Brand';
+import Spec from './Spec';
 import Landing from './Landing';
 import Products from './Products';
 import Shipment from './Shipment';
@@ -20,6 +21,7 @@ export default {
     Landing,
     Sales,
     Page,
+    Spec,
     Error,
     Brand,
     Products,
