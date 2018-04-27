@@ -5,6 +5,7 @@ import Logout from './Logout';
 import Orders from './Orders';
 import Commands from './Commands';
 import Dashboard from './Dashboard';
+import 'flux/Admin';
 import './Admin.css';
 
 const authWrapper = route => exceptions(authorize(route, '/admin/login'));

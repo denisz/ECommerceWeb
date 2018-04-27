@@ -4,9 +4,9 @@ import QueryManager from 'flux/QueryManager';
 import {
   kOrderStatusAwaitingFulfillment,
   kOrderStatusAwaitingPayment,
+  kOrderStatusAwaitingPickup,
   kOrderStatusAwaitingShipment,
   kOrderStatusDeclined,
-  kOrderStatusAwaitingPickup,
   kOrderStatusRefunded,
   kOrderStatusShipped,
 } from 'services/localizedOrderStatus';
@@ -17,7 +17,9 @@ export default [
     key: kOrderStatusAwaitingPayment,
     title: 'Ждут оплаты',
     async form() {
-      return props => <Orders {...props} query={QueryManager.queryForOrders(kOrderStatusAwaitingPayment)} />;
+      return props => <Orders {...props}
+                              query={QueryManager.queryForOrders(
+                                  kOrderStatusAwaitingPayment)}/>;
     },
   },
   {
@@ -25,7 +27,9 @@ export default [
     key: kOrderStatusAwaitingFulfillment,
     title: 'Ждут отправки',
     async form() {
-      return props => <Orders {...props} query={QueryManager.queryForOrders(kOrderStatusAwaitingFulfillment)} />;
+      return props => <Orders {...props}
+                              query={QueryManager.queryForOrders(
+                                  kOrderStatusAwaitingFulfillment)}/>;
     },
   },
   {
@@ -33,7 +37,9 @@ export default [
     key: kOrderStatusAwaitingPickup,
     title: 'Сформирован',
     async form() {
-      return props => <Orders {...props} query={QueryManager.queryForOrders(kOrderStatusAwaitingPickup)} />;
+      return props => <Orders {...props}
+                              query={QueryManager.queryForOrders(
+                                  kOrderStatusAwaitingPickup)}/>;
     },
   },
   {
@@ -41,7 +47,9 @@ export default [
     key: kOrderStatusAwaitingShipment,
     title: 'Отправлен',
     async form() {
-      return props => <Orders {...props} query={QueryManager.queryForOrders(kOrderStatusAwaitingShipment)} />;
+      return props => <Orders {...props}
+                              query={QueryManager.queryForOrders(
+                                  kOrderStatusAwaitingShipment)}/>;
     },
   },
   {
@@ -49,7 +57,9 @@ export default [
     key: kOrderStatusShipped,
     title: 'Завершен',
     async form() {
-      return props => <Orders {...props} query={QueryManager.queryForOrders(kOrderStatusShipped)} />;
+      return props => <Orders {...props}
+                              query={QueryManager.queryForOrders(
+                                  kOrderStatusShipped)}/>;
     },
   },
   {
@@ -57,7 +67,9 @@ export default [
     key: kOrderStatusDeclined,
     title: 'Отменен',
     async form() {
-      return props => <Orders {...props} query={QueryManager.queryForOrders(kOrderStatusDeclined)} />;
+      return props => <Orders {...props}
+                              query={QueryManager.queryForOrders(
+                                  kOrderStatusDeclined)}/>;
     },
   },
   {
@@ -65,7 +77,9 @@ export default [
     key: kOrderStatusRefunded,
     title: 'Возврат',
     async form() {
-      return props => <Orders {...props} query={QueryManager.queryForOrders(kOrderStatusRefunded)} />;
+      return props => <Orders {...props}
+                              query={QueryManager.queryForOrders(
+                                  kOrderStatusRefunded)}/>;
     },
   },
-]
+];
