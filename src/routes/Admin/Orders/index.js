@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from 'components/Layout';
-import Orders from './Orders';
+import OrdersPager from './OrdersPager';
 import Menu from '../Menu';
 
 export default {
@@ -11,7 +11,7 @@ export default {
       component: (
           <Layout fullscreen>
             <Menu>
-              <Orders/>
+              <OrdersPager/>
             </Menu>
           </Layout>
       ),

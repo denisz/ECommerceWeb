@@ -1,5 +1,5 @@
 import React from 'react';
-import Orders from 'components/Orders';
+import Orders from './Orders';
 import QueryManager from 'flux/QueryManager';
 import {
   kOrderStatusAwaitingFulfillment,

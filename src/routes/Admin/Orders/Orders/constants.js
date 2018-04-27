@@ -8,6 +8,7 @@ export const kDeliveryKey = 'delivery';
 export const kShippingKey = 'shipping';
 export const kSubtotalKey = 'subtotal';
 export const kDiscountKey = 'discount';
+export const kClientIPKey = 'clientIP';
 export const kPositionsKey = 'positions';
 export const kCreatedAtKey = 'createdAt';
 export const kDeliveryPriceKey = 'deliveryPrice';

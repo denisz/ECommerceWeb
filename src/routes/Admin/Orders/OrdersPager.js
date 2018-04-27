@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import {NavAdapter, NavPager} from 'modules/NavController';
 import transitions from './transitions';
+import './OrdersPager.css';
 
-export default class Orders extends Component {
+export default class OrdersPager extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -23,7 +24,7 @@ export default class Orders extends Component {
     const { adapter } = this.state;
 
     return (
-        <div className="Cart-detail">
+        <div className="OrdersPager">
           <NavPager adapter={adapter} />
         </div>
     );

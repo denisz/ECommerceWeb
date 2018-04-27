@@ -1,18 +1,20 @@
 import React from 'react';
 import cx from 'classnames';
 import PropTypes from 'prop-types';
-import {QueryComponent, QueryListView} from 'modules/QueryController';
+import {QueryListView} from 'modules/QueryController';
+import {QueryComponent} from 'modules/Flux';
 import {DialogFactory} from 'modules/Form';
 import Date from 'components/Date';
 import Title from 'components/Title';
-import Invoice from 'components/Invoice';
 import Phone from 'components/Phone';
 import Email from 'components/Email';
+import Invoice from 'components/Invoice';
 import {Price} from 'components/Currency';
 import Shipping from 'components/Shipping';
 import Status from 'components/OrderStatus';
 import Address, {parse} from 'components/Address';
 import Actions from 'flux/AdminActions';
+import Admin from 'flux/Admin';
 import OrderEdit from 'dialogs/OrderEdit';
 import './Orders.css';
 import * as keys from './constants';
@@ -20,18 +22,26 @@ import * as keys from './constants';
 const kDialogKey = 'dialog';
 
 export default class Orders extends QueryComponent {
+  getInitialStore() {
+    return [Admin]
+  }
+
+  async didChangeStoreState() {
+    const { query } = this.state;
+    await query.fetchCurrentPage();
+  }
+
   handleRowClick = (row) => {
-    const {dialogs, query} = this.state;
+    const {dialogs} = this.state;
 
     dialogs.showDialog(kDialogKey, {
-      header: `Order №${row[keys.kIdKey]}`,
+      header: `Order №${row[keys.kInvoiceKey]}`,
       showHeader: true,
       size: 'large',
       Component: <OrderEdit submitCancel
                             value={row}
-                            onSubmit={async (attrs)=>{
-                              await Actions.updateOrder(row.id, attrs);
-                              await query.fetchCurrentPage()
+                            onSubmit={async (attrs) => {
+                              await Actions.updateOrder(row, attrs);
                             }}/>,
     });
   };
@@ -43,7 +53,7 @@ export default class Orders extends QueryComponent {
       case keys.kDateAndInvoiceCell:
         return (
             <div className="Orders__item">
-              <Invoice value={order[keys.kIdKey]}/>
+              <Invoice value={order[keys.kInvoiceKey]}/>
               <Date value={order[keys.kCreatedAtKey]}/>
               <div>{address.name}</div>
             </div>);
@@ -62,7 +72,7 @@ export default class Orders extends QueryComponent {
         return (
             <div className="Orders__item">
               <Email email={address.email}/><br/>
-              <Phone tel={address.phone} />
+              <Phone tel={address.phone}/>
             </div>
         );
       case keys.kInvoiceCell:
@@ -96,7 +106,7 @@ export default class Orders extends QueryComponent {
 
   render() {
     const {query, dialogs} = this.state;
-    const { title, className } = this.props;
+    const {title, className} = this.props;
 
     return (
         <div className={cx('Orders', className)}>
@@ -131,6 +141,6 @@ Orders.propTypes = {
 };
 Orders.defaultProps = {
   page: 0,
-  title: "Заказы",
-  objectsPerPage: 12,
+  title: 'Заказы',
+  objectsPerPage: 25,
 };
