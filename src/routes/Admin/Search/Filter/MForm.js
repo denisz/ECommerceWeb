@@ -7,7 +7,7 @@ export default class MFormImpl extends MForm {
       [keys.kQueryKey]: '',
       [keys.kStatusKey]: keys.kAllStatus,
       [keys.kWhereDate]: null,
-      [keys.kWhereKey]: keys.kWhereInvoice,
+      [keys.kWhereKey]: keys.kWhereNone,
     }
   }
 }

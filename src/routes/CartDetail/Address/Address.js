@@ -63,7 +63,8 @@ export default class Address extends FormComponent {
                 />
               </FormGroupValidate>
 
-              <FormGroupValidate tabindex={3} className="form-group col-md-4"
+              <FormGroupValidate tabindex={3}
+                                 className="form-group col-md-4"
                                  ref={keys.kEmailKey}>
                 <TextField
                     required

@@ -15,11 +15,13 @@ export const kStatusKey = 'status';
 
 export const kAllStatus = '';
 
+export const kWhereNone = '';
 export const kWhereDate = 'date';
 export const kWherePhone = 'phone';
 export const kWhereInvoice = 'invoice';
 
 export const wheres = [
+    [kWhereNone, 'Все'],
     [kWhereDate, 'Дата'],
     [kWherePhone, 'Телефон'],
     [kWhereInvoice, 'Номер'],
