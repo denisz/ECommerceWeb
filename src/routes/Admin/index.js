@@ -3,6 +3,7 @@ import { anonymous, authorize, exceptions } from 'core/helper';
 import Login from './Login';
 import Logout from './Logout';
 import Orders from './Orders';
+import Search from './Search';
 import Commands from './Commands';
 import Dashboard from './Dashboard';
 import 'flux/Admin';
@@ -17,6 +18,7 @@ export default {
     authWrapper(Orders),
     authWrapper(Logout),
     authWrapper(Commands),
+    authWrapper(Search),
     anonymousWrapper(Login),
     authWrapper(Dashboard),
   ],

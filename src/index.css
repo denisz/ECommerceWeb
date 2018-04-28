@@ -93,3 +93,30 @@ img {
   font-size: 0;
   background-color: black;
 }
+
+.form-group {
+  margin-bottom: 0.5rem;
+}
+
+.padding-zero {
+  padding: 0 !important;
+}
+
+.padding-vertical--five {
+  padding: 0 5px !important;
+}
+
+.margin-zero {
+  padding: 0 !important;
+}
+
+.row--small-padding {
+  margin-right: -10px;
+  margin-left: -10px;
+}
+
+.row--small-padding .col {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+

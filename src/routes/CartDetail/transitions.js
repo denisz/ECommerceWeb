@@ -52,17 +52,30 @@ export default [
       return props => <Review {...props} />;
     },
     async next() {
-      await CartActions.checkout();
+      try {
+        await CartActions.checkout();
 
-      toast.info(`Спасибо, Ваш заказ принят`, {
-        hideProgressBar: true,
-        position: toast.POSITION.TOP_CENTER,
-        autoClose: 4000,
-        className: css({
-          top: 40,
-          minHeight: 40,
-        }),
-      });
+        toast.info(`Спасибо, Ваш заказ принят`, {
+          hideProgressBar: true,
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 4000,
+          className: css({
+            top: 40,
+            minHeight: 40,
+          }),
+        });
+      } catch(e) {
+        toast.error(`Услуга недоступна`, {
+          hideProgressBar: true,
+          position: toast.POSITION.TOP_CENTER,
+          autoClose: 4000,
+          className: css({
+            top: 40,
+            minHeight: 40,
+          }),
+        });
+      }
+
     },
     nextBtn: 'Save',
     prevBtn: 'Back',

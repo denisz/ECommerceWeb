@@ -17,6 +17,10 @@ const menus = [
     route: '/admin/orders',
   },
   {
+    title: 'Поиск',
+    route: '/admin/search',
+  },
+  {
     title: 'Отчеты',
     route: '/admin',
   },

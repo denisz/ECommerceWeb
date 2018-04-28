@@ -1,11 +1,8 @@
 import React from 'react';
 import Layout from 'components/Layout';
 import AsyncComponent from 'components/AsyncComponent';
-import {Wait} from 'modules/Lock';
 
 const form = async () => {
-  // await Wait.seconds(2);
-  // throw new Error("test error");
   return ()=><div>Привет</div>;
 };
 

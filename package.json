@@ -25,6 +25,7 @@
     "react-bootstrap-table-next": "^0.1.7",
     "react-bootstrap-table2-overlay": "^0.1.1",
     "react-burger-menu": "^2.2.3",
+    "react-day-picker": "^7.1.6",
     "react-dom": "^16.2.0",
     "react-flip-move": "^3.0.1",
     "react-lazyload": "^2.3.0",
