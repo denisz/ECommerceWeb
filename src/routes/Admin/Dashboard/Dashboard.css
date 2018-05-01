@@ -1,3 +1,16 @@
 .Dashboard {
 
 }
+
+.Dashboard__row {
+    max-width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+@media (max-width: 767px) {
+    .Dashboard__row {
+        display: flex;
+        flex-direction: column;
+    }
+}

@@ -2,6 +2,7 @@ import React from 'react';
 import {Form, FormComponent, FormGroupValidate} from 'modules/Form';
 import ComboBox from 'components/ComboBox';
 import Button from 'components/Button';
+import Telephone from 'components/Telephone';
 import TextField from 'components/TextField';
 import DatePicker from 'components/DatePicker';
 import cx from 'classnames';
@@ -22,7 +23,8 @@ export default class OrdersFilter extends FormComponent {
           <Form onSubmit={this.onSubmit}>
             <div className="row row--small-padding">
               <FormGroupValidate tabindex={1}
-                                 className={cx('form-group', 'col', 'col-md-4', 'col-4')}
+                                 className={cx('form-group', 'col', 'col-md-4',
+                                     'col-4')}
                                  ref={keys.kStatusKey}>
                 <ComboBox name={keys.kStatusKey}
                           placeholder="Статус"
@@ -31,8 +33,9 @@ export default class OrdersFilter extends FormComponent {
                           onChange={form.wrapperChange(keys.kStatusKey)}/>
               </FormGroupValidate>
 
-              <FormGroupValidate tabindex={1}
-                                 className={cx('form-group', 'col', 'col-md-4', 'col-4')}
+              <FormGroupValidate tabindex={2}
+                                 className={cx('form-group', 'col', 'col-md-4',
+                                     'col-4')}
                                  ref={keys.kWhereKey}>
                 <ComboBox name={keys.kStatusKey}
                           placeholder="Свойство"
@@ -45,7 +48,7 @@ export default class OrdersFilter extends FormComponent {
 
             {
               form.isEqual(keys.kWhereKey, keys.kWhereDate) &&
-              <FormGroupValidate tabindex={2}
+              <FormGroupValidate tabindex={3}
                                  className="form-group"
                                  ref={keys.kDateKey}>
                 <DatePicker
@@ -56,11 +59,23 @@ export default class OrdersFilter extends FormComponent {
             }
 
             {
-              form.notEqual(keys.kWhereKey, keys.kWhereDate) &&
-              <FormGroupValidate tabindex={2}
+              form.isEqual(keys.kWhereKey, keys.kWhereInvoice) &&
+              <FormGroupValidate tabindex={3}
                                  className="form-group"
                                  ref={keys.kQueryKey}>
                 <TextField placeholder="Запрос"
+                           value={form.getObject(keys.kQueryKey, '')}
+                           onChange={form.wrapperChange(keys.kQueryKey)}
+                />
+              </FormGroupValidate>
+            }
+
+            {
+              form.isEqual(keys.kWhereKey, keys.kWherePhone) &&
+              <FormGroupValidate tabindex={3}
+                                 className="form-group"
+                                 ref={keys.kQueryKey}>
+                <Telephone placeholder="Телефон"
                            value={form.getObject(keys.kQueryKey, '')}
                            onChange={form.wrapperChange(keys.kQueryKey)}
                 />

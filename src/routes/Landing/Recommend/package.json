@@ -1,0 +1,6 @@
+{
+  "name": "Recommend",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./Recommend.js"
+}

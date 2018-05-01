@@ -35,7 +35,7 @@ export default [
   {
     //Сформированные
     key: kOrderStatusAwaitingPickup,
-    title: 'Сформирован',
+    title: 'Сформированные',
     async form() {
       return props => <Orders {...props}
                               query={QueryManager.queryForOrders(
@@ -45,7 +45,7 @@ export default [
   {
     //Отправленные
     key: kOrderStatusAwaitingShipment,
-    title: 'Отправлен',
+    title: 'Отправленные',
     async form() {
       return props => <Orders {...props}
                               query={QueryManager.queryForOrders(
@@ -55,7 +55,7 @@ export default [
   {
     //Полученные
     key: kOrderStatusShipped,
-    title: 'Завершен',
+    title: 'Завершенные',
     async form() {
       return props => <Orders {...props}
                               query={QueryManager.queryForOrders(
@@ -65,7 +65,7 @@ export default [
   {
     //Отмененные
     key: kOrderStatusDeclined,
-    title: 'Отменен',
+    title: 'Отклоненные',
     async form() {
       return props => <Orders {...props}
                               query={QueryManager.queryForOrders(

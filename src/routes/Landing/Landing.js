@@ -4,6 +4,7 @@ import Image from 'components/Image';
 import history from 'core/history';
 import Table from './Table';
 import Intro from './Intro';
+import Recommend from './Recommend';
 import './Landing.css';
 import * as keys from './constants';
 
@@ -28,6 +29,7 @@ export default ({ banners = [] }) => (
     </Carousel>
     <Table className="Landing__table"/>
     <Intro className="Landing__intro"/>
+    <Recommend />
     <Carousel
         dots={false}
         infinite

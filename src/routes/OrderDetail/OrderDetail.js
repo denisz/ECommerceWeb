@@ -2,7 +2,9 @@ import React from 'react';
 import history from 'core/history';
 import Button from 'components/Button';
 import Toolbar from 'components/ButtonToolbar';
+import Dictionary from 'components/Dictionary';
 import OrderView from 'components/OrderView';
+import OrderStatus from 'components/OrderStatus';
 import {FormComponent} from 'modules/Flux';
 import Order from 'flux/Order';
 import './OrderDetail.css';
@@ -27,8 +29,17 @@ export default class OrderDetail extends FormComponent {
     return (
         <div className="Order-detail">
           <h5>{`Заказ № `}
-            <small className="text-muted">{form.getObject(keys.kIdKey)}</small>
+            <small className="text-muted">{form.getObject(
+                keys.kInvoiceKey)}</small>
           </h5>
+
+          <Dictionary className="OrderView__dict"
+                      pairs={[
+                        {
+                          label: 'Статус:',
+                          value: <OrderStatus
+                              value={form.getObject(keys.kStatusKey)}/>,
+                        }]}/>
 
           <OrderView help
                      className={'Review__table'}
