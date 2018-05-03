@@ -4,37 +4,7 @@
 }
 
 .Review__table {
-    margin: 1rem 0;
-}
-
-.Review__table.table thead th {
-    border-bottom: none;
-}
-
-.Review__table.table td {
-    vertical-align: middle;
-}
-
-.Review__dict {
-}
-
-.Review__price {
-    align-items: start;
-    min-height: auto;
-}
-
-.Review__name {
-    color: black;
-    line-height: 1em;
-}
-
-.Review__sale {
-    color: black !important;
-    font-size: 1em !important;
-}
-
-.Review__address {
-
+    margin: 1rem 0.5rem;
 }
 
 .Review__button-toolbar {

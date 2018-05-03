@@ -19,19 +19,20 @@ export default ({ className, pictures, name, price, producer, form, amount, onCl
     <div className="Position__body">
       <div className="Position__describe">
         <div className="Position__name">{name}</div>
-        <div>
-          <div className="Position__producer">{producer}</div>
-          <div className="Position__form">{form}</div>
+        <div className="Position__producer">{producer}</div>
+        <div className="Position__form">{form}</div>
+      </div>
+
+      <div className="Position__toolbar">
+        <div className="Position__amount">
+          <Range min={0} value={amount} onChange={onChange} />
+        </div>
+
+        <div className="Position__price">
+          <Price value={price} />
         </div>
       </div>
 
-      <div className="Position__amount">
-        <Range min={0} value={amount} onChange={onChange} />
-      </div>
-
-      <div className="Position__price">
-        <Price value={price} />
-      </div>
     </div>
 
     <div className="Position__delete">

@@ -10,9 +10,7 @@ export default {
       title: 'Заказы',
       component: (
           <Layout fullscreen>
-            <Menu>
-              <OrdersPager/>
-            </Menu>
+            <Menu><OrdersPager/></Menu>
           </Layout>
       ),
     };

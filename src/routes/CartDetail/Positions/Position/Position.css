@@ -18,9 +18,14 @@
   justify-content: center;
 }
 
+.Position__toolbar {
+  display: flex;
+  flex-direction: row;
+}
+
 .Position__name {
   color: #43525A;
-  font-size: 30px;
+  font-size: 25px;
   word-break: break-word;
   line-height: 1.3em;
 }
@@ -80,6 +85,12 @@
 
   .Position__describe {
     justify-content: space-between;
+    align-items: center;
+  }
+
+  .Position__toolbar {
+    display: flex;
+    flex-direction: column;
   }
 
   .Position__price {
@@ -101,5 +112,6 @@
     display: flex;
     flex-wrap: wrap;
     align-items: flex-start;
+    justify-content: center;
   }
 }

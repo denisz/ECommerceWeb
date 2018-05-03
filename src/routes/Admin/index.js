@@ -4,6 +4,7 @@ import Login from './Login';
 import Logout from './Logout';
 import Orders from './Orders';
 import Search from './Search';
+import Reports from './Reports';
 import Commands from './Commands';
 import Dashboard from './Dashboard';
 import 'flux/Admin';
@@ -17,8 +18,9 @@ export default {
   children: [
     authWrapper(Orders),
     authWrapper(Logout),
-    authWrapper(Commands),
     authWrapper(Search),
+    authWrapper(Reports),
+    authWrapper(Commands),
     anonymousWrapper(Login),
     authWrapper(Dashboard),
   ],

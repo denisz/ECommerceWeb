@@ -22,7 +22,7 @@ const menus = [
   },
   {
     title: 'Отчеты',
-    route: '/admin',
+    route: '/admin/reports',
   },
   {
     title: 'Команды',
@@ -39,7 +39,7 @@ const Menu = BurgerMenu['slide'];
 export default ({children}) => (
     <div id="outer-container" className="Menu">
       <Menu
-          width={ 230 }
+          width={230}
           pageWrapId={'page-wrap'}
           outerContainerId={'outer-container'}
       >

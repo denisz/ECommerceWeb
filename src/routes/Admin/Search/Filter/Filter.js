@@ -43,7 +43,7 @@ export default class OrdersFilter extends FormComponent {
                           value={form.getObject(keys.kWhereKey)}
                           onChange={form.wrapperChange(keys.kWhereKey)}/>
               </FormGroupValidate>
-              <Button onClick={this.onSubmit} appear="form">Поиск</Button>
+              <Button onClick={this.onSubmit} size="md">Поиск</Button>
             </div>
 
             {

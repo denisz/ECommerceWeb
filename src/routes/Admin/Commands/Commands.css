@@ -1,0 +1,22 @@
+.Commands {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.Commands__table {
+
+}
+
+.Commands__table.table td {
+    padding: 0.3em;
+}
+
+
+.Commands__table_wrapper {
+
+}
+
+.Commands__item {
+    font-size: 1em;
+}
