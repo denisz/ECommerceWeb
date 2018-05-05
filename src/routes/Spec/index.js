@@ -1,10 +1,35 @@
-import React from 'react';
+import React, {Component} from 'react';
 import Layout from 'components/Layout';
-import AsyncComponent from 'components/AsyncComponent';
+import Checkbox from 'components/Checkbox';
 
-const form = async () => {
-  return ()=><div>Привет</div>;
-};
+class Spec extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      checked: false,
+    };
+  }
+
+  render() {
+    const {checked} = this.state;
+    return (
+        <div>
+          <Checkbox checked={checked}
+                    label={"Text for checkbox"}
+                    onChange={(value) => {
+                      this.setState({checked: value});
+                    }}/>
+
+          <Checkbox checked={checked}
+                    color='black'
+                    label={"Text for checkbox"}
+                    onChange={(value) => {
+                      this.setState({checked: value});
+                    }}/>
+        </div>
+    );
+  }
+}
 
 export default {
   path: '/spec',
@@ -13,9 +38,7 @@ export default {
       title: '',
       component: (
           <Layout>
-            <AsyncComponent resolve={form}
-                            error={()=><div>Error</div>}
-                            loading={()=><div>Loading</div>}/>
+            <Spec/>
           </Layout>
       ),
     };

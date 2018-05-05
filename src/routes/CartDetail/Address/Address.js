@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Form, FormGroupValidate} from 'modules/Form';
+import {Form, ErrorView, FormGroupValidate} from 'modules/Form';
 import {FormComponent} from 'modules/Flux';
 import Cart from 'flux/Cart';
 import cx from 'classnames';
@@ -39,14 +39,15 @@ export default class Address extends FormComponent {
   }
 
   render() {
-    const {form, lock} = this.state;
+    const {form, lock, error} = this.state;
     const {adapter} = this.context;
     const {className} = this.props;
+    console.log(lock.is());
 
     return (
         <div className={cx('Address', className)}>
           <Title>Адрес доставки</Title>
-
+          <ErrorView error={error}/>
           <Form className="Address__form" method="post">
 
             <div className="form-row">

@@ -89,8 +89,7 @@ export default class Commands extends QueryComponent {
     return (
         <div className="Commands">
           <Title>Команды</Title>
-          <QueryListView allowSelect
-                         hideSelectColumn
+          <QueryListView hideSelectColumn
                          keyField={'id'}
                          classNameContainer="Commands__table_wrapper"
                          className="Commands__table"

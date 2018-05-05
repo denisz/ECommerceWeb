@@ -1,4 +1,5 @@
 import React from 'react';
+import AwaitingPickup from './AwaitingPickup';
 import Orders from 'components/Orders';
 import QueryManager from 'flux/QueryManager';
 import {
@@ -37,9 +38,7 @@ export default [
     key: kOrderStatusAwaitingPickup,
     title: 'Сформированные',
     async form() {
-      return props => <Orders {...props}
-                              query={QueryManager.queryForOrders(
-                                  kOrderStatusAwaitingPickup)}/>;
+      return props => <AwaitingPickup {...props}/>;
     },
   },
   {
