@@ -77,17 +77,17 @@ img {
 }
 
 
-.slick-dots li {
+.slick-slider .slick-dots li {
   width: 36px;
   height: 2px;
 }
 
-.slick-dots li button {
+.slick-slider .slick-dots li button {
   width: 36px;
   height: 2px;
 }
 
-.slick-dots li button:before {
+.slick-slider .slick-dots li button:before {
   width: 36px;
   height: 2px;
   font-size: 0;

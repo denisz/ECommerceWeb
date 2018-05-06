@@ -11,10 +11,6 @@ import routes from './routes';
 import App from './App';
 import Error from './Error';
 import initialize from './init';
-import './normalize.css';
-import './theme/bootstrap.min.css';
-import './theme/bootstrap.forms.css';
-import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
 const options = {
