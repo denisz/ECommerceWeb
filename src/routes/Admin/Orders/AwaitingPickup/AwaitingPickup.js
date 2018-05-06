@@ -3,7 +3,7 @@ import {FormComponent} from 'modules/Form';
 import InfoBar from 'dialogs/InfoBar';
 import Currency from 'components/Currency';
 import Orders from 'components/Orders';
-import Date from 'components/Date';
+import DateComponent from 'components/Date';
 import QueryManager from 'flux/QueryManager';
 import {kOrderStatusAwaitingPickup} from 'services/localizedOrderStatus';
 
@@ -39,7 +39,8 @@ export default class AwaitingPickup extends FormComponent {
                              и
                              отправит их в ОПС
                            </div>
-                           <div>Сдача в ОПС — <Date/>
+                           <div>Сдача в ОПС — <DateComponent format="DD-MM-YYYY"
+                                                             value={Date.now()}/>
                            </div>
                          </div>
                      )}
