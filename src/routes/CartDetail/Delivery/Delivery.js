@@ -10,8 +10,17 @@ import cx from 'classnames';
 import Cart from 'flux/Cart';
 import CartActions from 'flux/CartActions';
 import {NavAdapter} from 'modules/NavController';
+import MethodDelivery from './MethodDelivery';
 import './Delivery.css';
 import * as keys from './constants';
+import {kMethodKey} from './constants';
+import {
+  kDeliveryMethodEMC,
+  kDeliveryMethodRapid,
+  kDeliveryMethodStandard,
+  kDeliveryProviderBoxberry,
+  kDeliveryProviderRussiaPost,
+} from 'services/localizedDelivery';
 
 export default class Delivery extends FormComponent {
   getInitialStore() {
@@ -69,10 +78,10 @@ export default class Delivery extends FormComponent {
             <div
                 className={cx('Delivery__provider_russiapost', {
                   'Delivery__provider--active': form.isEqual(keys.kProviderKey,
-                      keys.kProviderRussiaPost),
+                      kDeliveryProviderRussiaPost),
                 })}
                 onClick={form.wrapperConstant(keys.kProviderKey,
-                    keys.kProviderRussiaPost)}
+                    kDeliveryProviderRussiaPost)}
             >
               <Image src="ic_delivery_russiapost.png"/>
             </div>
@@ -80,54 +89,36 @@ export default class Delivery extends FormComponent {
             <div
                 className={cx('Delivery__provider_boxberry', {
                   'Delivery__provider--active': form.isEqual(keys.kProviderKey,
-                      keys.kProviderBoxberry),
+                      kDeliveryProviderBoxberry),
                 })}
                 onClick={form.wrapperConstant(keys.kProviderKey,
-                    keys.kProviderBoxberry)}
+                    kDeliveryProviderBoxberry)}
             >
               <Image src="ic_delivery_boxberry.png"/>
             </div>
           </div>
 
           {
-            form.isEqual(keys.kProviderKey, keys.kProviderRussiaPost) &&
-            <div className="Delivery__methods">
-              <div
-                  className={cx('Delivery__method_standard', {
-                    'Delivery__method--active': form.isEqual(keys.kMethodKey,
-                        keys.kMethodStandard),
-                  })}
-                  onClick={form.wrapperConstant(keys.kMethodKey,
-                      keys.kMethodStandard)}
-              >
-                <Image src="ic_delivery_standard.png"/>
-                <div className="Delivery__method-title">Обычный</div>
-              </div>
-
-              <div
-                  className={cx('Delivery__method_rapid', {
-                    'Delivery__method--active': form.isEqual(keys.kMethodKey,
-                        keys.kMethodRapid),
-                  })}
-                  onClick={form.wrapperConstant(keys.kMethodKey,
-                      keys.kMethodRapid)}
-              >
-                <Image src="ic_delivery_rapid.png"/>
-                <div className="Delivery__method-title">Ускоренный</div>
-              </div>
-
-              <div
-                  className={cx('Delivery__method_emc', {
-                    'Delivery__method--active': form.isEqual(keys.kMethodKey,
-                        keys.kMethodEMC),
-                  })}
-                  onClick={form.wrapperConstant(keys.kMethodKey,
-                      keys.kMethodEMC)}
-              >
-                <Image src="ic_delivery_ems.png"/>
-                <div className="Delivery__method-title">Курьерский</div>
-              </div>
-            </div>
+            form.isEqual(keys.kProviderKey, kDeliveryProviderRussiaPost) &&
+            <MethodDelivery value={form.getObject(kMethodKey)}
+                            onChange={form.wrapperChange(kMethodKey)}
+                            options={[
+                              {
+                                label: 'Обычный',
+                                value: kDeliveryMethodStandard,
+                                image: 'ic_delivery_standard.png',
+                              },
+                              {
+                                label: 'Ускоренный',
+                                value: kDeliveryMethodRapid,
+                                image: 'ic_delivery_rapid.png',
+                              },
+                              {
+                                label: 'Курьерский',
+                                value: kDeliveryMethodEMC,
+                                image: 'ic_delivery_ems.png',
+                              },
+                            ]}/>
           }
 
           <hr className="Delivery__hr"/>
