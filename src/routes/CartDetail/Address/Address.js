@@ -42,7 +42,6 @@ export default class Address extends FormComponent {
     const {form, lock, error} = this.state;
     const {adapter} = this.context;
     const {className} = this.props;
-    console.log(lock.is());
 
     return (
         <div className={cx('Address', className)}>
@@ -58,7 +57,7 @@ export default class Address extends FormComponent {
                     required
                     name="name"
                     autoComplete="name"
-                    placeholder="Имя получателя"
+                    placeholder="ФИО получателя"
                     value={form.getObject(keys.kNameKey)}
                     onChange={form.wrapperChange(keys.kNameKey)}
                 />

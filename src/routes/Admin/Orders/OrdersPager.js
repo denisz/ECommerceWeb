@@ -6,6 +6,7 @@ import './OrdersPager.css';
 export default class OrdersPager extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       adapter: new NavAdapter(this, transitions, {
         currentState: 0,

@@ -1,0 +1,21 @@
+.Batches {
+    max-width: 1024px;
+    margin: 0 auto;
+    padding: 5px;
+}
+
+.Batches__table {
+    /*pointer-events: none;*/
+}
+
+.Batches__table.table td {
+    padding: 0.3em;
+}
+
+.Batches__table_wrapper .react-bootstrap-table {
+    /*overflow-x: scroll;*/
+}
+
+.Batches__item {
+    font-size: 1em;
+}

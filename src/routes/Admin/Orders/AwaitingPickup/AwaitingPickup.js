@@ -4,6 +4,7 @@ import InfoBar from 'dialogs/InfoBar';
 import Currency from 'components/Currency';
 import Orders from 'components/Orders';
 import DateComponent from 'components/Date';
+import AdminActions from 'flux/AdminActions';
 import QueryManager from 'flux/QueryManager';
 import {kOrderStatusAwaitingPickup} from 'services/localizedOrderStatus';
 
@@ -32,7 +33,8 @@ export default class AwaitingPickup extends FormComponent {
           {
             selected.length > 0 &&
             <InfoBar title={`${selected.length} отправление`}
-                     subtitle={<Currency value={198000}/>}
+                     subtitle={<Currency value={selected.reduce(
+                         (acc, i) => acc + i.shipment.price, 0)}/>}
                      description={(
                          <div>
                            <div>Система подготовит необходимые документы
@@ -46,7 +48,8 @@ export default class AwaitingPickup extends FormComponent {
                      )}
                      btnLabel="Подготовить"
                      onSubmit={() => {
-                       console.log(selected);
+                       AdminActions.createBatch(selected.map(i => i.id));
+                       this.setState({selected: []});
                      }}
             />
           }

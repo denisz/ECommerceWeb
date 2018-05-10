@@ -5,6 +5,7 @@ import Logout from './Logout';
 import Orders from './Orders';
 import Search from './Search';
 import Reports from './Reports';
+import Batches from './Batches';
 import Commands from './Commands';
 import Dashboard from './Dashboard';
 import 'flux/Admin';
@@ -19,6 +20,7 @@ export default {
     authWrapper(Orders),
     authWrapper(Logout),
     authWrapper(Search),
+    authWrapper(Batches),
     authWrapper(Reports),
     authWrapper(Commands),
     anonymousWrapper(Login),

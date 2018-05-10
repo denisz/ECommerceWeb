@@ -14,13 +14,12 @@ export default class OrdersPager extends Component {
 
   render() {
     const {filter} = this.state;
-    console.log(filter);
+
     return (
         <div className="OrdersSearch">
-          <Filter
-              value={filter}
-              onSubmit={(attrs) => this.setState({filter: attrs})}/>
-          <Orders autoReload query={QueryManager.queryForOrdersWithFilter(filter)}/>
+          <Filter value={filter}
+                  onSubmit={(attrs) => this.setState({filter: attrs})}/>
+          <Orders query={QueryManager.queryForOrdersWithFilter(filter)}/>
         </div>
     );
   }

@@ -21,6 +21,10 @@ const menus = [
     route: '/admin/search',
   },
   {
+    title: 'Партии',
+    route: '/admin/batches',
+  },
+  {
     title: 'Отчеты',
     route: '/admin/reports',
   },
