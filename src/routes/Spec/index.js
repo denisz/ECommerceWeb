@@ -1,31 +1,21 @@
 import React, {Component} from 'react';
 import Layout from 'components/Layout';
-import Checkbox from 'components/Checkbox';
+import { DateRange } from 'components/DatePicker';
 
 class Spec extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      checked: false,
-    };
+    this.state = { date: {} };
   }
 
   render() {
-    const {checked} = this.state;
+    const { date } = this.state;
+    console.log(date);
     return (
         <div>
-          <Checkbox checked={checked}
-                    label={"Text for checkbox"}
-                    onChange={(value) => {
-                      this.setState({checked: value});
-                    }}/>
-
-          <Checkbox checked={checked}
-                    color='black'
-                    label={"Text for checkbox"}
-                    onChange={(value) => {
-                      this.setState({checked: value});
-                    }}/>
+          <DateRange value={date }
+                     onChange={({value})=>{ this.setState({date: value})}}
+          />
         </div>
     );
   }

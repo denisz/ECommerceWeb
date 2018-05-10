@@ -10,19 +10,22 @@ import localizeOrderStatus, {
 
 export const kQueryKey = 'query';
 export const kWhereKey = 'where';
-export const kDateKey = 'date';
+export const kStartDateKey = 'start_date';
+export const kEndDateKey = 'end_date';
 export const kStatusKey = 'status';
 
 export const kAllStatus = '';
 
 export const kWhereNone = '';
 export const kWhereDate = 'date';
+export const kWhereRangeDate = 'range_date';
 export const kWherePhone = 'phone';
 export const kWhereInvoice = 'invoice';
 
 export const wheres = [
     [kWhereNone, 'Все'],
     [kWhereDate, 'Дата'],
+    [kWhereRangeDate, 'Диапазон'],
     [kWherePhone, 'Телефон'],
     [kWhereInvoice, 'Номер'],
 ].map(i => (

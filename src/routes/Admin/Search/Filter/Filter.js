@@ -2,9 +2,9 @@ import React from 'react';
 import {Form, FormComponent, FormGroupValidate} from 'modules/Form';
 import ComboBox from 'components/ComboBox';
 import Button from 'components/Button';
-import Telephone from 'components/Telephone';
 import TextField from 'components/TextField';
-import DatePicker from 'components/DatePicker';
+import Telephone from 'components/Telephone';
+import DatePicker, {DateRange} from 'components/DatePicker';
 import cx from 'classnames';
 import MForm from './MForm';
 import * as keys from './constants';
@@ -50,10 +50,29 @@ export default class OrdersFilter extends FormComponent {
               form.isEqual(keys.kWhereKey, keys.kWhereDate) &&
               <FormGroupValidate tabindex={3}
                                  className="form-group"
-                                 ref={keys.kDateKey}>
+                                 ref={keys.kStartDateKey}>
                 <DatePicker
-                    value={form.getObject(keys.kDateKey)}
-                    onChange={form.wrapperChange(keys.kDateKey)}
+                    value={form.getObject(keys.kStartDateKey)}
+                    onChange={form.wrapperChange(keys.kStartDateKey)}
+                />
+              </FormGroupValidate>
+            }
+
+            {
+              form.isEqual(keys.kWhereKey, keys.kWhereRangeDate) &&
+              <FormGroupValidate tabindex={3}
+                                 className="form-group"
+                                 ref={keys.kStartDateKey}>
+                <DateRange value={{
+                  from: form.getObject(keys.kStartDateKey),
+                  to: form.getObject(keys.kEndDateKey),
+                }}
+                           onChange={({value}) => {
+                             form.transaction(() => {
+                               form.setObject(keys.kStartDateKey, value.from);
+                               form.setObject(keys.kEndDateKey, value.to);
+                             });
+                           }}
                 />
               </FormGroupValidate>
             }
