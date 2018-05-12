@@ -41,7 +41,7 @@ export default class OrderDetail extends FormComponent {
                               value={form.getObject(keys.kStatusKey)}/>,
                         }]}/>
 
-          <OrderView help
+          <OrderView user
                      className={'Review__table'}
                      positions={form.getObject(keys.kPositionsKey, [])}
                      discount={form.getObject(keys.kDiscountKey, {})}

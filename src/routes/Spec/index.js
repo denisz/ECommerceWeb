@@ -1,21 +1,28 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { DialogFactory, FormComponent } from 'modules/Form';
 import Layout from 'components/Layout';
-import { DateRange } from 'components/DatePicker';
+import Button from 'components/Button';
+import Offer from 'dialogs/Offer';
 
-class Spec extends Component {
-  constructor(props) {
-    super(props);
-    this.state = { date: {} };
-  }
+const kDialogKey = 'dialog';
+
+class Spec extends FormComponent {
+  handleOpen = () => {
+    const { dialogs } = this.state;
+    dialogs.showDialog(kDialogKey, {
+      header: "Договор оферты",
+      showHeader: true,
+      Component: <Offer submitCancel/>
+    })
+  };
 
   render() {
-    const { date } = this.state;
-    console.log(date);
+    const { dialogs } = this.state;
+
     return (
         <div>
-          <DateRange value={date }
-                     onChange={({value})=>{ this.setState({date: value})}}
-          />
+          <Button onClick={this.handleOpen}>Open</Button>
+          <DialogFactory dialogs={dialogs} dialogKey={kDialogKey}/>
         </div>
     );
   }

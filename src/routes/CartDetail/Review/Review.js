@@ -3,12 +3,16 @@ import Title from 'components/Title';
 import Button from 'components/Button';
 import OrderView from 'components/OrderView';
 import Toolbar from 'components/ButtonToolbar';
+import { DialogFactory } from 'modules/Form';
 import {FormComponent} from 'modules/Flux';
+import Offer from 'dialogs/Offer';
 import Cart from 'flux/Cart';
 import './Review.css';
 import * as keys from './constants';
 import PropTypes from 'prop-types';
 import {NavAdapter} from 'modules/NavController/NavController';
+
+const kDialogKey = 'dialog';
 
 export default class Review extends FormComponent {
   getInitialStore() {
@@ -23,14 +27,25 @@ export default class Review extends FormComponent {
     return [];
   }
 
+  handleConfirm = () => {
+    const { dialogs } = this.state;
+    const {adapter} = this.context;
+
+    dialogs.showDialog(kDialogKey, {
+      header: "Договор оферты",
+      showHeader: true,
+      Component: <Offer submitCancel onSubmit={adapter.handleNext}/>
+    })
+  };
+
   render() {
-    const {form, lock} = this.state;
+    const {form, lock, dialogs} = this.state;
     const {adapter} = this.context;
 
     return (
         <div className="Review">
           <Title>Заказ</Title>
-          <OrderView help
+          <OrderView user
                      className={'Review__table'}
                      positions={form.getObject(keys.kPositionsKey, [])}
                      discount={form.getObject(keys.kDiscountKey, {})}
@@ -42,13 +57,15 @@ export default class Review extends FormComponent {
                      address={form.getObject(keys.kAddressKey, {})}
           />
 
+          <DialogFactory dialogs={dialogs} dialogKey={kDialogKey}/>
+
           <Toolbar right
                    className="Review__button-toolbar">
             <Button onClick={adapter.handleBack}
                     className="Review__btn_edit">Изменить</Button>
             <Button locked={lock.is()}
                     lock="Обработка..."
-                    onClick={adapter.handleNext}
+                    onClick={this.handleConfirm}
                     className="Review__btn_next">Подтвердить</Button>
           </Toolbar>
         </div>

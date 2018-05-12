@@ -5,6 +5,10 @@ import * as keys from './constants';
 export default class MFormImpl extends MForm {
   getDefaultProps() {
     return {
+      [keys.kNameKey]: '',
+      [keys.kEmailKey]: '',
+      [keys.kPhoneKey]: '',
+      [keys.kPostalCodeKey]: '',
       [keys.kManualInputAddressKey]: false,
       [keys.kCountryKey]: 'Россия',
     };

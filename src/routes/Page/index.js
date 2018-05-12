@@ -19,6 +19,7 @@ export default {
   children: [
     createContent('welcome'),
     createContent('privacy'),
+    createContent('offer'),
   ],
   async action({ next }) {
     const route = await next();
