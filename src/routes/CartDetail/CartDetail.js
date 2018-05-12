@@ -15,8 +15,15 @@ export default class CartDetail extends Component {
   }
 
   navAdapterDidUpdate(adapter) {
-    window.scrollTo(0,0);
     this.setState({ adapter });
+  }
+
+  navAdapterDidNext() {
+    window.scrollTo(0,0);
+  }
+
+  navAdapterDidBack() {
+    window.scrollTo(0,0);
   }
 
   navAdapterDidRichEnd() {

@@ -23,6 +23,34 @@ class Spec extends FormComponent {
         <div>
           <Button onClick={this.handleOpen}>Open</Button>
           <DialogFactory dialogs={dialogs} dialogKey={kDialogKey}/>
+
+          <div role="dialog" aria-labelledby="modal-label">
+            {/*<div className="Modal__backdrop fade show"/>*/}
+            <div style={{
+              backgroundColor: "white",
+              overflow: 'scroll',
+              height: '100%',
+              '-webkit-overflow-scrolling': 'touch',
+            }}>
+              <div ><h2 className="text-center">Советуем
+                почитать</h2><p className="Warning__body">Продукты
+                представленные в магазине не являются лекарственными
+                средствами. Не рекомендуется использование данных препаратов
+                людям, которые страдают от гипотонии или гипертонии, аритмии,
+                переносили инсульт, инфаркт, имеют недостаточность сердца,
+                печени или почек, имеют заболевания щитовидной железы,
+                сахарный диабет, бронхиальная астма, рецидивирующие головные
+                боли, болезнь Паркинсона, глаукома, затрудненное
+                мочеиспускание, ниц расширения, судороги, депрессия,
+                психические болезни, а также беременным и кормящим женщинам и
+                лицам не достигшим 18 лет. Перед началом приема любого
+                продукта обязательно проконсультируйтесь у специалиста!</p>
+                <div className="DialogToolbar ButtonToolbar">
+                  <div className="Button DialogToolbar__btn">OK</div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
     );
   }

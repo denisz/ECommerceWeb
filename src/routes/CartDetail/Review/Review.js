@@ -27,13 +27,17 @@ export default class Review extends FormComponent {
     return [];
   }
 
-  handleConfirm = () => {
+  handleConfirm = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
     const { dialogs } = this.state;
     const {adapter} = this.context;
 
     dialogs.showDialog(kDialogKey, {
       header: "Договор оферты",
-      showHeader: true,
+      showHeader: false,
+      size: 'large',
       Component: <Offer submitCancel onSubmit={adapter.handleNext}/>
     })
   };
