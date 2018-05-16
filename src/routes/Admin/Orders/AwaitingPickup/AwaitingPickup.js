@@ -1,6 +1,6 @@
 import React from 'react';
 import Orders from 'components/Orders';
-import { ErrorView } from 'modules/Form';
+import {ErrorView} from 'modules/Form';
 import {FormComponent} from 'modules/Flux';
 import Currency from 'components/Currency';
 import DateComponent from 'components/Date';
@@ -30,21 +30,24 @@ export default class AwaitingPickup extends FormComponent {
   };
 
   handleBatch = async () => {
-    const {selected} = this.state;
-    // await lock.tryLock();
+    const {selected, lock} = this.state;
+
     try {
+      await lock.tryLock();
       const ids = selected.map(i => i.id);
       await AdminActions.createBatch(ids);
+      await AdminActions.checkInBatchCurrent();
+      await AdminActions.printFormsCurrent();
       this.setState({selected: []});
     } catch (error) {
-      this.setState({ error })
+      this.setState({error});
     }
 
-    // lock.unlock();
+    lock.unlock();
   };
 
   render() {
-    const {selected, error} = this.state;
+    const {selected, error, lock} = this.state;
 
     return (
         <div className="AwaitingPickup">
@@ -66,12 +69,15 @@ export default class AwaitingPickup extends FormComponent {
                              и
                              отправит их в ОПС
                            </div>
-                           <div>Сдача в ОПС — <DateComponent format="DD-MM-YYYY"
-                                                             value={Date.now()}/>
+                           <div>Сдача в ОПС — <strong><DateComponent
+                               format="DD-MM-YYYY"
+                               value={Date.now()}/></strong>
                            </div>
                          </div>
                      )}
-                     btnLabel="Подготовить"
+                     locked={lock.is()}
+                     lock={'Обработка'}
+                     labelSubmit="Подготовить"
                      onSubmit={this.handleBatch}
             />
           }

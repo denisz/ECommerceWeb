@@ -1,9 +1,9 @@
 import React from 'react';
 import Title from 'components/Title';
 import Button from 'components/Button';
-import OrderView from 'components/OrderView';
+import Order from 'components/Order';
 import Toolbar from 'components/ButtonToolbar';
-import { DialogFactory } from 'modules/Form';
+import {DialogFactory} from 'modules/Form';
 import {FormComponent} from 'modules/Flux';
 import Offer from 'dialogs/Offer';
 import Cart from 'flux/Cart';
@@ -31,15 +31,15 @@ export default class Review extends FormComponent {
     e.preventDefault();
     e.stopPropagation();
 
-    const { dialogs } = this.state;
+    const {dialogs} = this.state;
     const {adapter} = this.context;
 
     dialogs.showDialog(kDialogKey, {
-      header: "Договор оферты",
+      header: 'Договор оферты',
       showHeader: false,
       size: 'large',
-      Component: <Offer submitCancel onSubmit={adapter.handleNext}/>
-    })
+      Component: <Offer submitCancel onSubmit={adapter.handleNext}/>,
+    });
   };
 
   render() {
@@ -49,16 +49,16 @@ export default class Review extends FormComponent {
     return (
         <div className="Review">
           <Title>Заказ</Title>
-          <OrderView user
-                     className={'Review__table'}
-                     positions={form.getObject(keys.kPositionsKey, [])}
-                     discount={form.getObject(keys.kDiscountKey, {})}
-                     delivery={form.getObject(keys.kDeliveryKey)}
-                     total={form.getObject(keys.kTotalKey)}
-                     subtotal={form.getObject(keys.kSubtotalKey)}
-                     productPrice={form.getObject(keys.kProductPriceKey)}
-                     deliveryPrice={form.getObject(keys.kDeliveryPriceKey)}
-                     address={form.getObject(keys.kAddressKey, {})}
+          <Order user
+                 className={'Review__table'}
+                 positions={form.getObject(keys.kPositionsKey, [])}
+                 discount={form.getObject(keys.kDiscountKey, {})}
+                 delivery={form.getObject(keys.kDeliveryKey)}
+                 total={form.getObject(keys.kTotalKey)}
+                 subtotal={form.getObject(keys.kSubtotalKey)}
+                 productPrice={form.getObject(keys.kProductPriceKey)}
+                 deliveryPrice={form.getObject(keys.kDeliveryPriceKey)}
+                 address={form.getObject(keys.kAddressKey, {})}
           />
 
           <DialogFactory dialogs={dialogs} dialogKey={kDialogKey}/>

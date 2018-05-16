@@ -3,7 +3,7 @@ import history from 'core/history';
 import Button from 'components/Button';
 import Toolbar from 'components/ButtonToolbar';
 import Dictionary from 'components/Dictionary';
-import OrderView from 'components/OrderView';
+import OrderComponent from 'components/Order';
 import OrderStatus from 'components/OrderStatus';
 import {FormComponent} from 'modules/Flux';
 import Order from 'flux/Order';
@@ -41,16 +41,16 @@ export default class OrderDetail extends FormComponent {
                               value={form.getObject(keys.kStatusKey)}/>,
                         }]}/>
 
-          <OrderView user
-                     className={'Review__table'}
-                     positions={form.getObject(keys.kPositionsKey, [])}
-                     discount={form.getObject(keys.kDiscountKey, {})}
-                     delivery={form.getObject(keys.kDeliveryKey)}
-                     total={form.getObject(keys.kTotalKey)}
-                     subtotal={form.getObject(keys.kSubtotalKey)}
-                     productPrice={form.getObject(keys.kProductPriceKey)}
-                     deliveryPrice={form.getObject(keys.kDeliveryPriceKey)}
-                     address={form.getObject(keys.kAddressKey, {})}
+          <OrderComponent user
+                          className={'Review__table'}
+                          positions={form.getObject(keys.kPositionsKey, [])}
+                          discount={form.getObject(keys.kDiscountKey, {})}
+                          delivery={form.getObject(keys.kDeliveryKey)}
+                          total={form.getObject(keys.kTotalKey)}
+                          subtotal={form.getObject(keys.kSubtotalKey)}
+                          productPrice={form.getObject(keys.kProductPriceKey)}
+                          deliveryPrice={form.getObject(keys.kDeliveryPriceKey)}
+                          address={form.getObject(keys.kAddressKey, {})}
           />
 
           <Toolbar right

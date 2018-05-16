@@ -19,7 +19,7 @@ export default class OrdersPager extends Component {
         <div className="OrdersSearch">
           <Filter value={filter}
                   onSubmit={(attrs) => this.setState({filter: attrs})}/>
-          <Orders query={QueryManager.queryForOrdersWithFilter(filter)}/>
+          <Orders autoReload query={QueryManager.queryForOrdersWithFilter(filter)}/>
         </div>
     );
   }

@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from 'components/Layout';
-import Batches from './Batches';
+import BatchesPager from './BatchesPager';
 import Menu from '../Menu';
 
 export default {
@@ -10,7 +10,7 @@ export default {
       title: 'Партии',
       component: (
           <Layout fullscreen>
-            <Menu><Batches/></Menu>
+            <Menu><BatchesPager/></Menu>
           </Layout>
       ),
     };
