@@ -1,16 +1,16 @@
 import React from 'react';
 import Layout from 'components/Layout';
 import Menu from '../Menu';
-import Reports from './Reports';
+import Accounting from './Accounting';
 
 export default {
-  path: '/reports',
+  path: '/accounting',
   async action() {
     return {
-      title: 'Отчеты',
+      title: 'Склад',
       component: (
           <Layout fullscreen>
-            <Menu><Reports/></Menu>
+            <Menu><Accounting /></Menu>
           </Layout>
       ),
     };

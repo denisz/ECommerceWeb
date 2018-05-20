@@ -59,7 +59,6 @@ export default class Login extends FormComponent {
 
             <ButtonToolbar center>
               <Button locked={lock.is()}
-                      lock="Обработка..."
                       onClick={this.onSubmit}>Вход
               </Button>
             </ButtonToolbar>

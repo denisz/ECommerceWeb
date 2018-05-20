@@ -19,6 +19,7 @@
     "object-path": "^0.11.4",
     "open-new-tab": "^0.0.1",
     "plural-ru": "^2.0.1",
+    "print-js": "^1.0.43",
     "prop-types": "^15.6.0",
     "react": "^16.2.0",
     "react-autosuggest": "^9.3.4",

@@ -31,7 +31,7 @@ export default class Sales extends QueryComponent {
           }),
         });
       } catch (e) {
-        console.log(e);
+        console.error(e);
         toast.error(`Ошибка при работе с корзиной`, {
           autoClose: 2000,
           hideProgressBar: true,

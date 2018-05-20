@@ -17,9 +17,7 @@ const EmptyCart = () => (
     <div className="Positions">
       <div className="Positions__empty">Ваша корзина пуста</div>
       <Toolbar center className="Cart-detail__button-toolbar">
-        <Button
-            onClick={() => history.push('/')}
-            className="Positions__back">В каталог</Button>
+        <Button onClick={() => history.push('/')}>В каталог</Button>
       </Toolbar>
     </div>
 );

@@ -13,12 +13,11 @@ import {NavAdapter} from 'modules/NavController';
 import MethodDelivery from './MethodDelivery';
 import './Delivery.css';
 import * as keys from './constants';
-import {kMethodKey} from './constants';
+import {icons, kMethodKey} from './constants';
 import {
   kDeliveryMethodEMC,
   kDeliveryMethodRapid,
   kDeliveryMethodStandard,
-  kDeliveryProviderBoxberry,
   kDeliveryProviderRussiaPost,
 } from 'services/localizedDelivery';
 
@@ -37,6 +36,7 @@ export default class Delivery extends FormComponent {
       discount: attrs.discount,
       deliveryPrice: attrs.deliveryPrice || 0,
       isEmpty: store.isEmpty(),
+      providers: store.providers,
       subtotal: attrs.subtotal || 0,
       positions: attrs.positions || [],
     };
@@ -67,7 +67,7 @@ export default class Delivery extends FormComponent {
 
   render() {
     const {className} = this.props;
-    const {form, lock, subtotal, deliveryPrice, total} = this.state;
+    const {form, lock, subtotal, providers, deliveryPrice, total} = this.state;
     const {adapter} = this.context;
 
     return (
@@ -75,27 +75,20 @@ export default class Delivery extends FormComponent {
           <Title>Способ доставки</Title>
 
           <div className="Delivery__providers">
-            <div
-                className={cx('Delivery__provider_russiapost', {
-                  'Delivery__provider--active': form.isEqual(keys.kProviderKey,
-                      kDeliveryProviderRussiaPost),
-                })}
-                onClick={form.wrapperConstant(keys.kProviderKey,
-                    kDeliveryProviderRussiaPost)}
-            >
-              <Image src="ic_delivery_russiapost.png"/>
-            </div>
-
-            <div
-                className={cx('Delivery__provider_boxberry', {
-                  'Delivery__provider--active': form.isEqual(keys.kProviderKey,
-                      kDeliveryProviderBoxberry),
-                })}
-                onClick={form.wrapperConstant(keys.kProviderKey,
-                    kDeliveryProviderBoxberry)}
-            >
-              <Image src="ic_delivery_boxberry.png"/>
-            </div>
+            {
+              providers.map((i) => (
+                  <div
+                      key={i}
+                      className={cx('Delivery__provider', {
+                        'Delivery__provider--active': form.isEqual(
+                            keys.kProviderKey, i),
+                      })}
+                      onClick={form.wrapperConstant(keys.kProviderKey, i)}
+                  >
+                    <Image src={icons[i]}/>
+                  </div>
+              ))
+            }
           </div>
 
           {
@@ -147,14 +140,12 @@ export default class Delivery extends FormComponent {
           </div>
 
           <ButtonToolbar right className="Delivery__button-toolbar">
-            <Button
-                onClick={adapter.handleBack}
-                className="Delivery__btn_edit">Изменить</Button>
-            <Button
-                locked={lock.is()}
-                lock="Обработка..."
-                onClick={adapter.handleNext}
-                className="Delivery__btn_next">Оформить</Button>
+            <Button locked={lock.is()}
+                    onClick={adapter.handleBack}
+                    className="Delivery__btn_edit">Изменить</Button>
+            <Button locked={lock.is()}
+                    onClick={adapter.handleNext}
+                    className="Delivery__btn_next">Оформить</Button>
           </ButtonToolbar>
         </div>
     );

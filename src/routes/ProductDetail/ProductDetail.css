@@ -36,6 +36,7 @@
 .Product-detail__name {
   font-size: 40px;
   color: #43525A;
+  text-align: center;
   line-height: 1.3em;
 }
 

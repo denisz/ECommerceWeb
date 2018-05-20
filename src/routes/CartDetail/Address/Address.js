@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Form, ErrorView, FormGroupValidate} from 'modules/Form';
+import {ErrorView, Form, FormGroupValidate} from 'modules/Form';
 import {FormComponent} from 'modules/Flux';
 import Cart from 'flux/Cart';
 import cx from 'classnames';
@@ -257,14 +257,12 @@ export default class Address extends FormComponent {
           </Form>
 
           <ButtonToolbar right className="Address__button-toolbar">
-            <Button
-                onClick={adapter.handleBack}
-                className="Address__btn_edit">Изменить</Button>
-            <Button
-                locked={lock.is()}
-                lock="Обработка..."
-                onClick={adapter.handleNext}
-                className="Address__btn_next">Продолжить</Button>
+            <Button locked={lock.is()}
+                    onClick={adapter.handleBack}
+                    className="Address__btn_edit">Изменить</Button>
+            <Button locked={lock.is()}
+                    onClick={adapter.handleNext}
+                    className="Address__btn_next">Продолжить</Button>
           </ButtonToolbar>
         </div>
     );

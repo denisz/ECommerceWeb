@@ -1,20 +1,22 @@
-export const kActionUpdateCatalogKey = 'catalog';
-export const kActionUpdateAdsKey = 'ads';
-export const kActionClearExpiredOrdersKey = 'clearExpiredOrders';
+export const kActionUpdateCatalog = 'catalog';
+export const kActionUpdateAds = 'ads';
+export const kActionUpdatePrice = 'price';
+export const kActionClearExpiredOrders = 'clear';
 
 export const kDescriptionKey = 'description';
 export const kActionKey = 'action';
 export const kIdKey = 'id';
 
 export const data = [
-    ['Обновить каталог из таблицы', kActionUpdateCatalogKey],
-    ['Обновить баннеры из таблицы', kActionUpdateAdsKey],
-    ['Отменить просроченные заказы', kActionClearExpiredOrdersKey],
+    ['Обновить каталог из таблицы', kActionUpdateCatalog],
+    ['Обновить баннеры из таблицы', kActionUpdateAds],
+    ['Отменить просроченные заказы', kActionClearExpiredOrders],
+    ['Обновить цены', kActionUpdatePrice]
 ].map((row, idx)=>(
     {
       [kIdKey]: idx,
-      [kDescriptionKey]: row[0],
       [kActionKey]: row[1],
+      [kDescriptionKey]: row[0],
     }
 ));
 

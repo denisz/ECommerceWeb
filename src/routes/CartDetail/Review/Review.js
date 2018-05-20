@@ -68,7 +68,6 @@ export default class Review extends FormComponent {
             <Button onClick={adapter.handleBack}
                     className="Review__btn_edit">Изменить</Button>
             <Button locked={lock.is()}
-                    lock="Обработка..."
                     onClick={this.handleConfirm}
                     className="Review__btn_next">Подтвердить</Button>
           </Toolbar>

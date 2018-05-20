@@ -25,8 +25,8 @@ const menus = [
     route: '/admin/batches',
   },
   {
-    title: 'Отчеты',
-    route: '/admin/reports',
+    title: 'Склад',
+    route: '/admin/accounting',
   },
   {
     title: 'Команды',

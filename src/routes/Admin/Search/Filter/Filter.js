@@ -1,7 +1,7 @@
 import React from 'react';
 import {Form, FormComponent, FormGroupValidate} from 'modules/Form';
-import ComboBox from 'components/ComboBox';
 import Button from 'components/Button';
+import ComboBox from 'components/ComboBox';
 import TextField from 'components/TextField';
 import Telephone from 'components/Telephone';
 import DatePicker, {DateRange} from 'components/DatePicker';
@@ -43,6 +43,7 @@ export default class OrdersFilter extends FormComponent {
                           value={form.getObject(keys.kWhereKey)}
                           onChange={form.wrapperChange(keys.kWhereKey)}/>
               </FormGroupValidate>
+
               <Button onClick={this.onSubmit} size="md">Поиск</Button>
             </div>
 

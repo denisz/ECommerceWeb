@@ -25,19 +25,24 @@ export default class Commands extends QueryComponent {
 
       try {
         switch (action) {
-          case keys.kActionUpdateAdsKey:
+          case keys.kActionUpdateAds:
             await Actions.updateAds();
             break;
 
-          case keys.kActionUpdateCatalogKey:
+          case keys.kActionUpdateCatalog:
             await Actions.updateCatalog();
             break;
 
-          case keys.kActionClearExpiredOrdersKey:
+          case keys.kActionClearExpiredOrders:
             await Actions.clearExpiredOrders();
             break;
 
-          default: break;
+          case keys.kActionUpdatePrice:
+            await Actions.updatePrices();
+            break;
+
+          default:
+            break;
         }
 
         dialogs.showDialog(kDialogKey, {
@@ -45,6 +50,7 @@ export default class Commands extends QueryComponent {
           Component: <Alert message="Выполнено успешно"/>,
         });
       } catch (e) {
+        console.error(e);
         dialogs.showDialog(kDialogKey, {
           showHeader: false,
           Component: <Alert message="Выполнено c ошибкой"/>,
@@ -68,18 +74,17 @@ export default class Commands extends QueryComponent {
       case keys.kActionCell:
         return (
             <div className="Commands__item">
-              <Button
-                  color="dark"
-                  appear="link"
-                  size="small"
-                  locked={lock.is()}
-                  lock="Обработка..."
-                  onClick={this.handleClick(operation[keys.kActionKey])}>
+              <Button color="dark"
+                      appear="link"
+                      size="small"
+                      locked={lock.is()}
+                      onClick={this.handleClick(operation[keys.kActionKey])}>
                 Выполнить
               </Button>
             </div>
         );
-      default: break;
+      default:
+        break;
     }
   };
 

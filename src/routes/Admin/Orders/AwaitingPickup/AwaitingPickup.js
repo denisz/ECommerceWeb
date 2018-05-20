@@ -31,7 +31,6 @@ export default class AwaitingPickup extends FormComponent {
 
   handleBatch = async () => {
     const {selected, lock} = this.state;
-
     try {
       await lock.tryLock();
       const ids = selected.map(i => i.id);
@@ -76,7 +75,6 @@ export default class AwaitingPickup extends FormComponent {
                          </div>
                      )}
                      locked={lock.is()}
-                     lock={'Обработка'}
                      labelSubmit="Подготовить"
                      onSubmit={this.handleBatch}
             />
