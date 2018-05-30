@@ -31,8 +31,11 @@ export default class SaleProduct extends Component {
         <div className={cx('Sale-product', className)}>
           <div className="Sale-product__picture_container">
             <Sold disabled={quantity > 0}/>
-            <Picture src={`/img/${pictures[0]}`}
-                     className="Sale-product__picture" onClick={onClick}/>
+            {
+              pictures.length > 0 &&
+              <Picture src={`/img/${pictures[0]}`}
+                       className="Sale-product__picture" onClick={onClick}/>
+            }
           </div>
           <div className="Sale-product__info">
             <div className="Sale-product__name">{name}</div>

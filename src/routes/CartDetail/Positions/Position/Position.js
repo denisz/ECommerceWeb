@@ -9,12 +9,15 @@ import './Position.css';
 const noop = ()=>{};
 export default ({ className, pictures, name, price, producer, form, amount, onClick = noop, onDelete = noop, onChange = noop}) => (
   <div className={cx('Position', className)}>
-    <Picture
-      src={`img/${pictures[0]}`}
-      onClick={onClick}
-      placeholder={"no_photo.jpg"}
-      className="Position__picture"
-    />
+    {
+      pictures.length > 0 &&
+      <Picture
+          src={`img/${pictures[0]}`}
+          onClick={onClick}
+          placeholder={"no_photo.jpg"}
+          className="Position__picture"
+      />
+    }
 
     <div className="Position__body">
       <div className="Position__describe">
