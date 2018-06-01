@@ -1,56 +1,4 @@
-.Delivery {
-
-}
-
-.Delivery__providers {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-}
-
-.Delivery__provider {
-  flex: 1;
-  height: 100px;
-  padding: 5px;
-  margin: 5px;
-  cursor: pointer;
-  max-width: 200px;
-  position: relative;
-  text-align: center;
-  border-radius: 4px;
-  box-sizing: border-box;
-  border: 1px solid #e6e6e6;
-}
-
-.Delivery__provider img {
-  width: auto;
-  height: 100%;
-}
-
-.Delivery__provider:hover{
-  border-color: #0055A6;
-}
-
-.Delivery__provider:before {
-  content: '';
-  position: absolute;
-  left: -1px;
-  right: -1px;
-  top: -1px;
-  bottom: -1px;
-  box-sizing: border-box;
-  border: 2px solid transparent;
-  border-radius: inherit;
-}
-
-.Delivery__provider--active {
-  border-color: #0055A6;
-}
-
-.Delivery__provider--active:before {
-  border-color: inherit;
-}
+.Delivery {}
 
 .Delivery__hr {
   flex:1;
@@ -98,33 +46,7 @@
   margin-left: 40px;
 }
 
-
 @media (max-width: 767px) {
-  .Delivery__provider {
-    max-width: 50%;
-    height: 68px;
-  }
-
-  .Delivery__methods {
-  }
-
-  .Delivery__method_standard,
-  .Delivery__method_rapid,
-  .Delivery__method_emc {
-    max-width: 90px;
-  }
-
-  .Delivery__method_standard img,
-  .Delivery__method_rapid img,
-  .Delivery__method_emc img {
-    width: 100%;
-    height: auto;
-  }
-
-  .Delivery__method-title {
-    font-size: 12px;
-  }
-
   .Delivery__button-toolbar {
     justify-content: center;
   }

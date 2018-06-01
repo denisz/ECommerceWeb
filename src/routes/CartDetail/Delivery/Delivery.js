@@ -1,25 +1,19 @@
 import React from 'react';
+import cx from 'classnames';
+import Cart from 'flux/Cart';
 import PropTypes from 'prop-types';
 import {FormComponent} from 'modules/Flux';
-import Image from 'components/Image';
 import Title from 'components/Title';
 import Button from 'components/Button';
 import {Price} from 'components/Currency';
 import ButtonToolbar from 'components/ButtonToolbar';
-import cx from 'classnames';
-import Cart from 'flux/Cart';
 import CartActions from 'flux/CartActions';
 import {NavAdapter} from 'modules/NavController';
 import MethodDelivery from './MethodDelivery';
+import ProviderDelivery from './ProviderDelivery';
+import {createMethodsProps, createProviderProps} from './helper';
 import './Delivery.css';
 import * as keys from './constants';
-import {icons, kMethodKey} from './constants';
-import {
-  kDeliveryMethodEMC,
-  kDeliveryMethodRapid,
-  kDeliveryMethodStandard,
-  kDeliveryProviderRussiaPost,
-} from 'services/localizedDelivery';
 
 export default class Delivery extends FormComponent {
   getInitialStore() {
@@ -37,6 +31,7 @@ export default class Delivery extends FormComponent {
       deliveryPrice: attrs.deliveryPrice || 0,
       isEmpty: store.isEmpty(),
       providers: store.providers,
+      methods: store.methods,
       subtotal: attrs.subtotal || 0,
       positions: attrs.positions || [],
     };
@@ -56,7 +51,6 @@ export default class Delivery extends FormComponent {
       try {
         const attrs = await this.onSubmit();
         await CartActions.delivery(attrs);
-
       } catch (e) {
         console.error(e);
       }
@@ -67,52 +61,20 @@ export default class Delivery extends FormComponent {
 
   render() {
     const {className} = this.props;
-    const {form, lock, subtotal, providers, deliveryPrice, total} = this.state;
+    const {form, lock, subtotal, providers, methods, deliveryPrice, total} = this.state;
     const {adapter} = this.context;
 
     return (
         <div className={cx('Delivery', className)}>
           <Title>Способ доставки</Title>
 
-          <div className="Delivery__providers">
-            {
-              providers.map((i) => (
-                  <div
-                      key={i}
-                      className={cx('Delivery__provider', {
-                        'Delivery__provider--active': form.isEqual(
-                            keys.kProviderKey, i),
-                      })}
-                      onClick={form.wrapperConstant(keys.kProviderKey, i)}
-                  >
-                    <Image src={icons[i]}/>
-                  </div>
-              ))
-            }
-          </div>
+          <ProviderDelivery value={form.getObject(keys.kProviderKey)}
+                            onChange={form.wrapperChange(keys.kProviderKey)}
+                            options={createProviderProps(providers)}/>
 
-          {
-            form.isEqual(keys.kProviderKey, kDeliveryProviderRussiaPost) &&
-            <MethodDelivery value={form.getObject(kMethodKey)}
-                            onChange={form.wrapperChange(kMethodKey)}
-                            options={[
-                              {
-                                label: 'Обычный',
-                                value: kDeliveryMethodStandard,
-                                image: 'ic_delivery_standard.png',
-                              },
-                              {
-                                label: 'Ускоренный',
-                                value: kDeliveryMethodRapid,
-                                image: 'ic_delivery_rapid.png',
-                              },
-                              {
-                                label: 'Курьерский',
-                                value: kDeliveryMethodEMC,
-                                image: 'ic_delivery_ems.png',
-                              },
-                            ]}/>
-          }
+          <MethodDelivery value={form.getObject(keys.kMethodKey)}
+                          onChange={form.wrapperChange(keys.kMethodKey)}
+                          options={createMethodsProps(methods)}/>
 
           <hr className="Delivery__hr"/>
 
