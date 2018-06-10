@@ -15,6 +15,11 @@ import {createMethodsProps, createProviderProps} from './helper';
 import './Delivery.css';
 import * as keys from './constants';
 
+const determinateMethods = (methods, provider) => {
+  console.log(methods, provider);
+  return methods[provider] || [];
+};
+
 export default class Delivery extends FormComponent {
   getInitialStore() {
     return [Cart];
@@ -74,7 +79,9 @@ export default class Delivery extends FormComponent {
 
           <MethodDelivery value={form.getObject(keys.kMethodKey)}
                           onChange={form.wrapperChange(keys.kMethodKey)}
-                          options={createMethodsProps(methods)}/>
+                          options={createMethodsProps(
+                              determinateMethods(methods, form.getObject(keys.kProviderKey))
+                          )}/>
 
           <hr className="Delivery__hr"/>
 

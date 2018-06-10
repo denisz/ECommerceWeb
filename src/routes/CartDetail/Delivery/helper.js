@@ -1,33 +1,57 @@
 import {
-  kDeliveryMethodEMC,
-  kDeliveryMethodRapid,
-  kDeliveryMethodStandard,
+  kDeliveryMethodRussiaPostEMC,
+  kDeliveryMethodRussiaPostRapid,
+  kDeliveryMethodRussiaPostStandard,
+  kDeliveryMethodCDEKEMC,
+  kDeliveryMethodCDEKRapid,
+  kDeliveryMethodCDEKStandard,
   kDeliveryProviderRussiaPost,
   kDeliveryProviderBoxberry,
+  kDeliveryProviderCDEK,
   kDeliveryProviderBaikal,
   kDeliveryProviderNRG,
   kDeliveryProviderPEC
 } from 'services/localizedDelivery';
 
 export const methodsProps = {
-  [kDeliveryMethodStandard] : {
+  [kDeliveryMethodRussiaPostStandard] : {
     label: 'Обычный',
-    value: kDeliveryMethodStandard,
+    value: kDeliveryMethodRussiaPostStandard,
     image: 'ic_delivery_standard.png',
   },
-  [kDeliveryMethodRapid]: {
+  [kDeliveryMethodRussiaPostRapid]: {
     label: 'Ускоренный',
-    value: kDeliveryMethodRapid,
+    value: kDeliveryMethodRussiaPostRapid,
     image: 'ic_delivery_rapid.png',
   },
-  [kDeliveryMethodEMC]: {
+  [kDeliveryMethodRussiaPostEMC]: {
     label: 'Курьерский',
-    value: kDeliveryMethodEMC,
+    value: kDeliveryMethodRussiaPostEMC,
     image: 'ic_delivery_ems.png',
+  },
+
+  [kDeliveryMethodCDEKStandard] : {
+    label: 'Обычный',
+    value: kDeliveryMethodCDEKStandard,
+    image: 'ic_delivery_standard.png',
+  },
+  [kDeliveryMethodCDEKRapid]: {
+    label: 'Ускоренный',
+    value: kDeliveryMethodCDEKRapid,
+    image: 'ic_delivery_cdek_rapid.jpg',
+  },
+  [kDeliveryMethodCDEKEMC]: {
+    label: 'Курьерский',
+    value: kDeliveryMethodCDEKEMC,
+    image: 'ic_delivery_cdek_ems.jpg',
   },
 };
 
 export const providersProps = {
+  [kDeliveryProviderCDEK]: {
+    value: kDeliveryProviderCDEK,
+    image: 'ic_delivery_cdek.png',
+  },
   [kDeliveryProviderPEC]: {
     value: kDeliveryProviderPEC,
     image: 'ic_delivery_russiapost.png',
@@ -50,5 +74,5 @@ export const providersProps = {
   },
 };
 
-export const createMethodsProps = (arr) => arr.map(i => methodsProps[i]);
+export const createMethodsProps = (arr) => arr.filter(i => !!methodsProps[i]).map(i => methodsProps[i]);
 export const createProviderProps = (arr) => arr.map( i => providersProps[i]);
