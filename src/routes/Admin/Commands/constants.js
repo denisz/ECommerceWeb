@@ -1,6 +1,7 @@
 export const kActionUpdateCatalog = 'catalog';
 export const kActionUpdateAds = 'ads';
 export const kActionUpdatePrice = 'price';
+export const kActionUpdateCDEKCity = 'CDEKCity';
 export const kActionClearExpiredOrders = 'clear';
 
 export const kDescriptionKey = 'description';
@@ -11,7 +12,8 @@ export const data = [
     ['Обновить каталог из таблицы', kActionUpdateCatalog],
     ['Обновить баннеры из таблицы', kActionUpdateAds],
     ['Отменить просроченные заказы', kActionClearExpiredOrders],
-    ['Обновить цены', kActionUpdatePrice]
+    ['Обновить цены', kActionUpdatePrice],
+    ['Обновить города для системы  CDEK', kActionUpdateCDEKCity],
 ].map((row, idx)=>(
     {
       [kIdKey]: idx,

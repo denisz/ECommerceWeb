@@ -8,6 +8,7 @@ import Actions from 'flux/AdminActions';
 import Alert from 'dialogs/Alert';
 import * as keys from './constants';
 import './Commands.css';
+import {kActionUpdateCDEKCity} from './constants';
 
 const query = new QueryStatic(keys.data);
 const kDialogKey = 'dialog';
@@ -39,6 +40,10 @@ export default class Commands extends QueryComponent {
 
           case keys.kActionUpdatePrice:
             await Actions.updatePrices();
+            break;
+
+          case keys.kActionUpdateCDEKCity:
+            await Actions.updateCDEKCity();
             break;
 
           default:
