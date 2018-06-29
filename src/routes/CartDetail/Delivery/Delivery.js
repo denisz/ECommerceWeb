@@ -34,6 +34,7 @@ export default class Delivery extends FormComponent {
       total: attrs.total || 0,
       discount: attrs.discount,
       deliveryPrice: attrs.deliveryPrice || 0,
+      deliveryPeriod: attrs.deliveryPeriod || { min: 0, max: 0},
       isEmpty: store.isEmpty(),
       providers: store.providers,
       methods: store.methods,
