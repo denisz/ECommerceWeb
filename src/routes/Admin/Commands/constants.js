@@ -1,19 +1,16 @@
-export const kActionUpdateCatalog = 'catalog';
-export const kActionUpdateAds = 'ads';
-export const kActionUpdatePrice = 'price';
-export const kActionUpdateCDEKCity = 'CDEKCity';
-export const kActionClearExpiredOrders = 'clear';
+import Actions from 'flux/AdminActions';
 
 export const kDescriptionKey = 'description';
 export const kActionKey = 'action';
 export const kIdKey = 'id';
 
 export const data = [
-    ['Обновить каталог из таблицы', kActionUpdateCatalog],
-    ['Обновить баннеры из таблицы', kActionUpdateAds],
-    ['Отменить просроченные заказы', kActionClearExpiredOrders],
-    ['Обновить цены', kActionUpdatePrice],
-    ['Обновить города для системы  CDEK', kActionUpdateCDEKCity],
+    ['Обновить каталог из таблицы', Actions.updateCatalog],
+    ['Обновить баннеры из таблицы', Actions.updateAds],
+    ['Отменить просроченные заказы', Actions.clearExpiredOrders],
+    ['Обновить цены', Actions.updatePrices],
+    ['Обновить города для системы  CDEK', Actions.updateCDEKCity],
+    ['Обновить время доставки для почты России', Actions.updateRussiaPostTime]
 ].map((row, idx)=>(
     {
       [kIdKey]: idx,

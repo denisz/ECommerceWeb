@@ -7,6 +7,7 @@ import Title from 'components/Title';
 import Button from 'components/Button';
 import {Price} from 'components/Currency';
 import ButtonToolbar from 'components/ButtonToolbar';
+import DeliveryPeriod from 'components/DeliveryPeriod';
 import CartActions from 'flux/CartActions';
 import {NavAdapter} from 'modules/NavController';
 import MethodDelivery from './MethodDelivery';
@@ -34,7 +35,7 @@ export default class Delivery extends FormComponent {
       total: attrs.total || 0,
       discount: attrs.discount,
       deliveryPrice: attrs.deliveryPrice || 0,
-      deliveryPeriod: attrs.deliveryPeriod || { min: 0, max: 0},
+      deliveryPeriod: attrs.deliveryPeriod || { Min: 0, Max: 0},
       isEmpty: store.isEmpty(),
       providers: store.providers,
       methods: store.methods,
@@ -67,9 +68,10 @@ export default class Delivery extends FormComponent {
 
   render() {
     const {className} = this.props;
-    const {form, lock, subtotal, providers, methods, deliveryPrice, total} = this.state;
+    const {form, lock, subtotal, providers, methods, deliveryPrice, deliveryPeriod, total} = this.state;
     const {adapter} = this.context;
 
+    console.log(deliveryPeriod)
     return (
         <div className={cx('Delivery', className)}>
           <Title>Способ доставки</Title>
@@ -87,6 +89,16 @@ export default class Delivery extends FormComponent {
           <hr className="Delivery__hr"/>
 
           <div className="Delivery__footer">
+            {
+              deliveryPeriod.Min > 0 && deliveryPeriod.Max > 0 &&
+              <div className="Delivery__footer-row">
+                <div className="Delivery__footer-label">Время доставки</div>
+                <div className="Delivery__footer-value">
+                  <DeliveryPeriod min={deliveryPeriod.Min} max={deliveryPeriod.Max}/>
+                </div>
+              </div>
+            }
+
             <div className="Delivery__footer-row">
               <div className="Delivery__footer-label">Цена товара</div>
               <div className="Delivery__footer-value">

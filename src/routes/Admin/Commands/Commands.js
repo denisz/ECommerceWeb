@@ -4,11 +4,9 @@ import {DialogFactory} from 'modules/Form';
 import Title from 'components/Title';
 import Button from 'components/Button';
 import QueryStatic from 'modules/Request/QueryStatic';
-import Actions from 'flux/AdminActions';
 import Alert from 'dialogs/Alert';
 import * as keys from './constants';
 import './Commands.css';
-import {kActionUpdateCDEKCity} from './constants';
 
 const query = new QueryStatic(keys.data);
 const kDialogKey = 'dialog';
@@ -25,30 +23,7 @@ export default class Commands extends QueryComponent {
       await lock.tryLock();
 
       try {
-        switch (action) {
-          case keys.kActionUpdateAds:
-            await Actions.updateAds();
-            break;
-
-          case keys.kActionUpdateCatalog:
-            await Actions.updateCatalog();
-            break;
-
-          case keys.kActionClearExpiredOrders:
-            await Actions.clearExpiredOrders();
-            break;
-
-          case keys.kActionUpdatePrice:
-            await Actions.updatePrices();
-            break;
-
-          case keys.kActionUpdateCDEKCity:
-            await Actions.updateCDEKCity();
-            break;
-
-          default:
-            break;
-        }
+        await action();
 
         dialogs.showDialog(kDialogKey, {
           showHeader: false,
