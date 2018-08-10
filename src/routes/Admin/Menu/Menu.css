@@ -28,6 +28,7 @@
 
 .Menu__brand {
     color: black;
+    font-weight: bold;
 }
 
 .Menu__nav {
@@ -111,6 +112,10 @@
 
     .Menu__nav {
         display: none;
+    }
+
+    .Menu__brand {
+        font-weight: normal;
     }
 }
 

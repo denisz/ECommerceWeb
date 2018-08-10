@@ -8,7 +8,7 @@ import Alert from 'dialogs/Alert';
 import * as keys from './constants';
 import './Commands.css';
 
-const query = new QueryStatic(keys.data);
+const query = new QueryStatic(keys.data, false);
 const kDialogKey = 'dialog';
 
 export default class Commands extends QueryComponent {

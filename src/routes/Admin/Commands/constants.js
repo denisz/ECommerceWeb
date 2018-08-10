@@ -10,7 +10,8 @@ export const data = [
     ['Отменить просроченные заказы', Actions.clearExpiredOrders],
     ['Обновить цены', Actions.updatePrices],
     ['Обновить города для системы  CDEK', Actions.updateCDEKCity],
-    ['Обновить время доставки для почты России', Actions.updateRussiaPostTime]
+    ['Обновить время доставки для почты России', Actions.updateRussiaPostTime],
+    ['Обновить таблицы поставок', Actions.updateReceivedReports],
 ].map((row, idx)=>(
     {
       [kIdKey]: idx,

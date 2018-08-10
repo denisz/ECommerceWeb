@@ -4,7 +4,7 @@ import QueryManager from 'flux/QueryManager';
 import './Search.css';
 import Filter from './Filter';
 
-export default class OrdersPager extends Component {
+export default class Search extends Component {
   constructor(props) {
     super(props);
     this.state = {

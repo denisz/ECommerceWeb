@@ -7,6 +7,7 @@ import Search from './Search';
 import Batches from './Batches';
 import Commands from './Commands';
 import Dashboard from './Dashboard';
+import Accounting from './Accounting';
 import 'flux/Admin';
 import './Admin.css';
 
@@ -21,6 +22,7 @@ export default {
     authWrapper(Search),
     authWrapper(Batches),
     authWrapper(Commands),
+    authWrapper(Accounting),
     anonymousWrapper(Login),
     authWrapper(Dashboard),
   ],
